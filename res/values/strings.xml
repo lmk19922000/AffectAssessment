@@ -4,5 +4,6 @@
     <string name="app_name">AffectAssessment</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="affect_button">AffectButton</string>
 
 </resources>
