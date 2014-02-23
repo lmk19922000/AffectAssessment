@@ -1,7 +1,8 @@
 package com.example.affectassessment;
 
-import java.util.Stack;
-import java.util.Vector;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -76,7 +77,7 @@ public class AffectButtonActivity extends Activity implements OnTouchListener{
 
 	//Button buttonNext;
 	
-	//public TextView moodName, dateTime;
+	public TextView moodName, dateTime;
 	
 	//EditText AffectButtonNoteFragment;
 	//String note = "";
@@ -97,6 +98,8 @@ public class AffectButtonActivity extends Activity implements OnTouchListener{
 		addCanvasView();
 		
 		initializeCompnentView();
+		
+		initializeDateTime();
 	}
 	
 	@SuppressLint("NewApi")
@@ -118,7 +121,7 @@ public class AffectButtonActivity extends Activity implements OnTouchListener{
 				RelativeLayout.LayoutParams.WRAP_CONTENT);
 		layoutParams.setMargins(0, 50, 0, 0);
 		// layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT, 1);
-		layoutParams.addRule(RelativeLayout.BELOW, R.id.textView1);
+		layoutParams.addRule(RelativeLayout.BELOW, R.id.myMoodGreeting);
 		layoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL, 1);
 
 		layoutParams.height = pointToGetSize.x;
@@ -135,9 +138,45 @@ public class AffectButtonActivity extends Activity implements OnTouchListener{
 	
 	private void initializeCompnentView() {
 		affectButtonCanvas.setOnTouchListener(this);
-
+		
+		dateTime = (TextView) findViewById(R.id.dateTime);
+		moodName = (TextView) findViewById(R.id.myCurrentMood);
 	}
 	
+	public void initializeDateTime() {
+		// TODO Auto-generated method stub
+		String dayOfWeek = "";
+
+		Calendar c = Calendar.getInstance();
+		switch (c.get(Calendar.DAY_OF_WEEK)) {
+		case Calendar.MONDAY:
+			dayOfWeek = "Monday";
+			break;
+		case Calendar.TUESDAY:
+			dayOfWeek = "Tuesday";
+			break;
+		case Calendar.WEDNESDAY:
+			dayOfWeek = "Wednesday";
+			break;
+		case Calendar.THURSDAY:
+			dayOfWeek = "Thursday";
+			break;
+		case Calendar.FRIDAY:
+			dayOfWeek = "Friday";
+			break;
+		case Calendar.SATURDAY:
+			dayOfWeek = "Saturday";
+			break;
+		case Calendar.SUNDAY:
+			dayOfWeek = "Sunday";
+			break;
+		}
+
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy, HH:mm");
+		String currentDateandTime = sdf.format(new Date());
+
+		dateTime.setText("It's " + dayOfWeek+ ", " + currentDateandTime);
+	}
 	@Override
 	public boolean onTouch(View v, MotionEvent event) {
 		switch (event.getAction()) {
@@ -165,7 +204,7 @@ public class AffectButtonActivity extends Activity implements OnTouchListener{
 					yCord = event.getY();
 				}
 				// Display name of the mood
-				//displayMoodName(xCord, yCord);
+				displayMoodName(xCord, yCord);
 				
 				this.p = ((double) xCord - this.size / (double) 2)
 						/ ((double) (this.size + 1) / 2.0);
@@ -181,6 +220,34 @@ public class AffectButtonActivity extends Activity implements OnTouchListener{
 		}
 		return true;
 		
+	}
+	
+	private void displayMoodName(float x, float y) {
+		int canvasSize = size;
+		
+		if (Math.sqrt(Math.pow(x-canvasSize/2, 2)+Math.pow(y-canvasSize/2, 2))<canvasSize/12){
+			moodName.setText(MoodStates.NEUTRAL.toString()); // 0, 1, 0
+		} else if(x+y<=canvasSize/2){
+			moodName.setText(MoodStates.ANGRY.toString()); // -1, 1, 1
+		} else if (x<=canvasSize/2 && y>canvasSize/2){
+			if ((x/2-y+canvasSize/2)*(canvasSize/4)<=0){
+				moodName.setText(MoodStates.UPSET.toString()); // -1, 1, -1
+			} else{
+				moodName.setText(MoodStates.SAD.toString()); // -1, -1, -1
+			}
+		} else if (x>canvasSize/2 && y<=canvasSize/2){
+			if((x-y-canvasSize/2)*(-canvasSize/2)<=0){
+				moodName.setText(MoodStates.HAPPY.toString()); // 1, 1, 1
+			} else{
+				moodName.setText(MoodStates.CONTENT.toString()); // 1, -1, 1
+			}
+		} else if (x>canvasSize/2 && y>canvasSize/2 && x+y>3*canvasSize/2){
+			moodName.setText(MoodStates.SURPRISED.toString()); // 1, 1, -1
+		} else if (x<canvasSize/2 && y<canvasSize/2 && x+y>canvasSize/2){
+			moodName.setText(MoodStates.FRUSTRATED.toString()); // -1, -1, 1
+		} else{
+			moodName.setText(MoodStates.RELAXED.toString()); // 1, -1, -1
+		}
 	}
 	
 	
