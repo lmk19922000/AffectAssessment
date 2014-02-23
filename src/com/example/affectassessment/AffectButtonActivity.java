@@ -7,6 +7,7 @@ import java.util.Date;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -17,15 +18,15 @@ import android.util.Log;
 import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.ToggleButton;
 
-public class AffectButtonActivity extends Activity implements OnTouchListener{
+public class AffectButtonActivity extends Activity implements OnTouchListener, OnClickListener{
 	public enum MoodStates {
 		NEUTRAL("Neutral"), ANGRY("Angry"), UPSET("Upset"), SAD("Sad"), HAPPY(
 				"Happy"), CONTENT("Content"), SURPRISED("Surprised"), FRUSTRATED(
@@ -43,17 +44,15 @@ public class AffectButtonActivity extends Activity implements OnTouchListener{
 		}
 	}
 	
-	float xCord = -1, yCord = -1;
-	
-	
+	float xCord, yCord;
 	
 	public static double[] FACE_MIXTURE_DISTANCE; // 1.3 for all is the default
 	// tested in all evaluation
 	// studies.
 
-	public double p = 0;
-	public double a = 0;
-	public double d = 0;
+	public double p;
+	public double a;
+	public double d;
 
 	int x, y;
 
@@ -67,25 +66,21 @@ public class AffectButtonActivity extends Activity implements OnTouchListener{
 	int eh, eyebrowSpace, eyebrowOuter, eyebrowInner, mw, mt, mo, tv;
 	int mx, my; // mouse x and mouse y of user to simulate that the face looks
 			// at the user
-	double pupilRandomness = 0;
-	double mouthRandomness = 0;
+	double pupilRandomness;
+	double mouthRandomness;
 
 	double[][] emotions;
 
-	//GraphicsView canvasView;
 	GraphicsView affectButtonCanvas;
 
-	//Button buttonNext;
+	Button btnSave, btnShare, btnNote;
 	
 	public TextView moodName, dateTime;
 	
-	//EditText AffectButtonNoteFragment;
-	//String note = "";
+	EditText AffectButtonNoteFragment;
+	String note;
 	
 	Point pointToGetSize; 								// Size of the sudoku board (in terms of phone screen)
-	
-	
-	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -110,6 +105,18 @@ public class AffectButtonActivity extends Activity implements OnTouchListener{
 		display.getSize(pointToGetSize);
 		
 		size = pointToGetSize.x;
+		
+		p = a = d = 0;
+		pupilRandomness = mouthRandomness = 0;
+		
+		setDimensions(sx, sy, size);
+        emotions=defineEmotions();
+        setEmotion(p,a,d,0,0);
+        
+        xCord = -1;
+        yCord = -1;
+        
+        note = "";
 	}
 	
 	private void addCanvasView() {
@@ -126,10 +133,6 @@ public class AffectButtonActivity extends Activity implements OnTouchListener{
 
 		layoutParams.height = pointToGetSize.x;
 		layoutParams.width = pointToGetSize.x;
-		
-		setDimensions(sx, sy, size);
-        emotions=defineEmotions();
-        setEmotion(p,a,d,0,0);
         
 		// Add the canvas to the activity view
 		ViewGroup v = (ViewGroup) getWindow().getDecorView().findViewById(R.id.RelativeLayoutAffectButton);
@@ -141,10 +144,17 @@ public class AffectButtonActivity extends Activity implements OnTouchListener{
 		
 		dateTime = (TextView) findViewById(R.id.dateTime);
 		moodName = (TextView) findViewById(R.id.myCurrentMood);
+		
+		btnSave = (Button) findViewById(R.id.buttonSave);
+		btnShare = (Button) findViewById(R.id.buttonShare);
+		btnNote = (Button) findViewById(R.id.buttonNote);
+		
+		btnSave.setOnClickListener(this);
+		btnShare.setOnClickListener(this);
+		btnNote.setOnClickListener(this);
 	}
 	
 	public void initializeDateTime() {
-		// TODO Auto-generated method stub
 		String dayOfWeek = "";
 
 		Calendar c = Calendar.getInstance();
@@ -177,6 +187,7 @@ public class AffectButtonActivity extends Activity implements OnTouchListener{
 
 		dateTime.setText("It's " + dayOfWeek+ ", " + currentDateandTime);
 	}
+	
 	@Override
 	public boolean onTouch(View v, MotionEvent event) {
 		switch (event.getAction()) {
@@ -250,13 +261,22 @@ public class AffectButtonActivity extends Activity implements OnTouchListener{
 		}
 	}
 	
-	
-	
-	
-	
-	
-	
-	
+	@Override
+	public void onClick(View v) {
+		switch(v.getId()){
+		case R.id.buttonSave:
+			// TODO: Save to DB
+			break;
+		case R.id.buttonShare:
+			// TODO: Open option to share by various means
+			break;
+		case R.id.buttonNote:
+			
+			break;
+		}
+		
+	}
+		
 	private double[][] defineEmotions(){
     	double[][] emos=new double[9][11];
     	//0=-p-a-d 	= sad / lonely / bored
@@ -487,7 +507,6 @@ public class AffectButtonActivity extends Activity implements OnTouchListener{
 
 		@Override
 		protected void onDraw(Canvas canvas) {
-			// TODO Auto-generated method stub
 			super.onDraw(canvas);
 			canvas.drawColor(Color.rgb(152, 255, 152));
 
