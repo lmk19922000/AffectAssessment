@@ -17,14 +17,77 @@
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:gravity="center"
-	        android:textSize="24sp"
+	        android:textSize="20sp"
 	        android:text="@string/spane_question" />
 	    
-	     <TextView
-	        android:id="@+id/spaneExplaination"
+	    <LinearLayout
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
-	        android:text="@string/spane_explaination" />
+	        android:weightSum="9"
+	        android:orientation="horizontal">
+        	
+	        <LinearLayout
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="4">
+			     <TextView
+			        android:id="@+id/spaneExplaination1"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="@string/spane_explaination1" />
+			</LinearLayout>
+			
+	        <LinearLayout
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="2">
+			     <TextView
+			        android:id="@+id/spaneExplaination2"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="@string/spane_explaination2" />
+		     </LinearLayout>
+		     
+	        <LinearLayout
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="3">
+			     <TextView
+			         android:id="@+id/spaneExplaination3"
+			         android:layout_width="match_parent"
+			         android:layout_height="wrap_content"
+			         android:text="@string/spane_explaination3" />
+			</LinearLayout>
+	     </LinearLayout>
+	     
+		<LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:weightSum="4">
+        	
+		     <LinearLayout
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1">
+			     <TextView
+			        android:id="@+id/spaneExplaination4"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="@string/spane_explaination4" />
+		     </LinearLayout>
+		     
+		      <LinearLayout
+		        android:layout_width="0dp"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="3">
+			     <TextView
+			        android:id="@+id/spaneExplaination5"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="@string/spane_explaination5" />
+		     </LinearLayout>
+	     </LinearLayout>
     </LinearLayout>
     
     <ScrollView
@@ -39,15 +102,15 @@
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/textView1"
+                android:id="@+id/textViewPositive"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="TextView" />
+                android:text="@string/positive" />
 
             <RadioGroup
-                android:id="@+id/radioGroup1"
+                android:id="@+id/radioGroupPositive"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -55,7 +118,7 @@
                 android:weightSum="5" >
 
                 <RadioButton
-                    android:id="@+id/radio0"
+                    android:id="@+id/radioPositive1"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
@@ -63,59 +126,59 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="1" />
+                    android:text="@string/num1" />
 
                 <RadioButton
-                    android:id="@+id/radio1"
+                    android:id="@+id/radioPositive2"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="2" />
+                    android:text="@string/num2" />
 
                 <RadioButton
-                    android:id="@+id/radio2"
+                    android:id="@+id/radioPositive3"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="3" />
+                    android:text="@string/num3" />
 
                 <RadioButton
-                    android:id="@+id/radio3"
+                    android:id="@+id/radioPositive4"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="4" />
+                    android:text="@string/num4" />
 
                 <RadioButton
-                    android:id="@+id/radio4"
+                    android:id="@+id/radioPositive5"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="5" />
+                    android:text="@string/num5" />
             </RadioGroup>
             
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/textViewNegative"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="TextView" />
+                android:text="@string/negative" />
 
             <RadioGroup
-                android:id="@+id/radioGroup2"
+                android:id="@+id/radioGroupNegative"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -123,7 +186,7 @@
                 android:weightSum="5" >
 
                 <RadioButton
-                    android:id="@+id/radio5"
+                    android:id="@+id/radioNegative1"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
@@ -131,59 +194,59 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="1" />
+                    android:text="@string/num1" />
 
                 <RadioButton
-                    android:id="@+id/radio6"
+                    android:id="@+id/radioNegative2"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="2" />
+                    android:text="@string/num2" />
 
                 <RadioButton
-                    android:id="@+id/radio7"
+                    android:id="@+id/radioNegative3"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="3" />
+                    android:text="@string/num3" />
 
                 <RadioButton
-                    android:id="@+id/radio8"
+                    android:id="@+id/radioNegative4"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="4" />
+                    android:text="@string/num4" />
 
                 <RadioButton
-                    android:id="@+id/radio9"
+                    android:id="@+id/radioNegative5"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="5" />
+                    android:text="@string/num5" />
             </RadioGroup>
             
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/textViewGood"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="TextView" />
+                android:text="@string/good" />
 
             <RadioGroup
-                android:id="@+id/radioGroup3"
+                android:id="@+id/radioGroupGood"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -191,7 +254,7 @@
                 android:weightSum="5" >
 
                 <RadioButton
-                    android:id="@+id/radio10"
+                    android:id="@+id/radioGood1"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
@@ -199,59 +262,59 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="1" />
+                    android:text="@string/num1" />
 
                 <RadioButton
-                    android:id="@+id/radio11"
+                    android:id="@+id/radioGood2"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="2" />
+                    android:text="@string/num2" />
 
                 <RadioButton
-                    android:id="@+id/radio12"
+                    android:id="@+id/radioGood3"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="3" />
+                    android:text="@string/num3" />
 
                 <RadioButton
-                    android:id="@+id/radio13"
+                    android:id="@+id/radioGood4"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="4" />
+                    android:text="@string/num4" />
 
                 <RadioButton
-                    android:id="@+id/radio14"
+                    android:id="@+id/radioGood5"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="5" />
+                    android:text="@string/num5" />
             </RadioGroup>
             
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/textViewBad"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="TextView" />
+                android:text="@string/bad" />
 
             <RadioGroup
-                android:id="@+id/radioGroup4"
+                android:id="@+id/radioGroupBad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -259,7 +322,7 @@
                 android:weightSum="5" >
 
                 <RadioButton
-                    android:id="@+id/radio15"
+                    android:id="@+id/radioBad1"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
@@ -267,47 +330,47 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="1" />
+                    android:text="@string/num1" />
 
                 <RadioButton
-                    android:id="@+id/radio16"
+                    android:id="@+id/radioBad2"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="2" />
+                    android:text="@string/num2" />
 
                 <RadioButton
-                    android:id="@+id/radio17"
+                    android:id="@+id/radioBad3"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="3" />
+                    android:text="@string/num3" />
 
                 <RadioButton
-                    android:id="@+id/radio18"
+                    android:id="@+id/radioBad4"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="4" />
+                    android:text="@string/num4" />
 
                 <RadioButton
-                    android:id="@+id/radio19"
+                    android:id="@+id/radioBad5"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:button="@null"
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="5" />
+                    android:text="@string/num5" />
             </RadioGroup>
         </LinearLayout>
     </ScrollView>

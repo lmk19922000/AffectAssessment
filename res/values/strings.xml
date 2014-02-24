@@ -3,16 +3,39 @@
 
     <string name="app_name">Affect Self-Assessment</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    
     <string name="affect_button">AffectButton</string>
     <string name="spane">SPANE</string>
     <string name="spane_no_photo">SPANE (No Photo)</string>
+    
     <string name="save">Save</string>
     <string name="share">Share</string>
     <string name="note">Note</string>
+    
     <string name="my_mood_greeting"><b>How do you feel?</b></string>
     <string name="my_mood_note"><b>What do you want to say?</b></string>
     <string name="spane_question"><b>How much do you experience each of the following feelings?</b></string>
-    <string name="spane_explaination"><b>1/ Very rare or never. 2/ Rarely. 3/ Sometimes.\n4/ Often. 5/ Very often or always.</b></string>
-
+    <string name="spane_explaination1">1/ Very rare or never</string>
+    <string name="spane_explaination2">2/ Rarely</string>
+    <string name="spane_explaination3">3/ Sometimes</string>
+    <string name="spane_explaination4">4/ Often</string>
+    <string name="spane_explaination5">5/ Very often or always</string>
+    
+    <string name="positive">Positive</string>
+    <string name="negative">Negative</string>
+    <string name="good">Good</string>
+    <string name="bad">Bad</string>
+    <string name="pleasant">Pleasant</string>
+    <string name="unpleasant">Unpleasant</string>
+    <string name="happy">Happy</string>
+    <string name="sad">Sad</string>
+    <string name="afraid">Joyful</string>
+    <string name="angry">Angry</string>
+    <string name="contented">Contented</string>
+    
+	<string name="num1">1</string>
+	<string name="num2">2</string>
+	<string name="num3">3</string>
+	<string name="num4">4</string>
+	<string name="num5">5</string>
 </resources>
