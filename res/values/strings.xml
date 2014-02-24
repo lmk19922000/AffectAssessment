@@ -6,10 +6,13 @@
     <string name="hello_world">Hello world!</string>
     <string name="affect_button">AffectButton</string>
     <string name="spane">SPANE</string>
+    <string name="spane_no_photo">SPANE (No Photo)</string>
     <string name="save">Save</string>
     <string name="share">Share</string>
     <string name="note">Note</string>
     <string name="my_mood_greeting"><b>How do you feel?</b></string>
     <string name="my_mood_note"><b>What do you want to say?</b></string>
+    <string name="spane_question"><b>How much do you experience each of the following feelings?</b></string>
+    <string name="spane_explaination"><b>1/ Very rare or never. 2/ Rarely. 3/ Sometimes.\n4/ Often. 5/ Very often or always.</b></string>
 
 </resources>
