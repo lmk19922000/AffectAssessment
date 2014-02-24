@@ -10,7 +10,7 @@ import android.widget.Button;
 
 public class MainActivity extends Activity implements OnClickListener{
 	
-	Button btnAffectButton, btnSPANE, btnSPANENoPhoto;
+	Button btnAffectButton, btnSPANEWithPhoto, btnSPANENoPhoto;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -18,11 +18,11 @@ public class MainActivity extends Activity implements OnClickListener{
 		setContentView(R.layout.activity_main);
 		
 		btnAffectButton = (Button) findViewById(R.id.buttonAffectButton);
-		btnSPANE = (Button) findViewById(R.id.buttonSPANE);
+		btnSPANEWithPhoto = (Button) findViewById(R.id.buttonSPANEWithPhoto);
 		btnSPANENoPhoto = (Button) findViewById(R.id.buttonSPANENoPhoto);
 		
 		btnAffectButton.setOnClickListener(this);
-		btnSPANE.setOnClickListener(this);
+		btnSPANEWithPhoto.setOnClickListener(this);
 		btnSPANENoPhoto.setOnClickListener(this);
 	}
 
@@ -35,8 +35,8 @@ public class MainActivity extends Activity implements OnClickListener{
 			myIntent = new Intent(MainActivity.this, AffectButtonActivity.class);
 			startActivity(myIntent);
 			break;
-		case R.id.buttonSPANE:
-			myIntent = new Intent(MainActivity.this, SPANEActivity.class);
+		case R.id.buttonSPANEWithPhoto:
+			myIntent = new Intent(MainActivity.this, SPANEWithPhotoActivity.class);
 			startActivity(myIntent);
 			break;
 		case R.id.buttonSPANENoPhoto:
