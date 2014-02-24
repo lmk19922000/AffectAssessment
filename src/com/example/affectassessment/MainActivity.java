@@ -23,9 +23,15 @@ public class MainActivity extends Activity implements OnClickListener{
 
 	@Override
 	public void onClick(View v) {
+		Intent myIntent;
+		
 		switch(v.getId()){
 		case R.id.buttonAffectButton:
-			Intent myIntent = new Intent(MainActivity.this, AffectButtonActivity.class);
+			myIntent = new Intent(MainActivity.this, AffectButtonActivity.class);
+			startActivity(myIntent);
+			break;
+		case R.id.buttonSPANE:
+			myIntent = new Intent(MainActivity.this, SPANEActivity.class);
 			startActivity(myIntent);
 			break;
 		}
