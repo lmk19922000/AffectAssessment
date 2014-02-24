@@ -9,5 +9,6 @@
     <string name="share">Share</string>
     <string name="note">Note</string>
     <string name="my_mood_greeting"><b>How do you feel?</b></string>
+    <string name="my_mood_note"><b>What do you want to say?</b></string>
 
 </resources>
