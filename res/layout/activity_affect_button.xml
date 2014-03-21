@@ -20,7 +20,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:text="Holder"
-        android:textSize="25sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/myCurrentMood"

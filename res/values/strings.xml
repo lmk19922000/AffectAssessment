@@ -21,21 +21,22 @@
     <string name="spane_explaination4">4/ Often</string>
     <string name="spane_explaination5">5/ Very often or always</string>
     
-    <string name="positive">Positive</string>
-    <string name="negative">Negative</string>
-    <string name="good">Good</string>
-    <string name="bad">Bad</string>
-    <string name="pleasant">Pleasant</string>
-    <string name="unpleasant">Unpleasant</string>
-    <string name="happy">Happy</string>
-    <string name="sad">Sad</string>
-    <string name="afraid">Joyful</string>
-    <string name="angry">Angry</string>
-    <string name="contented">Contented</string>
+    <string name="positive"><b>Positive</b></string>
+    <string name="negative"><b>Negative</b></string>
+    <string name="good"><b>Good</b></string>
+    <string name="bad"><b>Bad</b></string>
+    <string name="pleasant"><b>Pleasant</b></string>
+    <string name="unpleasant"><b>Unpleasant</b></string>
+    <string name="happy"><b>Happy</b></string>
+    <string name="sad"><b>Sad</b></string>
+    <string name="afraid"><b>Afraid</b></string>
+    <string name="joyful"><b>Joyful</b></string>
+    <string name="angry"><b>Angry</b></string>
+    <string name="contented"><b>Contented</b></string>
     
-	<string name="num1">1</string>
-	<string name="num2">2</string>
-	<string name="num3">3</string>
-	<string name="num4">4</string>
-	<string name="num5">5</string>
+	<string name="num1"><b>1</b></string>
+	<string name="num2"><b>2</b></string>
+	<string name="num3"><b>3</b></string>
+	<string name="num4"><b>4</b></string>
+	<string name="num5"><b>5</b></string>
 </resources>
