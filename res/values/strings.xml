@@ -8,7 +8,7 @@
     <string name="spane_with_photo">SPANE (Photo)</string>
     <string name="spane_no_photo">SPANE</string>
     <string name="panas_short_no_photo">PANAS (Short)</string>
-    <string name="panas_long_with_photo">PANAS (Long)</string>
+    <string name="panas_long_with_photo">PANAS</string>
     <string name="pam">PAM</string>
     
     <string name="save">Save</string>
@@ -30,6 +30,13 @@
     <string name="panas_short_explaination3">3/ Sometimes</string>
     <string name="panas_short_explaination4">4/ Often</string>
     <string name="panas_short_explaination5">5/ Always</string>
+    
+    <string name="panas_long_question"><b>Indicate to what extent you feel this way</b></string>
+    <string name="panas_long_explaination1">1/ Very slightly or not at all</string>
+    <string name="panas_long_explaination2">2/ A little</string>
+    <string name="panas_long_explaination3">3/ Moderately</string>
+    <string name="panas_long_explaination4">4/ Quite a bit</string>
+    <string name="panas_long_explaination5">5/ Extremely</string>
     
     <string name="positive"><b>Positive</b></string>
     <string name="negative"><b>Negative</b></string>
@@ -53,6 +60,16 @@
     <string name="determined"><b>Determined</b></string>
     <string name="attentive"><b>Attentive</b></string>
     <string name="active"><b>Active</b></string>
+    <string name="interested"><b>Interested</b></string>
+    <string name="distressed"><b>Distressed</b></string>
+    <string name="excited"><b>Excited</b></string>
+    <string name="strong"><b>Strong</b></string>
+    <string name="guilty"><b>Guilty</b></string>
+    <string name="scared"><b>Scared</b></string>
+    <string name="enthusiastic"><b>Enthusiastic</b></string>
+    <string name="proud"><b>Proud</b></string>
+    <string name="irritable"><b>Irritable</b></string>
+    <string name="jittery"><b>Jittery</b></string>
     
 	<string name="num1"><b>1</b></string>
 	<string name="num2"><b>2</b></string>

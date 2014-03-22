@@ -551,7 +551,7 @@ public class AffectButtonActivity extends Activity implements OnTouchListener, O
 		@Override
 		protected void onDraw(Canvas canvas) {
 			super.onDraw(canvas);
-			canvas.drawColor(Color.rgb(152, 255, 152));
+			//canvas.drawColor(Color.rgb(152, 255, 152));
 
 			// draw pacman
 			canvas.drawOval(new RectF(sx + 4, sy, size - 8, size), yellowPaint);
