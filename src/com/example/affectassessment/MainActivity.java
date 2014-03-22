@@ -10,7 +10,7 @@ import android.widget.Button;
 
 public class MainActivity extends Activity implements OnClickListener{
 	
-	Button btnAffectButton, btnSPANEWithPhoto, btnSPANENoPhoto, btnPANASShortNoPhoto, btnPANASLongWithPhoto;
+	Button btnAffectButton, btnSPANEWithPhoto, btnSPANENoPhoto, btnPANASShortNoPhoto, btnPANASLongWithPhoto, btnPAM;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,12 +22,14 @@ public class MainActivity extends Activity implements OnClickListener{
 		btnSPANENoPhoto = (Button) findViewById(R.id.buttonSPANENoPhoto);
 		btnPANASShortNoPhoto = (Button) findViewById(R.id.buttonPANASShortNoPhoto);
 		btnPANASLongWithPhoto = (Button) findViewById(R.id.buttonPANASLongWithPhoto);
+		btnPAM = (Button) findViewById(R.id.buttonPAM);
 		
 		btnAffectButton.setOnClickListener(this);
 		btnSPANEWithPhoto.setOnClickListener(this);
 		btnSPANENoPhoto.setOnClickListener(this);
 		btnPANASShortNoPhoto.setOnClickListener(this);
 		btnPANASLongWithPhoto.setOnClickListener(this);
+		btnPAM.setOnClickListener(this);
 	}
 
 	@Override
@@ -53,6 +55,10 @@ public class MainActivity extends Activity implements OnClickListener{
 			break;
 		case R.id.buttonPANASLongWithPhoto:
 			myIntent = new Intent(MainActivity.this, PANASLongWithPhotoActivity.class);
+			startActivity(myIntent);
+			break;
+		case R.id.buttonPAM:
+			myIntent = new Intent(MainActivity.this, PAMActivity.class);
 			startActivity(myIntent);
 			break;
 		}

@@ -38,6 +38,9 @@
     <string name="panas_long_explaination4">4/ Quite a bit</string>
     <string name="panas_long_explaination5">5/ Extremely</string>
     
+    <string name="pam_instruction"><b>Touch how you feel</b></string>
+    <string name="load_more">Load more images</string>
+    
     <string name="positive"><b>Positive</b></string>
     <string name="negative"><b>Negative</b></string>
     <string name="good"><b>Good</b></string>
