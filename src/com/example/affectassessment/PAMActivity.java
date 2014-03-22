@@ -1,5 +1,7 @@
 package com.example.affectassessment;
 
+import java.util.Random;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -14,13 +16,11 @@ import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Adapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 public class PAMActivity extends Activity implements OnClickListener,
 		OnItemClickListener {
@@ -40,8 +40,9 @@ public class PAMActivity extends Activity implements OnClickListener,
 
 	Point pointToGetSize;
 
-	int currentPos;
-	ImageAdapter adapter;
+	int currentPos = -1;
+	
+	ImageAdapter adapter;	// adapter to provide images for GridView 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -89,8 +90,159 @@ public class PAMActivity extends Activity implements OnClickListener,
 			displayNoteDialog();
 			break;
 		case R.id.buttonLoadMorePAM:
-			// TODO
+			changeImageSet();
+			currentPos = -1;
+			adapter.notifyDataSetChanged();
 			break;
+		}
+	}
+
+	private void changeImageSet() {
+		Random ran = new Random();
+		int num;
+		
+		num = ran.nextInt(3);
+		if (num==0){
+			imageIDs[0] = R.drawable.pam_afraid1;
+		} else if (num==1){
+			imageIDs[0] = R.drawable.pam_afraid2;
+		}else{
+			imageIDs[0] = R.drawable.pam_afraid3;
+		}
+		
+		num = ran.nextInt(3);
+		if (num==0){
+			imageIDs[1] = R.drawable.pam_tense1;
+		} else if (num==1){
+			imageIDs[1] = R.drawable.pam_tense2;
+		}else{
+			imageIDs[1] = R.drawable.pam_tense3;
+		}
+		
+		num = ran.nextInt(3);
+		if (num==0){
+			imageIDs[2] = R.drawable.pam_excited1;
+		} else if (num==1){
+			imageIDs[2] = R.drawable.pam_excited2;
+		}else{
+			imageIDs[2] = R.drawable.pam_excited3;
+		}
+		
+		num = ran.nextInt(3);
+		if (num==0){
+			imageIDs[3] = R.drawable.pam_delighted1;
+		} else if (num==1){
+			imageIDs[3] = R.drawable.pam_delighted2;
+		}else{
+			imageIDs[3] = R.drawable.pam_delighted3;
+		}
+		
+		num = ran.nextInt(3);
+		if (num==0){
+			imageIDs[4] = R.drawable.pam_frustrated1;
+		} else if (num==1){
+			imageIDs[4] = R.drawable.pam_frustrated2;
+		}else{
+			imageIDs[4] = R.drawable.pam_frustrated3;
+		}
+		
+		num = ran.nextInt(3);
+		if (num==0){
+			imageIDs[5] = R.drawable.pam_angry1;
+		} else if (num==1){
+			imageIDs[5] = R.drawable.pam_angry2;
+		}else{
+			imageIDs[5] = R.drawable.pam_angry3;
+		}
+		
+		num = ran.nextInt(3);
+		if (num==0){
+			imageIDs[6] = R.drawable.pam_happy1;
+		} else if (num==1){
+			imageIDs[6] = R.drawable.pam_happy2;
+		}else{
+			imageIDs[6] = R.drawable.pam_happy3;
+		}
+		
+		num = ran.nextInt(3);
+		if (num==0){
+			imageIDs[7] = R.drawable.pam_glad1;
+		} else if (num==1){
+			imageIDs[7] = R.drawable.pam_glad2;
+		}else{
+			imageIDs[7] = R.drawable.pam_glad3;
+		}
+		
+		num = ran.nextInt(3);
+		if (num==0){
+			imageIDs[8] = R.drawable.pam_miserable1;
+		} else if (num==1){
+			imageIDs[8] = R.drawable.pam_miserable2;
+		}else{
+			imageIDs[8] = R.drawable.pam_miserable3;
+		}
+		
+		num = ran.nextInt(3);
+		if (num==0){
+			imageIDs[9] = R.drawable.pam_sad1;
+		} else if (num==1){
+			imageIDs[9] = R.drawable.pam_sad2;
+		}else{
+			imageIDs[9] = R.drawable.pam_sad3;
+		}
+		
+		num = ran.nextInt(3);
+		if (num==0){
+			imageIDs[10] = R.drawable.pam_calm1;
+		} else if (num==1){
+			imageIDs[10] = R.drawable.pam_calm2;
+		}else{
+			imageIDs[10] = R.drawable.pam_calm3;
+		}
+		
+		num = ran.nextInt(3);
+		if (num==0){
+			imageIDs[11] = R.drawable.pam_satisfied1;
+		} else if (num==1){
+			imageIDs[11] = R.drawable.pam_satisfied2;
+		}else{
+			imageIDs[11] = R.drawable.pam_satisfied3;
+		}
+		
+		num = ran.nextInt(3);
+		if (num==0){
+			imageIDs[12] = R.drawable.pam_gloomy1;
+		} else if (num==1){
+			imageIDs[12] = R.drawable.pam_gloomy2;
+		}else{
+			imageIDs[12] = R.drawable.pam_gloomy3;
+		}
+		
+		num = ran.nextInt(3);
+		if (num==0){
+			imageIDs[13] = R.drawable.pam_tired1;
+		} else if (num==1){
+			imageIDs[13] = R.drawable.pam_tired2;
+		}else{
+			imageIDs[13] = R.drawable.pam_tired3;
+		}
+		
+		num = ran.nextInt(3);
+		if (num==0){
+			imageIDs[14] = R.drawable.pam_sleepy1;
+		} else if (num==1){
+			imageIDs[14] = R.drawable.pam_sleepy2;
+		}else{
+			imageIDs[14] = R.drawable.pam_sleepy3;
+		}
+		
+		num = ran.nextInt(3);
+		if (num==0){
+			imageIDs[15] = R.drawable.pam_serene1;
+		} else if (num==1){
+			imageIDs[15] = R.drawable.pam_serene2;
+		}else{
+			imageIDs[15] = R.drawable.pam_serene3;
 		}
 	}
 
@@ -182,10 +334,7 @@ public class PAMActivity extends Activity implements OnClickListener,
 
 	@Override
 	public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-		// TODO Auto-generated method stub
 		currentPos = position;
-
-		imageIDs[0] = R.drawable.pam_afraid2;
 		adapter.notifyDataSetChanged();
 	}
 }
