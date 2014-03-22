@@ -420,7 +420,7 @@
                 android:text="@string/ashamed" />
 
             <SeekBar
-                android:id="@+id/seekBarPANASShortAshamed"
+                android:id="@+id/seekBarPANASLongAshamed"
                 android:layout_width="fill_parent"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
