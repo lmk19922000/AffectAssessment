@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/Orange"
+    android:weightSum="100"
+     >
+	
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="15" >
+
+	    <TextView
+	        android:id="@+id/panasShortQuestion"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:gravity="center"
+	        android:textSize="20sp"
+	        android:text="@string/panas_short_question" />
+	    
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:weightSum="3"
+	        android:orientation="horizontal">
+        	
+	        <LinearLayout
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1">
+			     <TextView
+			        android:id="@+id/panasShortExplaination1"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="@string/panas_short_explaination1" />
+			</LinearLayout>
+			
+	        <LinearLayout
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1">
+			     <TextView
+			        android:id="@+id/panasShortExplaination2"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="@string/panas_short_explaination2" />
+		     </LinearLayout>
+		     
+	        <LinearLayout
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1">
+			     <TextView
+			         android:id="@+id/panasShortExplaination3"
+			         android:layout_width="match_parent"
+			         android:layout_height="wrap_content"
+			         android:text="@string/panas_short_explaination3" />
+			</LinearLayout>
+	     </LinearLayout>
+	     
+		<LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:weightSum="3">
+        	
+		     <LinearLayout
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1">
+			     <TextView
+			        android:id="@+id/panasShortExplaination4"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="@string/panas_short_explaination4" />
+		     </LinearLayout>
+		     
+		      <LinearLayout
+		        android:layout_width="0dp"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1">
+			     <TextView
+			        android:id="@+id/panasShortExplaination5"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:text="@string/panas_short_explaination5" />
+		     </LinearLayout>
+	     </LinearLayout>
+    </LinearLayout>
+    
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="75"
+        >
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textViewPANASShortUpset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="23dp"
+                android:text="@string/upset" />
+
+            <SeekBar
+                android:id="@+id/seekBarPANASShortUpset"
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"
+                android:progress="2"
+                android:max="4" />
+            
+            <TextView
+                android:id="@+id/textViewPANASShortHostile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="23dp"
+                android:text="@string/hostile" />
+
+			<SeekBar
+                android:id="@+id/seekBarPANASShortHostile"
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"
+                android:progress="2"
+                android:max="4" />
+			                        
+            <TextView
+                android:id="@+id/textViewPANASShortAlert"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="23dp"
+                android:text="@string/alert" />
+
+            <SeekBar
+                android:id="@+id/seekBarPANASShortAlert"
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"
+                android:progress="2"
+                android:max="4" />
+            
+            <TextView
+                android:id="@+id/textViewPANASShortAshamed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="23dp"
+                android:text="@string/ashamed" />
+
+            <SeekBar
+                android:id="@+id/seekBarPANASShortAshamed"
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"
+                android:progress="2"
+                android:max="4" />
+            
+            <TextView
+                android:id="@+id/textViewPANASShortInspired"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="23dp"
+                android:text="@string/inspired" />
+
+            <SeekBar
+                android:id="@+id/seekBarPANASShortInspired"
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"
+                android:progress="2"
+                android:max="4" />
+            
+            <TextView
+                android:id="@+id/textViePANASShortNervous"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="23dp"
+                android:text="@string/nervous" />
+
+            <SeekBar
+                android:id="@+id/seekBarPANASShortNervous"
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"
+                android:progress="2"
+                android:max="4" />
+            
+            <TextView
+                android:id="@+id/textViewPANASShortDetermined"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="23dp"
+                android:text="@string/determined" />
+
+            <SeekBar
+                android:id="@+id/seekBarPANASShortDetermined"
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"
+                android:progress="2"
+                android:max="4" />
+            
+            <TextView
+                android:id="@+id/textViewPANASShortAttentive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="23dp"
+                android:text="@string/attentive" />
+
+            <SeekBar
+                android:id="@+id/seekBarPANASShortAttentive"
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"
+                android:progress="2"
+                android:max="4" />
+            
+            <TextView
+                android:id="@+id/textViewPANASShortAfraid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="23dp"
+                android:text="@string/afraid" />
+
+            <SeekBar
+                android:id="@+id/seekBarPANASShortAfraid"
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"
+                android:progress="2"
+                android:max="4" />
+            
+            <TextView
+                android:id="@+id/textViewPANASShortActive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="23dp"
+                android:text="@string/active" />
+
+            <SeekBar
+                android:id="@+id/seekBarPANASShortActive"
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"
+                android:progress="2"
+                android:max="4" />
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/buttonNotePANASShortNoPhoto"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/note" />
+
+        <Button
+            android:id="@+id/buttonSharePANASShortNoPhoto"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/buttonNotePANASShortNoPhoto"
+            android:text="@string/share" />
+
+        <Button
+            android:id="@+id/buttonSavePANASShortNoPhoto"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/buttonNotePANASShortNoPhoto"
+            android:text="@string/save" />
+
+    </RelativeLayout>
+    
+</LinearLayout>

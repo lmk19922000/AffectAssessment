@@ -33,4 +33,28 @@
         android:layout_centerHorizontal="true"
         android:text="@string/spane_with_photo" />
 
+    <Button
+        android:id="@+id/buttonPANASShortNoPhoto"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonSPANEWithPhoto"
+        android:layout_below="@+id/buttonSPANEWithPhoto"
+        android:text="@string/panas_short_no_photo" />
+
+    <Button
+        android:id="@+id/buttonPANASLongWithPhoto"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonPANASShortNoPhoto"
+        android:layout_below="@+id/buttonPANASShortNoPhoto"
+        android:text="@string/panas_long_with_photo" />
+
+    <Button
+        android:id="@+id/buttonPAM"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonPANASLongWithPhoto"
+        android:layout_below="@+id/buttonPANASLongWithPhoto"
+        android:text="@string/pam" />
+
 </RelativeLayout>
