@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -20,20 +21,20 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
-public class AffectButtonStatActivity extends Activity {
+public class SPANEWithPhotoStatActivity extends Activity {
 
-	private static final String AFFECTBUTTON_DATA_FILENAME = "AffectButtonData.txt";
+	private static final String SPANE_WITH_PHOTO_DATA_FILENAME = "SPANEWithPhotoData.txt";
 
 	/** Colors to be used for the pie slices. */
-	private static int[] COLORS = new int[] { Color.GREEN,
-			Color.BLUE, Color.RED, Color.CYAN, Color.YELLOW,
-			Color.GRAY, Color.MAGENTA, Color.rgb(139, 69, 19) };
+	private static int[] COLORS = new int[] { Color.GREEN, Color.BLUE,
+			Color.RED, Color.CYAN, Color.YELLOW, Color.GRAY, Color.MAGENTA,
+			Color.rgb(139, 69, 19), Color.rgb(255, 165, 0),
+			Color.rgb(160, 132, 240), Color.rgb(0, 250, 154),
+			Color.rgb(255, 218, 185) };
 
 	/** The main series that will include all the data. */
 	private CategorySeries mSeries = new CategorySeries("");
@@ -44,9 +45,18 @@ public class AffectButtonStatActivity extends Activity {
 	/** The chart view that displays the data. */
 	private GraphicalView mChartView;
 
-	int countAngry = 0, countHappy = 0, countFrustrated = 0, countContent = 0,
-			countSad = 0, countRelaxed = 0, countUpset = 0, countSurprised = 0;
-
+	int countPositive = 0, countNegative = 0, countGood = 0, countBad = 0,
+			countPleasant = 0, countUnpleasant = 0, countHappy = 0,
+			countSad = 0, countAfraid = 0, countJoyful = 0, countAngry = 0,
+			countContented = 0;
+	
+	float avgPositive = 0, avgNegative = 0, avgGood = 0, avgBad = 0,
+			avgPleasant = 0, avgUnpleasant = 0, avgHappy = 0,
+			avgSad = 0, avgAfraid = 0, avgJoyful = 0, avgAngry = 0,
+			avgContented = 0;
+	
+	int numEntry = 0;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -61,66 +71,96 @@ public class AffectButtonStatActivity extends Activity {
 
 		SimpleSeriesRenderer renderer;
 		
-		if (countAngry>0){
-			mSeries.add("Angry", countAngry);
+		DecimalFormat df = new DecimalFormat("#,###,##0.00");
+		
+		if (avgPositive>0.01){
+			mSeries.add("Positive", Double.parseDouble(df.format(avgPositive)));
 			renderer = new SimpleSeriesRenderer();
 			renderer.setColor(COLORS[0]);
 			mRenderer.addSeriesRenderer(renderer);
 		}
-
-		if (countHappy>0){
-			mSeries.add("Happy", countHappy);
+		
+		if (avgNegative>0.01){
+			mSeries.add("Negative", Double.parseDouble(df.format(avgNegative)));
 			renderer = new SimpleSeriesRenderer();
 			renderer.setColor(COLORS[1]);
 			mRenderer.addSeriesRenderer(renderer);
 		}
-
-		if (countFrustrated>0){
-			mSeries.add("Frustrated", countFrustrated);
+		
+		if (avgGood>0.01){
+			mSeries.add("Good", Double.parseDouble(df.format(avgGood)));
 			renderer = new SimpleSeriesRenderer();
 			renderer.setColor(COLORS[2]);
 			mRenderer.addSeriesRenderer(renderer);
 		}
 		
-		if (countContent>0){
-			mSeries.add("Content", countContent);
+		if (avgBad>0.01){
+			mSeries.add("Bad", Double.parseDouble(df.format(avgBad)));
 			renderer = new SimpleSeriesRenderer();
 			renderer.setColor(COLORS[3]);
 			mRenderer.addSeriesRenderer(renderer);
 		}
 		
-		if (countSad > 0){
-			mSeries.add("Sad", countSad);
+		if (avgPleasant>0.01){
+			mSeries.add("Pleasant", Double.parseDouble(df.format(avgPleasant)));
 			renderer = new SimpleSeriesRenderer();
 			renderer.setColor(COLORS[4]);
 			mRenderer.addSeriesRenderer(renderer);
 		}
 		
-		if (countRelaxed>0){
-			mSeries.add("Relaxed", countRelaxed);
+		if (avgUnpleasant>0.01){
+			mSeries.add("Unpleasant", Double.parseDouble(df.format(avgUnpleasant)));
 			renderer = new SimpleSeriesRenderer();
 			renderer.setColor(COLORS[5]);
 			mRenderer.addSeriesRenderer(renderer);
 		}
 		
-		if (countUpset>0){
-		mSeries.add("Upset", countUpset);
-		renderer = new SimpleSeriesRenderer();
-		renderer.setColor(COLORS[6]);
-		mRenderer.addSeriesRenderer(renderer);
+		if (avgHappy>0.01){
+			mSeries.add("Happy", Double.parseDouble(df.format(avgHappy)));
+			renderer = new SimpleSeriesRenderer();
+			renderer.setColor(COLORS[6]);
+			mRenderer.addSeriesRenderer(renderer);
 		}
 		
-		if(countSurprised>0){
-		mSeries.add("Surprised", countSurprised);
-		renderer = new SimpleSeriesRenderer();
-		renderer.setColor(COLORS[7]);
-		mRenderer.addSeriesRenderer(renderer);
+		if (avgSad>0.01){
+			mSeries.add("Sad", Double.parseDouble(df.format(avgSad)));
+			renderer = new SimpleSeriesRenderer();
+			renderer.setColor(COLORS[7]);
+			mRenderer.addSeriesRenderer(renderer);
+		}
+		
+		if (avgAfraid>0.01){
+			mSeries.add("Afraid", Double.parseDouble(df.format(avgAfraid)));
+			renderer = new SimpleSeriesRenderer();
+			renderer.setColor(COLORS[8]);
+			mRenderer.addSeriesRenderer(renderer);
+		}
+		
+		if (avgJoyful>0.01){
+			mSeries.add("Joyful", Double.parseDouble(df.format(avgJoyful)));
+			renderer = new SimpleSeriesRenderer();
+			renderer.setColor(COLORS[9]);
+			mRenderer.addSeriesRenderer(renderer);
+		}
+		
+		if (avgAngry>0.01){
+			mSeries.add("Angry", Double.parseDouble(df.format(avgAngry)));
+			renderer = new SimpleSeriesRenderer();
+			renderer.setColor(COLORS[10]);
+			mRenderer.addSeriesRenderer(renderer);
+		}
+		
+		if (avgContented>0.01){
+			mSeries.add("Contented", Double.parseDouble(df.format(avgContented)));
+			renderer = new SimpleSeriesRenderer();
+			renderer.setColor(COLORS[11]);
+			mRenderer.addSeriesRenderer(renderer);
 		}
 		
 		mRenderer.setLabelsTextSize(30);
 		mRenderer.setLabelsColor(Color.BLACK);
 		
-		mRenderer.setLegendTextSize(40);
+		mRenderer.setLegendTextSize(35);
 		mRenderer.setChartTitle("Your mood in the last 30 days");
 		mRenderer.setChartTitleTextSize(40);
 		
@@ -151,7 +191,7 @@ public class AffectButtonStatActivity extends Activity {
 			mChartView.repaint();
 		}
 	}
-
+	
 	@SuppressLint("SimpleDateFormat")
 	private void readData() {
 		String[] strSplit;
@@ -163,7 +203,7 @@ public class AffectButtonStatActivity extends Activity {
 		Date tempDate;
 		
 		try {
-			InputStream inputStream = getApplicationContext().openFileInput(AFFECTBUTTON_DATA_FILENAME);
+			InputStream inputStream = getApplicationContext().openFileInput(SPANE_WITH_PHOTO_DATA_FILENAME);
 
 			if (inputStream != null) {
 				InputStreamReader inputStreamReader = new InputStreamReader(
@@ -177,23 +217,19 @@ public class AffectButtonStatActivity extends Activity {
 					try {
 						tempDate = sdf.parse(strSplit[0]+"," +strSplit[1]);
 						if (tempDate.compareTo(startDate) > 0){
-							if (strSplit[2].compareTo("Angry") == 0){
-								countAngry++;
-							} else if (strSplit[2].compareTo("Happy") == 0){
-								countHappy++;
-							} else if (strSplit[2].compareTo("Frustrated") == 0){
-								countFrustrated++;
-							} else if (strSplit[2].compareTo("Content") == 0){
-								countContent++;
-							} else if (strSplit[2].compareTo("Relaxed") == 0){
-								countRelaxed++;
-							} else if (strSplit[2].compareTo("Sad") == 0){
-								countSad++;
-							} else if (strSplit[2].compareTo("Upset") == 0){
-								countUpset++;
-							} else if (strSplit[2].compareTo("Surprised") == 0){
-								countSurprised++;
-							}
+							numEntry++;
+							countPositive = countPositive + Integer.parseInt(strSplit[3]);
+							countNegative = countNegative + Integer.parseInt(strSplit[5]);
+							countGood = countGood + Integer.parseInt(strSplit[7]);
+							countBad = countBad + Integer.parseInt(strSplit[9]);
+							countPleasant = countPleasant + Integer.parseInt(strSplit[11]);
+							countUnpleasant = countUnpleasant + Integer.parseInt(strSplit[13]);
+							countHappy = countHappy + Integer.parseInt(strSplit[15]);
+							countSad = countSad + Integer.parseInt(strSplit[17]);
+							countAfraid = countAfraid + Integer.parseInt(strSplit[19]);
+							countJoyful = countJoyful + Integer.parseInt(strSplit[21]);
+							countAngry = countAngry + Integer.parseInt(strSplit[23]);
+							countContented = countContented + Integer.parseInt(strSplit[25]);
 						}
 					} catch (ParseException e) {
 						e.printStackTrace();
@@ -207,6 +243,20 @@ public class AffectButtonStatActivity extends Activity {
 		} catch (IOException e) {
 
 		}
-
+		
+		if (numEntry>0){
+			avgPositive = (float)countPositive/numEntry;
+			avgNegative = (float)countNegative/numEntry;
+			avgGood = (float)countGood/numEntry;
+			avgBad = (float)countBad/numEntry;
+			avgPleasant = (float)countPleasant/numEntry;
+			avgUnpleasant = (float)countUnpleasant/numEntry;
+			avgHappy = (float)countHappy/numEntry;
+			avgSad = (float)countSad/numEntry;
+			avgAfraid = (float)countAfraid/numEntry;
+			avgJoyful = (float)countJoyful/numEntry;
+			avgAngry = (float)countAngry/numEntry;
+			avgContented = (float)countContented/numEntry;
+		}
 	}
 }

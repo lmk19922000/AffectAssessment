@@ -34,6 +34,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class AffectButtonActivity extends Activity implements OnTouchListener,
 		OnClickListener {
@@ -306,6 +307,8 @@ public class AffectButtonActivity extends Activity implements OnTouchListener,
 		} catch (IOException e) {
 
 		}
+		
+		Toast.makeText(AffectButtonActivity.this,"Saved", Toast.LENGTH_SHORT).show();
 	}
 
 	private void displayNoteDialog() {

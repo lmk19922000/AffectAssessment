@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
 public class SPANEWithPhotoActivity extends Activity implements
@@ -183,13 +184,15 @@ public class SPANEWithPhotoActivity extends Activity implements
 		data = currentDateAndTime + "," + data + note + "\n";
 		try {
 			OutputStreamWriter outputStreamWriter = new OutputStreamWriter(
-					openFileOutput(SPANE_WITH_PHOTO_DATA_FILENAME,
+					getApplicationContext().openFileOutput(SPANE_WITH_PHOTO_DATA_FILENAME,
 							Context.MODE_APPEND));
 			outputStreamWriter.append(data);
 			outputStreamWriter.close();
 		} catch (IOException e) {
 
 		}
+		
+		Toast.makeText(SPANEWithPhotoActivity.this,"Saved", Toast.LENGTH_SHORT).show();
 	}
 
 	private void displayNoteDialog() {

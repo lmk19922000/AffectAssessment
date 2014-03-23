@@ -16,8 +16,6 @@ public class StatisticsActivity extends Activity implements OnClickListener{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		Log.i("context when pre read",  getApplicationContext().toString());
-		
 		setContentView(R.layout.activity_statistics);
 		
 		btnAffectButton = (Button) findViewById(R.id.buttonAffectButtonStat);
@@ -44,11 +42,11 @@ public class StatisticsActivity extends Activity implements OnClickListener{
 			myIntent = new Intent(getApplicationContext(), AffectButtonStatActivity.class);
 			startActivity(myIntent);
 			break;
-			/*
-		case R.id.buttonSPANEWithPhoto:
-			myIntent = new Intent(MainActivity.this, SPANEWithPhotoActivity.class);
+		case R.id.buttonSPANEWithPhotoStat:
+			myIntent = new Intent(getApplicationContext(), SPANEWithPhotoStatActivity.class);
 			startActivity(myIntent);
 			break;
+			/*
 		case R.id.buttonSPANENoPhoto:
 			myIntent = new Intent(MainActivity.this, SPANENoPhotoActivity.class);
 			startActivity(myIntent);

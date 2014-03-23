@@ -18,6 +18,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
+import android.widget.Toast;
 
 public class PANASShortNoPhotoActivity extends Activity implements
 		OnClickListener {
@@ -116,6 +117,8 @@ public class PANASShortNoPhotoActivity extends Activity implements
 		} catch (IOException e) {
 
 		}
+		
+		Toast.makeText(PANASShortNoPhotoActivity.this,"Saved", Toast.LENGTH_SHORT).show();
 	}
 
 	private void displayNoteDialog() {

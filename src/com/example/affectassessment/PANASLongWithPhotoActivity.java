@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.SeekBar;
+import android.widget.Toast;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
 public class PANASLongWithPhotoActivity extends Activity implements
@@ -185,6 +186,8 @@ public class PANASLongWithPhotoActivity extends Activity implements
 		} catch (IOException e) {
 
 		}
+		
+		Toast.makeText(PANASLongWithPhotoActivity.this,"Saved", Toast.LENGTH_SHORT).show();
 	}
 
 	private void displayNoteDialog() {

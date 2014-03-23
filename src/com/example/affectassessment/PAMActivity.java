@@ -25,6 +25,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class PAMActivity extends Activity implements OnClickListener,
 		OnItemClickListener {
@@ -123,6 +124,7 @@ public class PAMActivity extends Activity implements OnClickListener,
 
 		}
 
+		Toast.makeText(PAMActivity.this,"Saved", Toast.LENGTH_SHORT).show();
 	}
 
 	private void changeImageSet() {

@@ -44,23 +44,23 @@ public class MainActivity extends Activity implements OnClickListener{
 			startActivity(myIntent);
 			break;
 		case R.id.buttonSPANEWithPhoto:
-			myIntent = new Intent(MainActivity.this, SPANEWithPhotoActivity.class);
+			myIntent = new Intent(MainActivity.this.getApplicationContext(), SPANEWithPhotoActivity.class);
 			startActivity(myIntent);
 			break;
 		case R.id.buttonSPANENoPhoto:
-			myIntent = new Intent(MainActivity.this, SPANENoPhotoActivity.class);
+			myIntent = new Intent(MainActivity.this.getApplicationContext(), SPANENoPhotoActivity.class);
 			startActivity(myIntent);
 			break;
 		case R.id.buttonPANASShortNoPhoto:
-			myIntent = new Intent(MainActivity.this, PANASShortNoPhotoActivity.class);
+			myIntent = new Intent(MainActivity.this.getApplicationContext(), PANASShortNoPhotoActivity.class);
 			startActivity(myIntent);
 			break;
 		case R.id.buttonPANASLongWithPhoto:
-			myIntent = new Intent(MainActivity.this, PANASLongWithPhotoActivity.class);
+			myIntent = new Intent(MainActivity.this.getApplicationContext(), PANASLongWithPhotoActivity.class);
 			startActivity(myIntent);
 			break;
 		case R.id.buttonPAM:
-			myIntent = new Intent(MainActivity.this, PAMActivity.class);
+			myIntent = new Intent(MainActivity.this.getApplicationContext(), PAMActivity.class);
 			startActivity(myIntent);
 			break;
 		case R.id.buttonStatistics:

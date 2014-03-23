@@ -18,6 +18,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 public class SPANENoPhotoActivity extends Activity implements OnClickListener {
 
@@ -159,7 +160,8 @@ public class SPANENoPhotoActivity extends Activity implements OnClickListener {
 		} catch (IOException e) {
 
 		}
-		
+	
+		Toast.makeText(SPANENoPhotoActivity.this,"Saved", Toast.LENGTH_SHORT).show();
 	}
 
 	private void displayNoteDialog() {
