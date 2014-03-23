@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/Orange"
+    android:background="@color/Silver"
     android:weightSum="100"
      >
 	
@@ -95,7 +95,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="70"
+        android:layout_weight="65"
         >
         
         <LinearLayout
@@ -608,31 +608,39 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="10"
+        android:layout_weight="15"
         android:orientation="horizontal" >
 
         <Button
             android:id="@+id/buttonNotePANASLongWithPhoto"
             android:layout_width="90dp"
             android:layout_height="50dp"
-            android:layout_alignParentTop="true"
+            android:layout_alignBaseline="@+id/buttonSharePANASLongWithPhoto"
+        	android:layout_alignBottom="@+id/buttonSharePANASLongWithPhoto"
             android:layout_centerHorizontal="true"
+            android:background="@drawable/button_background"
             android:text="@string/note" />
 
         <Button
             android:id="@+id/buttonSharePANASLongWithPhoto"
             android:layout_width="90dp"
             android:layout_height="50dp"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/buttonNotePANASLongWithPhoto"
+            android:layout_alignBaseline="@+id/buttonSavePANASLongWithPhoto"
+        	android:layout_alignBottom="@+id/buttonSavePANASLongWithPhoto"
+        	android:layout_alignParentRight="true"
+        	android:layout_marginRight="40dp"
+            android:background="@drawable/button_background"
             android:text="@string/share" />
 
         <Button
             android:id="@+id/buttonSavePANASLongWithPhoto"
             android:layout_width="90dp"
             android:layout_height="50dp"
-            android:layout_alignParentTop="true"
-            android:layout_toLeftOf="@+id/buttonNotePANASLongWithPhoto"
+            android:layout_alignParentBottom="true"
+        	android:layout_alignParentLeft="true"
+        	android:layout_marginBottom="18dp"
+        	android:layout_marginLeft="40dp"
+            android:background="@drawable/button_background"
             android:text="@string/save" />
 
     </RelativeLayout>
