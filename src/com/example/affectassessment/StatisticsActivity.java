@@ -54,17 +54,14 @@ public class StatisticsActivity extends Activity implements OnClickListener{
 			myIntent = (new SPANENoPhotoStatActivity()).execute(getApplicationContext());
 			startActivity(myIntent);
 			break;
-			/*
-		case R.id.buttonPANASLongWithPhoto:
-			myIntent = new Intent(MainActivity.this, PANASLongWithPhotoActivity.class);
+			
+		case R.id.buttonPANASLongWithPhotoStat:
+			myIntent = (new PANASLongWithPhotoStatActivity()).execute(getApplicationContext());
 			startActivity(myIntent);
 			break;
+			/*
 		case R.id.buttonPAM:
 			myIntent = new Intent(MainActivity.this, PAMActivity.class);
-			startActivity(myIntent);
-			break;
-		case R.id.buttonStatistics:
-			myIntent = new Intent(MainActivity.this, StatisticsActivity.class);
 			startActivity(myIntent);
 			break;
 			*/
