@@ -40,7 +40,7 @@ public class MainActivity extends Activity implements OnClickListener{
 		
 		switch(v.getId()){
 		case R.id.buttonAffectButton:
-			myIntent = new Intent(MainActivity.this, AffectButtonActivity.class);
+			myIntent = new Intent(MainActivity.this.getApplicationContext(), AffectButtonActivity.class);
 			startActivity(myIntent);
 			break;
 		case R.id.buttonSPANEWithPhoto:
@@ -64,7 +64,7 @@ public class MainActivity extends Activity implements OnClickListener{
 			startActivity(myIntent);
 			break;
 		case R.id.buttonStatistics:
-			myIntent = new Intent(MainActivity.this, StatisticsActivity.class);
+			myIntent = new Intent(MainActivity.this.getApplicationContext(), StatisticsActivity.class);
 			startActivity(myIntent);
 			break;
 		default:

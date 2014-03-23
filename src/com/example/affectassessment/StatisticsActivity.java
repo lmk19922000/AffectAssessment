@@ -3,6 +3,7 @@ package com.example.affectassessment;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -14,6 +15,8 @@ public class StatisticsActivity extends Activity implements OnClickListener{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		Log.i("context when pre read",  getApplicationContext().toString());
 		
 		setContentView(R.layout.activity_statistics);
 		
@@ -38,7 +41,7 @@ public class StatisticsActivity extends Activity implements OnClickListener{
 		
 		switch(v.getId()){
 		case R.id.buttonAffectButtonStat:
-			myIntent = new Intent(StatisticsActivity.this, AffectButtonStatActivity.class);
+			myIntent = new Intent(getApplicationContext(), AffectButtonStatActivity.class);
 			startActivity(myIntent);
 			break;
 			/*

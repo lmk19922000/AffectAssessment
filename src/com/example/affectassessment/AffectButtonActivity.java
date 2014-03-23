@@ -15,6 +15,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -96,7 +97,7 @@ public class AffectButtonActivity extends Activity implements OnTouchListener,
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		
 		setContentView(R.layout.activity_affect_button);
 
 		initializeVariables();
@@ -298,7 +299,7 @@ public class AffectButtonActivity extends Activity implements OnTouchListener,
 				+ String.valueOf(d) + "," + note + "\n";
 		try {
 			OutputStreamWriter outputStreamWriter = new OutputStreamWriter(
-					openFileOutput(AFFECTBUTTON_DATA_FILENAME,
+					getApplicationContext().openFileOutput(AFFECTBUTTON_DATA_FILENAME,
 							Context.MODE_APPEND));
 			outputStreamWriter.append(data);
 			outputStreamWriter.close();
