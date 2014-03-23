@@ -1,7 +1,14 @@
 package com.example.affectassessment;
 
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +23,8 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 
 public class PANASLongWithPhotoActivity extends Activity implements
 		OnClickListener, OnSeekBarChangeListener {
+
+	private static final String PANAS_LONG_WITH_PHOTO_DATA_FILENAME = "PANASLongWithPhotoData.txt";
 
 	Button btnSave, btnNote, btnShare;
 
@@ -37,6 +46,8 @@ public class PANASLongWithPhotoActivity extends Activity implements
 			imvGuilty, imvScared, imvHostile, imvEnthusiastic, imvProud,
 			imvIrritable, imvAlert, imvAshamed, imvInspired, imvNervous,
 			imvDetermined, imvAttentive, imvJittery, imvActive, imvAfraid;
+
+	String note = "";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -124,8 +135,7 @@ public class PANASLongWithPhotoActivity extends Activity implements
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.buttonSavePANASLongWithPhoto:
-			// TODO: Save to DB
-
+			saveData();
 			break;
 		case R.id.buttonSharePANASLongWithPhoto:
 			// TODO: Open option to share by various means
@@ -133,6 +143,47 @@ public class PANASLongWithPhotoActivity extends Activity implements
 		case R.id.buttonNotePANASLongWithPhoto:
 			displayNoteDialog();
 			break;
+		}
+
+	}
+
+	@SuppressLint("SimpleDateFormat")
+	private void saveData() {
+		String currentDateAndTime, data;
+
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy, HH:mm");
+		currentDateAndTime = sdf.format(new Date());
+
+		data = currentDateAndTime + "," + "interested" + ","
+				+ String.valueOf(progressInterested) + "," + "distressed" + ","
+				+ String.valueOf(progressDistressed) + "," + "excited" + ","
+				+ String.valueOf(progressExcited) + "," + "upset" + ","
+				+ String.valueOf(progressUpset) + "," + "strong" + ","
+				+ String.valueOf(progressStrong) + "," + "guilty" + ","
+				+ String.valueOf(progressGuilty) + "," + "scared" + ","
+				+ String.valueOf(progressScared) + "," + "hostile" + ","
+				+ String.valueOf(progressHostile) + "," + "enthusiastic" + ","
+				+ String.valueOf(progressEnthusiastic) + "," + "proud" + ","
+				+ String.valueOf(progressProud) + "," + "irritable" + ","
+				+ String.valueOf(progressIrritable) + "," + "alert" + ","
+				+ String.valueOf(progressAlert) + "," + "ashamed" + ","
+				+ String.valueOf(progressAshamed) + "," + "inspired" + ","
+				+ String.valueOf(progressInspired) + "," + "nervous" + ","
+				+ String.valueOf(progressNervous) + "," + "determined" + ","
+				+ String.valueOf(progressDetermined) + "," + "attentive" + ","
+				+ String.valueOf(progressAttentive) + "," + "jittery" + ","
+				+ String.valueOf(progressJittery) + "," + "active" + ","
+				+ String.valueOf(progressActive) + "," + "afraid" + ","
+				+ String.valueOf(progressAfraid) + "," + note + "\n";
+
+		try {
+			OutputStreamWriter outputStreamWriter = new OutputStreamWriter(
+					openFileOutput(PANAS_LONG_WITH_PHOTO_DATA_FILENAME,
+							Context.MODE_APPEND));
+			outputStreamWriter.append(data);
+			outputStreamWriter.close();
+		} catch (IOException e) {
+
 		}
 
 	}
@@ -156,8 +207,7 @@ public class PANASLongWithPhotoActivity extends Activity implements
 				.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
 
-						// TODO: Save user input
-						// result.setText(userInput.getText());
+						note = userInput.getText().toString();
 
 					}
 				})
@@ -177,10 +227,10 @@ public class PANASLongWithPhotoActivity extends Activity implements
 
 	@Override
 	public void onProgressChanged(SeekBar skb, int val, boolean fromUser) {
-		switch(skb.getId()){
+		switch (skb.getId()) {
 		case R.id.seekBarPANASLongInterested:
 			progressInterested = val;
-			switch(val){
+			switch (val) {
 			case 0:
 				imvInterested.setImageResource(R.drawable.panas_interested1);
 				break;
@@ -198,10 +248,10 @@ public class PANASLongWithPhotoActivity extends Activity implements
 				break;
 			}
 			break;
-			
+
 		case R.id.seekBarPANASLongDistressed:
 			progressDistressed = val;
-			switch(val){
+			switch (val) {
 			case 0:
 				imvDistressed.setImageResource(R.drawable.panas_distressed1);
 				break;
@@ -219,10 +269,10 @@ public class PANASLongWithPhotoActivity extends Activity implements
 				break;
 			}
 			break;
-			
+
 		case R.id.seekBarPANASLongExcited:
 			progressExcited = val;
-			switch(val){
+			switch (val) {
 			case 0:
 				imvExcited.setImageResource(R.drawable.panas_excited1);
 				break;
@@ -240,10 +290,10 @@ public class PANASLongWithPhotoActivity extends Activity implements
 				break;
 			}
 			break;
-			
+
 		case R.id.seekBarPANASLongUpset:
 			progressUpset = val;
-			switch(val){
+			switch (val) {
 			case 0:
 				imvUpset.setImageResource(R.drawable.panas_upset1);
 				break;
@@ -261,10 +311,10 @@ public class PANASLongWithPhotoActivity extends Activity implements
 				break;
 			}
 			break;
-			
+
 		case R.id.seekBarPANASLongStrong:
 			progressStrong = val;
-			switch(val){
+			switch (val) {
 			case 0:
 				imvStrong.setImageResource(R.drawable.panas_strong1);
 				break;
@@ -282,10 +332,10 @@ public class PANASLongWithPhotoActivity extends Activity implements
 				break;
 			}
 			break;
-			
+
 		case R.id.seekBarPANASLongGuilty:
 			progressGuilty = val;
-			switch(val){
+			switch (val) {
 			case 0:
 				imvGuilty.setImageResource(R.drawable.panas_guilty1);
 				break;
@@ -303,10 +353,10 @@ public class PANASLongWithPhotoActivity extends Activity implements
 				break;
 			}
 			break;
-			
+
 		case R.id.seekBarPANASLongScared:
 			progressScared = val;
-			switch(val){
+			switch (val) {
 			case 0:
 				imvScared.setImageResource(R.drawable.panas_scared1);
 				break;
@@ -324,10 +374,10 @@ public class PANASLongWithPhotoActivity extends Activity implements
 				break;
 			}
 			break;
-			
+
 		case R.id.seekBarPANASLongHostile:
 			progressHostile = val;
-			switch(val){
+			switch (val) {
 			case 0:
 				imvHostile.setImageResource(R.drawable.panas_hostile1);
 				break;
@@ -345,31 +395,36 @@ public class PANASLongWithPhotoActivity extends Activity implements
 				break;
 			}
 			break;
-			
+
 		case R.id.seekBarPANASLongEnthusiastic:
 			progressEnthusiastic = val;
-			switch(val){
+			switch (val) {
 			case 0:
-				imvEnthusiastic.setImageResource(R.drawable.panas_enthusiastic1);
+				imvEnthusiastic
+						.setImageResource(R.drawable.panas_enthusiastic1);
 				break;
 			case 1:
-				imvEnthusiastic.setImageResource(R.drawable.panas_enthusiastic2);
+				imvEnthusiastic
+						.setImageResource(R.drawable.panas_enthusiastic2);
 				break;
 			case 2:
-				imvEnthusiastic.setImageResource(R.drawable.panas_enthusiastic3);
+				imvEnthusiastic
+						.setImageResource(R.drawable.panas_enthusiastic3);
 				break;
 			case 3:
-				imvEnthusiastic.setImageResource(R.drawable.panas_enthusiastic4);
+				imvEnthusiastic
+						.setImageResource(R.drawable.panas_enthusiastic4);
 				break;
 			case 4:
-				imvEnthusiastic.setImageResource(R.drawable.panas_enthusiastic5);
+				imvEnthusiastic
+						.setImageResource(R.drawable.panas_enthusiastic5);
 				break;
 			}
 			break;
-			
+
 		case R.id.seekBarPANASLongProud:
 			progressProud = val;
-			switch(val){
+			switch (val) {
 			case 0:
 				imvProud.setImageResource(R.drawable.panas_proud1);
 				break;
@@ -387,10 +442,10 @@ public class PANASLongWithPhotoActivity extends Activity implements
 				break;
 			}
 			break;
-			
+
 		case R.id.seekBarPANASLongIrritable:
 			progressIrritable = val;
-			switch(val){
+			switch (val) {
 			case 0:
 				imvIrritable.setImageResource(R.drawable.panas_irritable1);
 				break;
@@ -408,10 +463,10 @@ public class PANASLongWithPhotoActivity extends Activity implements
 				break;
 			}
 			break;
-			
+
 		case R.id.seekBarPANASLongAlert:
 			progressAlert = val;
-			switch(val){
+			switch (val) {
 			case 0:
 				imvAlert.setImageResource(R.drawable.panas_alert1);
 				break;
@@ -429,10 +484,10 @@ public class PANASLongWithPhotoActivity extends Activity implements
 				break;
 			}
 			break;
-			
+
 		case R.id.seekBarPANASLongAshamed:
 			progressAshamed = val;
-			switch(val){
+			switch (val) {
 			case 0:
 				imvAshamed.setImageResource(R.drawable.panas_ashamed1);
 				break;
@@ -450,10 +505,10 @@ public class PANASLongWithPhotoActivity extends Activity implements
 				break;
 			}
 			break;
-			
+
 		case R.id.seekBarPANASLongInspired:
 			progressInspired = val;
-			switch(val){
+			switch (val) {
 			case 0:
 				imvInspired.setImageResource(R.drawable.panas_inspired1);
 				break;
@@ -471,10 +526,10 @@ public class PANASLongWithPhotoActivity extends Activity implements
 				break;
 			}
 			break;
-			
+
 		case R.id.seekBarPANASLongNervous:
 			progressNervous = val;
-			switch(val){
+			switch (val) {
 			case 0:
 				imvNervous.setImageResource(R.drawable.panas_nervous1);
 				break;
@@ -492,10 +547,10 @@ public class PANASLongWithPhotoActivity extends Activity implements
 				break;
 			}
 			break;
-			
+
 		case R.id.seekBarPANASLongDetermined:
 			progressDetermined = val;
-			switch(val){
+			switch (val) {
 			case 0:
 				imvDetermined.setImageResource(R.drawable.panas_determined1);
 				break;
@@ -513,10 +568,10 @@ public class PANASLongWithPhotoActivity extends Activity implements
 				break;
 			}
 			break;
-			
+
 		case R.id.seekBarPANASLongAttentive:
 			progressAttentive = val;
-			switch(val){
+			switch (val) {
 			case 0:
 				imvAttentive.setImageResource(R.drawable.panas_attentive1);
 				break;
@@ -534,10 +589,10 @@ public class PANASLongWithPhotoActivity extends Activity implements
 				break;
 			}
 			break;
-			
+
 		case R.id.seekBarPANASLongJittery:
 			progressJittery = val;
-			switch(val){
+			switch (val) {
 			case 0:
 				imvJittery.setImageResource(R.drawable.panas_jittery1);
 				break;
@@ -555,10 +610,10 @@ public class PANASLongWithPhotoActivity extends Activity implements
 				break;
 			}
 			break;
-			
+
 		case R.id.seekBarPANASLongActive:
 			progressActive = val;
-			switch(val){
+			switch (val) {
 			case 0:
 				imvActive.setImageResource(R.drawable.panas_active1);
 				break;
@@ -576,10 +631,10 @@ public class PANASLongWithPhotoActivity extends Activity implements
 				break;
 			}
 			break;
-			
+
 		case R.id.seekBarPANASLongAfraid:
 			progressAfraid = val;
-			switch(val){
+			switch (val) {
 			case 0:
 				imvAfraid.setImageResource(R.drawable.panas_afraid1);
 				break;

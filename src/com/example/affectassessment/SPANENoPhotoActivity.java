@@ -1,7 +1,14 @@
 package com.example.affectassessment;
 
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,13 +21,17 @@ import android.widget.RadioGroup;
 
 public class SPANENoPhotoActivity extends Activity implements OnClickListener {
 
+	private static final String SPANE_NO_PHOTO_DATA_FILENAME = "SPANENoPhotoData.txt";
+	
 	Button btnSave, btnNote, btnShare;
 
 	RadioGroup radioGroupPositive, radioGroupNegative, radioGroupBad,
 			radioGroupGood, radioGroupPleasant, radioGroupUnpleasant,
 			radioGroupHappy, radioGroupSad, radioGroupAfraid, radioGroupJoyful,
 			radioGroupAngry, radioGroupContented;
-
+	
+	String note = "";
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -57,11 +68,8 @@ public class SPANENoPhotoActivity extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.buttonSaveSPANENoPhoto:
-			// TODO: Save to DB
-			int radioButtonID = radioGroupPositive.getCheckedRadioButtonId();
-			View radioButton = radioGroupPositive.findViewById(radioButtonID);
-			int idx = radioGroupPositive.indexOfChild(radioButton);
-			Log.i("Button selected", String.valueOf(idx));
+			saveData();
+			
 			break;
 		case R.id.buttonShareSPANENoPhoto:
 			// TODO: Open option to share by various means
@@ -70,6 +78,88 @@ public class SPANENoPhotoActivity extends Activity implements OnClickListener {
 			displayNoteDialog();
 			break;
 		}
+	}
+
+	@SuppressLint("SimpleDateFormat")
+	private void saveData() {
+		int radioButtonID, idx;
+		View radioButton;
+		String data, currentDateAndTime;
+		
+		radioButtonID = radioGroupPositive.getCheckedRadioButtonId();
+		radioButton = radioGroupPositive.findViewById(radioButtonID);
+		idx = radioGroupPositive.indexOfChild(radioButton);
+		data = "positive" + "," + String.valueOf(idx) + ",";
+		
+		radioButtonID = radioGroupNegative.getCheckedRadioButtonId();
+		radioButton = radioGroupNegative.findViewById(radioButtonID);
+		idx = radioGroupNegative.indexOfChild(radioButton);
+		data = data + "negative" + "," + String.valueOf(idx) + ",";
+		
+		radioButtonID = radioGroupGood.getCheckedRadioButtonId();
+		radioButton = radioGroupGood.findViewById(radioButtonID);
+		idx = radioGroupGood.indexOfChild(radioButton);
+		data = data + "good" + "," + String.valueOf(idx) + ",";
+		
+		radioButtonID = radioGroupBad.getCheckedRadioButtonId();
+		radioButton = radioGroupBad.findViewById(radioButtonID);
+		idx = radioGroupBad.indexOfChild(radioButton);
+		data = data + "bad" + "," + String.valueOf(idx) + ",";
+		
+		radioButtonID = radioGroupPleasant.getCheckedRadioButtonId();
+		radioButton = radioGroupPleasant.findViewById(radioButtonID);
+		idx = radioGroupPleasant.indexOfChild(radioButton);
+		data = data + "pleasant" + "," + String.valueOf(idx) + ",";
+		
+		radioButtonID = radioGroupUnpleasant.getCheckedRadioButtonId();
+		radioButton = radioGroupUnpleasant.findViewById(radioButtonID);
+		idx = radioGroupUnpleasant.indexOfChild(radioButton);
+		data = data + "unpleasant" + "," + String.valueOf(idx) + ",";
+		
+		radioButtonID = radioGroupHappy.getCheckedRadioButtonId();
+		radioButton = radioGroupHappy.findViewById(radioButtonID);
+		idx = radioGroupHappy.indexOfChild(radioButton);
+		data = data + "happy" + "," + String.valueOf(idx) + ",";
+		
+		radioButtonID = radioGroupSad.getCheckedRadioButtonId();
+		radioButton = radioGroupSad.findViewById(radioButtonID);
+		idx = radioGroupSad.indexOfChild(radioButton);
+		data = data + "sad" + "," + String.valueOf(idx) + ",";
+		
+		radioButtonID = radioGroupAfraid.getCheckedRadioButtonId();
+		radioButton = radioGroupAfraid.findViewById(radioButtonID);
+		idx = radioGroupAfraid.indexOfChild(radioButton);
+		data = data + "afraid" + "," + String.valueOf(idx) + ",";
+		
+		radioButtonID = radioGroupJoyful.getCheckedRadioButtonId();
+		radioButton = radioGroupJoyful.findViewById(radioButtonID);
+		idx = radioGroupJoyful.indexOfChild(radioButton);
+		data = data + "joyful" + "," + String.valueOf(idx) + ",";
+		
+		radioButtonID = radioGroupAngry.getCheckedRadioButtonId();
+		radioButton = radioGroupAngry.findViewById(radioButtonID);
+		idx = radioGroupAngry.indexOfChild(radioButton);
+		data = data + "angry" + "," + String.valueOf(idx) + ",";
+		
+		radioButtonID = radioGroupContented.getCheckedRadioButtonId();
+		radioButton = radioGroupContented.findViewById(radioButtonID);
+		idx = radioGroupContented.indexOfChild(radioButton);
+		data = data + "contented" + "," + String.valueOf(idx) + ",";
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy, HH:mm");
+		currentDateAndTime = sdf.format(new Date());
+		
+		data = currentDateAndTime + "," + data + note + "\n";
+		try {
+			OutputStreamWriter outputStreamWriter = new OutputStreamWriter(
+					openFileOutput(SPANE_NO_PHOTO_DATA_FILENAME,
+							Context.MODE_APPEND));
+			outputStreamWriter.append(data);
+			outputStreamWriter.close();
+		} catch (IOException e) {
+
+		}
+		
 	}
 
 	private void displayNoteDialog() {
@@ -91,8 +181,7 @@ public class SPANENoPhotoActivity extends Activity implements OnClickListener {
 				.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
 
-						// TODO: Save user input
-						// result.setText(userInput.getText());
+						note = userInput.getText().toString();
 
 					}
 				})
