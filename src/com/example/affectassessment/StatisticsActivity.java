@@ -9,7 +9,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 public class StatisticsActivity extends Activity implements OnClickListener{
-
+	
 	Button btnAffectButton, btnSPANEWithPhoto, btnSPANENoPhoto, btnPANASShortNoPhoto, btnPANASLongWithPhoto, btnPAM;
 	
 	@Override
@@ -50,11 +50,11 @@ public class StatisticsActivity extends Activity implements OnClickListener{
 			myIntent = new Intent(getApplicationContext(), PANASShortNoPhotoStatActivity.class);
 			startActivity(myIntent);
 			break;
-			/*
-		case R.id.buttonSPANENoPhoto:
-			myIntent = new Intent(MainActivity.this, SPANENoPhotoActivity.class);
+		case R.id.buttonSPANENoPhotoStat:
+			myIntent = (new SPANENoPhotoStatActivity()).execute(getApplicationContext());
 			startActivity(myIntent);
 			break;
+			/*
 		case R.id.buttonPANASLongWithPhoto:
 			myIntent = new Intent(MainActivity.this, PANASLongWithPhotoActivity.class);
 			startActivity(myIntent);
