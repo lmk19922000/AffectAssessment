@@ -46,13 +46,13 @@ public class StatisticsActivity extends Activity implements OnClickListener{
 			myIntent = new Intent(getApplicationContext(), SPANEWithPhotoStatActivity.class);
 			startActivity(myIntent);
 			break;
+		case R.id.buttonPANASShortNoPhotoStat:
+			myIntent = new Intent(getApplicationContext(), PANASShortNoPhotoStatActivity.class);
+			startActivity(myIntent);
+			break;
 			/*
 		case R.id.buttonSPANENoPhoto:
 			myIntent = new Intent(MainActivity.this, SPANENoPhotoActivity.class);
-			startActivity(myIntent);
-			break;
-		case R.id.buttonPANASShortNoPhoto:
-			myIntent = new Intent(MainActivity.this, PANASShortNoPhotoActivity.class);
 			startActivity(myIntent);
 			break;
 		case R.id.buttonPANASLongWithPhoto:

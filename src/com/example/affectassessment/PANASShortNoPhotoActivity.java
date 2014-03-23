@@ -51,16 +51,16 @@ public class PANASShortNoPhotoActivity extends Activity implements
 		btnNote.setOnClickListener(this);
 		btnShare.setOnClickListener(this);
 
-		seekBarUpset = (SeekBar) findViewById(R.id.seekBarPANASLongUpset);
-		seekBarHostile = (SeekBar) findViewById(R.id.seekBarPANASLongHostile);
-		seekBarAlert = (SeekBar) findViewById(R.id.seekBarPANASLongAlert);
-		seekBarAshamed = (SeekBar) findViewById(R.id.seekBarPANASLongAshamed);
-		seekBarInspired = (SeekBar) findViewById(R.id.seekBarPANASLongInspired);
-		seekBarNervous = (SeekBar) findViewById(R.id.seekBarPANASLongNervous);
-		seekBarDetermined = (SeekBar) findViewById(R.id.seekBarPANASLongDetermined);
-		seekBarAttentive = (SeekBar) findViewById(R.id.seekBarPANASLongAttentive);
-		seekBarActive = (SeekBar) findViewById(R.id.seekBarPANASLongActive);
-		seekBarAfraid = (SeekBar) findViewById(R.id.seekBarPANASLongAfraid);
+		seekBarUpset = (SeekBar) findViewById(R.id.seekBarPANASShortUpset);
+		seekBarHostile = (SeekBar) findViewById(R.id.seekBarPANASShortHostile);
+		seekBarAlert = (SeekBar) findViewById(R.id.seekBarPANASShortAlert);
+		seekBarAshamed = (SeekBar) findViewById(R.id.seekBarPANASShortAshamed);
+		seekBarInspired = (SeekBar) findViewById(R.id.seekBarPANASShortInspired);
+		seekBarNervous = (SeekBar) findViewById(R.id.seekBarPANASShortNervous);
+		seekBarDetermined = (SeekBar) findViewById(R.id.seekBarPANASShortDetermined);
+		seekBarAttentive = (SeekBar) findViewById(R.id.seekBarPANASShortAttentive);
+		seekBarActive = (SeekBar) findViewById(R.id.seekBarPANASShortActive);
+		seekBarAfraid = (SeekBar) findViewById(R.id.seekBarPANASShortAfraid);
 	}
 
 	@Override
