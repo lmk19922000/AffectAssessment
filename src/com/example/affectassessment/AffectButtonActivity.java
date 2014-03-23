@@ -281,7 +281,6 @@ public class AffectButtonActivity extends Activity implements OnTouchListener,
 		switch (v.getId()) {
 		case R.id.buttonSave:
 			saveData();
-			//Log.i("note", readData());
 			break;
 		case R.id.buttonShare:
 			// TODO: Open option to share by various means
@@ -290,37 +289,6 @@ public class AffectButtonActivity extends Activity implements OnTouchListener,
 			displayNoteDialog();
 			break;
 		}
-
-	}
-
-	private String readData() {
-		String ret = "";
-
-		try {
-			InputStream inputStream = openFileInput(AFFECTBUTTON_DATA_FILENAME);
-
-			if (inputStream != null) {
-				InputStreamReader inputStreamReader = new InputStreamReader(
-						inputStream);
-				BufferedReader bufferedReader = new BufferedReader(
-						inputStreamReader);
-				String receiveString = "";
-				StringBuilder stringBuilder = new StringBuilder();
-
-				while ((receiveString = bufferedReader.readLine()) != null) {
-					stringBuilder.append(receiveString);
-				}
-
-				inputStream.close();
-				ret = stringBuilder.toString();
-			}
-		} catch (FileNotFoundException e) {
-
-		} catch (IOException e) {
-
-		}
-
-		return ret;
 
 	}
 
