@@ -1,5 +1,9 @@
 package com.example.affectassessment;
 
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 
 import android.annotation.SuppressLint;
@@ -25,6 +29,8 @@ import android.widget.ImageView;
 public class PAMActivity extends Activity implements OnClickListener,
 		OnItemClickListener {
 
+	private static final String PAM_DATA_FILENAME = "PAMData.txt";
+
 	Button btnSave, btnNote, btnShare, btnLoadMore;
 
 	GridView gv;
@@ -41,8 +47,10 @@ public class PAMActivity extends Activity implements OnClickListener,
 	Point pointToGetSize;
 
 	int currentPos = -1;
-	
-	ImageAdapter adapter;	// adapter to provide images for GridView 
+
+	ImageAdapter adapter; // adapter to provide images for GridView
+
+	String note = "";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -80,8 +88,7 @@ public class PAMActivity extends Activity implements OnClickListener,
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.buttonSavePAM:
-			// TODO: Save to DB
-
+			saveData();
 			break;
 		case R.id.buttonSharePAM:
 			// TODO: Open option to share by various means
@@ -97,151 +104,172 @@ public class PAMActivity extends Activity implements OnClickListener,
 		}
 	}
 
+	@SuppressLint("SimpleDateFormat")
+	private void saveData() {
+		String currentDateAndTime, data;
+
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy, HH:mm");
+		currentDateAndTime = sdf.format(new Date());
+
+		data = currentDateAndTime + "," + String.valueOf(currentPos + 1) + ","
+				+ note + "\n";
+
+		try {
+			OutputStreamWriter outputStreamWriter = new OutputStreamWriter(
+					openFileOutput(PAM_DATA_FILENAME, Context.MODE_APPEND));
+			outputStreamWriter.append(data);
+			outputStreamWriter.close();
+		} catch (IOException e) {
+
+		}
+
+	}
+
 	private void changeImageSet() {
 		Random ran = new Random();
 		int num;
-		
+
 		num = ran.nextInt(3);
-		if (num==0){
+		if (num == 0) {
 			imageIDs[0] = R.drawable.pam_afraid1;
-		} else if (num==1){
+		} else if (num == 1) {
 			imageIDs[0] = R.drawable.pam_afraid2;
-		}else{
+		} else {
 			imageIDs[0] = R.drawable.pam_afraid3;
 		}
-		
+
 		num = ran.nextInt(3);
-		if (num==0){
+		if (num == 0) {
 			imageIDs[1] = R.drawable.pam_tense1;
-		} else if (num==1){
+		} else if (num == 1) {
 			imageIDs[1] = R.drawable.pam_tense2;
-		}else{
+		} else {
 			imageIDs[1] = R.drawable.pam_tense3;
 		}
-		
+
 		num = ran.nextInt(3);
-		if (num==0){
+		if (num == 0) {
 			imageIDs[2] = R.drawable.pam_excited1;
-		} else if (num==1){
+		} else if (num == 1) {
 			imageIDs[2] = R.drawable.pam_excited2;
-		}else{
+		} else {
 			imageIDs[2] = R.drawable.pam_excited3;
 		}
-		
+
 		num = ran.nextInt(3);
-		if (num==0){
+		if (num == 0) {
 			imageIDs[3] = R.drawable.pam_delighted1;
-		} else if (num==1){
+		} else if (num == 1) {
 			imageIDs[3] = R.drawable.pam_delighted2;
-		}else{
+		} else {
 			imageIDs[3] = R.drawable.pam_delighted3;
 		}
-		
+
 		num = ran.nextInt(3);
-		if (num==0){
+		if (num == 0) {
 			imageIDs[4] = R.drawable.pam_frustrated1;
-		} else if (num==1){
+		} else if (num == 1) {
 			imageIDs[4] = R.drawable.pam_frustrated2;
-		}else{
+		} else {
 			imageIDs[4] = R.drawable.pam_frustrated3;
 		}
-		
+
 		num = ran.nextInt(3);
-		if (num==0){
+		if (num == 0) {
 			imageIDs[5] = R.drawable.pam_angry1;
-		} else if (num==1){
+		} else if (num == 1) {
 			imageIDs[5] = R.drawable.pam_angry2;
-		}else{
+		} else {
 			imageIDs[5] = R.drawable.pam_angry3;
 		}
-		
+
 		num = ran.nextInt(3);
-		if (num==0){
+		if (num == 0) {
 			imageIDs[6] = R.drawable.pam_happy1;
-		} else if (num==1){
+		} else if (num == 1) {
 			imageIDs[6] = R.drawable.pam_happy2;
-		}else{
+		} else {
 			imageIDs[6] = R.drawable.pam_happy3;
 		}
-		
+
 		num = ran.nextInt(3);
-		if (num==0){
+		if (num == 0) {
 			imageIDs[7] = R.drawable.pam_glad1;
-		} else if (num==1){
+		} else if (num == 1) {
 			imageIDs[7] = R.drawable.pam_glad2;
-		}else{
+		} else {
 			imageIDs[7] = R.drawable.pam_glad3;
 		}
-		
+
 		num = ran.nextInt(3);
-		if (num==0){
+		if (num == 0) {
 			imageIDs[8] = R.drawable.pam_miserable1;
-		} else if (num==1){
+		} else if (num == 1) {
 			imageIDs[8] = R.drawable.pam_miserable2;
-		}else{
+		} else {
 			imageIDs[8] = R.drawable.pam_miserable3;
 		}
-		
+
 		num = ran.nextInt(3);
-		if (num==0){
+		if (num == 0) {
 			imageIDs[9] = R.drawable.pam_sad1;
-		} else if (num==1){
+		} else if (num == 1) {
 			imageIDs[9] = R.drawable.pam_sad2;
-		}else{
+		} else {
 			imageIDs[9] = R.drawable.pam_sad3;
 		}
-		
+
 		num = ran.nextInt(3);
-		if (num==0){
+		if (num == 0) {
 			imageIDs[10] = R.drawable.pam_calm1;
-		} else if (num==1){
+		} else if (num == 1) {
 			imageIDs[10] = R.drawable.pam_calm2;
-		}else{
+		} else {
 			imageIDs[10] = R.drawable.pam_calm3;
 		}
-		
+
 		num = ran.nextInt(3);
-		if (num==0){
+		if (num == 0) {
 			imageIDs[11] = R.drawable.pam_satisfied1;
-		} else if (num==1){
+		} else if (num == 1) {
 			imageIDs[11] = R.drawable.pam_satisfied2;
-		}else{
+		} else {
 			imageIDs[11] = R.drawable.pam_satisfied3;
 		}
-		
+
 		num = ran.nextInt(3);
-		if (num==0){
+		if (num == 0) {
 			imageIDs[12] = R.drawable.pam_gloomy1;
-		} else if (num==1){
+		} else if (num == 1) {
 			imageIDs[12] = R.drawable.pam_gloomy2;
-		}else{
+		} else {
 			imageIDs[12] = R.drawable.pam_gloomy3;
 		}
-		
+
 		num = ran.nextInt(3);
-		if (num==0){
+		if (num == 0) {
 			imageIDs[13] = R.drawable.pam_tired1;
-		} else if (num==1){
+		} else if (num == 1) {
 			imageIDs[13] = R.drawable.pam_tired2;
-		}else{
+		} else {
 			imageIDs[13] = R.drawable.pam_tired3;
 		}
-		
+
 		num = ran.nextInt(3);
-		if (num==0){
+		if (num == 0) {
 			imageIDs[14] = R.drawable.pam_sleepy1;
-		} else if (num==1){
+		} else if (num == 1) {
 			imageIDs[14] = R.drawable.pam_sleepy2;
-		}else{
+		} else {
 			imageIDs[14] = R.drawable.pam_sleepy3;
 		}
-		
+
 		num = ran.nextInt(3);
-		if (num==0){
+		if (num == 0) {
 			imageIDs[15] = R.drawable.pam_serene1;
-		} else if (num==1){
+		} else if (num == 1) {
 			imageIDs[15] = R.drawable.pam_serene2;
-		}else{
+		} else {
 			imageIDs[15] = R.drawable.pam_serene3;
 		}
 	}
@@ -265,8 +293,7 @@ public class PAMActivity extends Activity implements OnClickListener,
 				.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
 
-						// TODO: Save user input
-						// result.setText(userInput.getText());
+						note = userInput.getText().toString();
 
 					}
 				})
@@ -316,7 +343,7 @@ public class PAMActivity extends Activity implements OnClickListener,
 
 				imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
-				 imageView.setPadding(5, 5, 5, 5);
+				imageView.setPadding(5, 5, 5, 5);
 			} else {
 				imageView = (ImageView) convertView;
 			}
@@ -324,7 +351,7 @@ public class PAMActivity extends Activity implements OnClickListener,
 
 			if (position == currentPos) {
 				imageView.setBackgroundResource(R.drawable.list_selector);
-			} else{
+			} else {
 				imageView.setBackgroundResource(0);
 			}
 

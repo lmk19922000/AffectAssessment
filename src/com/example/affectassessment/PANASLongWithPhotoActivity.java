@@ -155,26 +155,26 @@ public class PANASLongWithPhotoActivity extends Activity implements
 		currentDateAndTime = sdf.format(new Date());
 
 		data = currentDateAndTime + "," + "interested" + ","
-				+ String.valueOf(progressInterested) + "," + "distressed" + ","
-				+ String.valueOf(progressDistressed) + "," + "excited" + ","
-				+ String.valueOf(progressExcited) + "," + "upset" + ","
-				+ String.valueOf(progressUpset) + "," + "strong" + ","
-				+ String.valueOf(progressStrong) + "," + "guilty" + ","
-				+ String.valueOf(progressGuilty) + "," + "scared" + ","
-				+ String.valueOf(progressScared) + "," + "hostile" + ","
-				+ String.valueOf(progressHostile) + "," + "enthusiastic" + ","
-				+ String.valueOf(progressEnthusiastic) + "," + "proud" + ","
-				+ String.valueOf(progressProud) + "," + "irritable" + ","
-				+ String.valueOf(progressIrritable) + "," + "alert" + ","
-				+ String.valueOf(progressAlert) + "," + "ashamed" + ","
-				+ String.valueOf(progressAshamed) + "," + "inspired" + ","
-				+ String.valueOf(progressInspired) + "," + "nervous" + ","
-				+ String.valueOf(progressNervous) + "," + "determined" + ","
-				+ String.valueOf(progressDetermined) + "," + "attentive" + ","
-				+ String.valueOf(progressAttentive) + "," + "jittery" + ","
-				+ String.valueOf(progressJittery) + "," + "active" + ","
-				+ String.valueOf(progressActive) + "," + "afraid" + ","
-				+ String.valueOf(progressAfraid) + "," + note + "\n";
+				+ String.valueOf(progressInterested+1) + "," + "distressed" + ","
+				+ String.valueOf(progressDistressed+1) + "," + "excited" + ","
+				+ String.valueOf(progressExcited+1) + "," + "upset" + ","
+				+ String.valueOf(progressUpset+1) + "," + "strong" + ","
+				+ String.valueOf(progressStrong+1) + "," + "guilty" + ","
+				+ String.valueOf(progressGuilty+1) + "," + "scared" + ","
+				+ String.valueOf(progressScared+1) + "," + "hostile" + ","
+				+ String.valueOf(progressHostile+1) + "," + "enthusiastic" + ","
+				+ String.valueOf(progressEnthusiastic+1) + "," + "proud" + ","
+				+ String.valueOf(progressProud+1) + "," + "irritable" + ","
+				+ String.valueOf(progressIrritable+1) + "," + "alert" + ","
+				+ String.valueOf(progressAlert+1) + "," + "ashamed" + ","
+				+ String.valueOf(progressAshamed+1) + "," + "inspired" + ","
+				+ String.valueOf(progressInspired+1) + "," + "nervous" + ","
+				+ String.valueOf(progressNervous+1) + "," + "determined" + ","
+				+ String.valueOf(progressDetermined+1) + "," + "attentive" + ","
+				+ String.valueOf(progressAttentive+1) + "," + "jittery" + ","
+				+ String.valueOf(progressJittery+1) + "," + "active" + ","
+				+ String.valueOf(progressActive+1) + "," + "afraid" + ","
+				+ String.valueOf(progressAfraid+1) + "," + note + "\n";
 
 		try {
 			OutputStreamWriter outputStreamWriter = new OutputStreamWriter(
@@ -185,7 +185,6 @@ public class PANASLongWithPhotoActivity extends Activity implements
 		} catch (IOException e) {
 
 		}
-
 	}
 
 	private void displayNoteDialog() {

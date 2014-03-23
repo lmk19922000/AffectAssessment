@@ -120,62 +120,62 @@ public class SPANEWithPhotoActivity extends Activity implements
 		radioButtonID = radioGroupPositive.getCheckedRadioButtonId();
 		radioButton = radioGroupPositive.findViewById(radioButtonID);
 		idx = radioGroupPositive.indexOfChild(radioButton);
-		data = "positive" + "," + String.valueOf(idx) + ",";
+		data = "positive" + "," + String.valueOf(idx+1) + ",";
 		
 		radioButtonID = radioGroupNegative.getCheckedRadioButtonId();
 		radioButton = radioGroupNegative.findViewById(radioButtonID);
 		idx = radioGroupNegative.indexOfChild(radioButton);
-		data = data + "negative" + "," + String.valueOf(idx) + ",";
+		data = data + "negative" + "," + String.valueOf(idx+1) + ",";
 		
 		radioButtonID = radioGroupGood.getCheckedRadioButtonId();
 		radioButton = radioGroupGood.findViewById(radioButtonID);
 		idx = radioGroupGood.indexOfChild(radioButton);
-		data = data + "good" + "," + String.valueOf(idx) + ",";
+		data = data + "good" + "," + String.valueOf(idx+1) + ",";
 		
 		radioButtonID = radioGroupBad.getCheckedRadioButtonId();
 		radioButton = radioGroupBad.findViewById(radioButtonID);
 		idx = radioGroupBad.indexOfChild(radioButton);
-		data = data + "bad" + "," + String.valueOf(idx) + ",";
+		data = data + "bad" + "," + String.valueOf(idx+1) + ",";
 		
 		radioButtonID = radioGroupPleasant.getCheckedRadioButtonId();
 		radioButton = radioGroupPleasant.findViewById(radioButtonID);
 		idx = radioGroupPleasant.indexOfChild(radioButton);
-		data = data + "pleasant" + "," + String.valueOf(idx) + ",";
+		data = data + "pleasant" + "," + String.valueOf(idx+1) + ",";
 		
 		radioButtonID = radioGroupUnpleasant.getCheckedRadioButtonId();
 		radioButton = radioGroupUnpleasant.findViewById(radioButtonID);
 		idx = radioGroupUnpleasant.indexOfChild(radioButton);
-		data = data + "unpleasant" + "," + String.valueOf(idx) + ",";
+		data = data + "unpleasant" + "," + String.valueOf(idx+1) + ",";
 		
 		radioButtonID = radioGroupHappy.getCheckedRadioButtonId();
 		radioButton = radioGroupHappy.findViewById(radioButtonID);
 		idx = radioGroupHappy.indexOfChild(radioButton);
-		data = data + "happy" + "," + String.valueOf(idx) + ",";
+		data = data + "happy" + "," + String.valueOf(idx+1) + ",";
 		
 		radioButtonID = radioGroupSad.getCheckedRadioButtonId();
 		radioButton = radioGroupSad.findViewById(radioButtonID);
 		idx = radioGroupSad.indexOfChild(radioButton);
-		data = data + "sad" + "," + String.valueOf(idx) + ",";
+		data = data + "sad" + "," + String.valueOf(idx+1) + ",";
 		
 		radioButtonID = radioGroupAfraid.getCheckedRadioButtonId();
 		radioButton = radioGroupAfraid.findViewById(radioButtonID);
 		idx = radioGroupAfraid.indexOfChild(radioButton);
-		data = data + "afraid" + "," + String.valueOf(idx) + ",";
+		data = data + "afraid" + "," + String.valueOf(idx+1) + ",";
 		
 		radioButtonID = radioGroupJoyful.getCheckedRadioButtonId();
 		radioButton = radioGroupJoyful.findViewById(radioButtonID);
 		idx = radioGroupJoyful.indexOfChild(radioButton);
-		data = data + "joyful" + "," + String.valueOf(idx) + ",";
+		data = data + "joyful" + "," + String.valueOf(idx+1) + ",";
 		
 		radioButtonID = radioGroupAngry.getCheckedRadioButtonId();
 		radioButton = radioGroupAngry.findViewById(radioButtonID);
 		idx = radioGroupAngry.indexOfChild(radioButton);
-		data = data + "angry" + "," + String.valueOf(idx) + ",";
+		data = data + "angry" + "," + String.valueOf(idx+1) + ",";
 		
 		radioButtonID = radioGroupContented.getCheckedRadioButtonId();
 		radioButton = radioGroupContented.findViewById(radioButtonID);
 		idx = radioGroupContented.indexOfChild(radioButton);
-		data = data + "contented" + "," + String.valueOf(idx) + ",";
+		data = data + "contented" + "," + String.valueOf(idx+1) + ",";
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy, HH:mm");
 		currentDateAndTime = sdf.format(new Date());
