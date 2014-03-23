@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -50,33 +51,41 @@ public class SPANENoPhotoStatActivity{
 		
 		readData();
 		
-		String[] titles = new String[] {"Frequency of moods"};
+		String[] titles = new String[] {"Mood in last 30 days"};
+		
+		DecimalFormat df = new DecimalFormat("#,###,##0.00");
+		
 		List<double[]> values = new ArrayList<double[]>();
-		values.add(new double[] { avgPositive, avgNegative, avgGood, avgBad,
-				avgPleasant, avgUnpleasant, avgHappy,
-				avgSad, avgAfraid, avgJoyful, avgAngry,
-				avgContented});
+		values.add(new double[] { Double.parseDouble(df.format(avgPositive)), Double.parseDouble(df.format(avgNegative)), Double.parseDouble(df.format(avgGood)), Double.parseDouble(df.format(avgBad)),
+				Double.parseDouble(df.format(avgPleasant)), Double.parseDouble(df.format(avgUnpleasant)), Double.parseDouble(df.format(avgHappy)),
+				Double.parseDouble(df.format(avgSad)), Double.parseDouble(df.format(avgAfraid)), Double.parseDouble(df.format(avgJoyful)), Double.parseDouble(df.format(avgAngry)),
+				Double.parseDouble(df.format(avgContented))});
 		
 		int[] colors = new int[] { Color.GREEN };
 		XYMultipleSeriesRenderer renderer = buildBarRenderer(colors);
 		renderer.setOrientation(Orientation.HORIZONTAL);
 		
-		setChartSettings(renderer, "Your mood in the last 30 days",
-				"Mood", "Rate", xMin, xMax, yMin, yMax, Color.BLUE, Color.LTGRAY);
+		setChartSettings(renderer, "",
+				"Mood", "Rate", xMin, xMax, yMin, yMax, Color.RED, Color.RED);
 		
 		renderer.setBarSpacing(0.5);
 		renderer.setBarWidth(30);
-
-		/*
+		
 		renderer.setXLabels(1);
 		renderer.setYLabels(10);
-		renderer.addXTextLabel(1, "Jan");
-		renderer.addXTextLabel(3, "Mar");
-		renderer.addXTextLabel(5, "May");
-		renderer.addXTextLabel(7, "Jul");
-		renderer.addXTextLabel(10, "Oct");
-		renderer.addXTextLabel(12, "Dec");
-		*/
+		
+		renderer.addXTextLabel(1, "Positive");
+		renderer.addXTextLabel(2, "Negative");
+		renderer.addXTextLabel(3, "Good");
+		renderer.addXTextLabel(4, "Bad");
+		renderer.addXTextLabel(5, "Pleasant");
+		renderer.addXTextLabel(6, "Unpleasant");
+		renderer.addXTextLabel(7, "Happy");
+		renderer.addXTextLabel(8, "Sad");
+		renderer.addXTextLabel(9, "Afraid");
+		renderer.addXTextLabel(10, "Joyful");
+		renderer.addXTextLabel(11, "Angry");
+		renderer.addXTextLabel(12, "Contented");
 		
 		int length = renderer.getSeriesRendererCount();
 		for (int i = 0; i < length; i++) {
@@ -97,10 +106,12 @@ public class SPANENoPhotoStatActivity{
 	 */
 	protected XYMultipleSeriesRenderer buildBarRenderer(int[] colors) {
 		XYMultipleSeriesRenderer renderer = new XYMultipleSeriesRenderer();
-		renderer.setAxisTitleTextSize(16);
+		renderer.setAxisTitleTextSize(30);
 		renderer.setChartTitleTextSize(20);
-		renderer.setLabelsTextSize(15);
-		renderer.setLegendTextSize(15);
+		renderer.setLabelsTextSize(30);
+		renderer.setXLabelsPadding(50);
+		renderer.setYLabelsPadding(50);
+		renderer.setLegendTextSize(25);
 		int length = colors.length;
 		for (int i = 0; i < length; i++) {
 			SimpleSeriesRenderer r = new SimpleSeriesRenderer();
