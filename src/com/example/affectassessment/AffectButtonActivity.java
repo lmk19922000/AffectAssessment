@@ -287,7 +287,7 @@ public class AffectButtonActivity extends Activity implements OnTouchListener,
 		case R.id.buttonShare:
 			Intent sendIntent = new Intent();
 			sendIntent.setAction(Intent.ACTION_SEND);
-			sendIntent.putExtra(Intent.EXTRA_TEXT, "I am feeling " + moodName + " right now!");
+			sendIntent.putExtra(Intent.EXTRA_TEXT, "I am feeling " + moodName.getText() + " right now!");
 			sendIntent.putExtra(Intent.EXTRA_SUBJECT, "My mood today.");
 			sendIntent.setType("text/plain");
 			startActivity(Intent.createChooser(sendIntent, "Share with your friends"));
