@@ -11,6 +11,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.view.Display;
@@ -43,7 +44,7 @@ public class PAMActivity extends Activity implements OnClickListener,
 			R.drawable.pam_miserable1, R.drawable.pam_sad1,
 			R.drawable.pam_calm1, R.drawable.pam_satisfied1,
 			R.drawable.pam_gloomy1, R.drawable.pam_tired1,
-			R.drawable.pam_sleepy1, R.drawable.pam_serene1, };
+			R.drawable.pam_sleepy1, R.drawable.pam_serene1 };
 
 	Point pointToGetSize;
 
@@ -92,7 +93,49 @@ public class PAMActivity extends Activity implements OnClickListener,
 			saveData();
 			break;
 		case R.id.buttonSharePAM:
-			// TODO: Open option to share by various means
+			String moodName = "";
+			
+			if (currentPos == 0){
+				moodName = "Afraid";
+			} else if (currentPos == 1){
+				moodName = "Tense";
+			} else if (currentPos == 2){
+				moodName = "Excited";
+			} else if (currentPos == 3){
+				moodName = "Delighted";
+			} else if (currentPos == 4){
+				moodName = "Frustrated";
+			} else if (currentPos == 5){
+				moodName = "Angry";
+			} else if (currentPos == 6){
+				moodName = "Happy";
+			} else if (currentPos == 7){
+				moodName = "Glad";
+			} else if (currentPos == 8){
+				moodName = "Miserable";
+			} else if (currentPos == 9){
+				moodName = "Sad";
+			} else if (currentPos == 10){
+				moodName = "Calm";
+			} else if (currentPos == 11){
+				moodName = "Satisfied";
+			} else if (currentPos == 12){
+				moodName = "Gloomy";
+			} else if (currentPos == 13){
+				moodName = "Tired";
+			} else if (currentPos == 14){
+				moodName = "Sleepy";
+			} else if (currentPos == 15){
+				moodName = "Serene";
+			}
+			
+			Intent sendIntent = new Intent();
+			sendIntent.setAction(Intent.ACTION_SEND);
+			sendIntent.putExtra(Intent.EXTRA_TEXT, "I am feeling " + moodName + " right now!");
+			sendIntent.putExtra(Intent.EXTRA_SUBJECT, "My mood today.");
+			sendIntent.setType("text/plain");
+			startActivity(Intent.createChooser(sendIntent, "Share with your friends"));
+			
 			break;
 		case R.id.buttonNotePAM:
 			displayNoteDialog();
@@ -108,7 +151,7 @@ public class PAMActivity extends Activity implements OnClickListener,
 	@SuppressLint("SimpleDateFormat")
 	private void saveData() {
 		String currentDateAndTime, data;
-
+		
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy, HH:mm");
 		currentDateAndTime = sdf.format(new Date());
 

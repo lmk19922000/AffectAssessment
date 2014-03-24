@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -104,7 +105,13 @@ public class SPANEWithPhotoActivity extends Activity implements
 			saveData();
 			break;
 		case R.id.buttonShareSPANEWithPhoto:
-			// TODO: Open option to share by various means
+			Intent sendIntent = new Intent();
+			sendIntent.setAction(Intent.ACTION_SEND);
+			sendIntent.putExtra(Intent.EXTRA_TEXT, "I am feeling  right now!");
+			sendIntent.putExtra(Intent.EXTRA_SUBJECT, "My mood today.");
+			sendIntent.setType("text/plain");
+			startActivity(Intent.createChooser(sendIntent, "Share with your friends"));
+			
 			break;
 		case R.id.buttonNoteSPANEWithPhoto:
 			displayNoteDialog();
