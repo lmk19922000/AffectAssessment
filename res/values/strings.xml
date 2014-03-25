@@ -11,6 +11,7 @@
     <string name="panas_long_with_photo">PANAS</string>
     <string name="pam">PAM</string>
     <string name="statistics">Statistics</string>
+    <string name="export_to_pdf">Export To PDF</string>
     
     <string name="save">Save</string>
     <string name="share">Share</string>

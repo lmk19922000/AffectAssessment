@@ -303,6 +303,7 @@ public class AffectButtonActivity extends Activity implements OnTouchListener,
 		String data = currentDateAndTime + "," + moodName.getText() + ","
 				+ String.valueOf(p) + "," + String.valueOf(a) + ","
 				+ String.valueOf(d) + "," + note + "\n";
+		
 		try {
 			OutputStreamWriter outputStreamWriter = new OutputStreamWriter(
 					getApplicationContext().openFileOutput(AFFECTBUTTON_DATA_FILENAME,
