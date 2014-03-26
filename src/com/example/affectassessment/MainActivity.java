@@ -1,6 +1,7 @@
 package com.example.affectassessment;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -17,11 +18,13 @@ import com.itextpdf.text.Font;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
@@ -74,10 +77,25 @@ public class MainActivity extends Activity implements OnClickListener {
 			startActivity(myIntent);
 			break;
 		case R.id.buttonExportToPDF:
-			export();
+			String fileName = export();
 			Toast.makeText(MainActivity.this,
 					"Mood report created in phone storage", Toast.LENGTH_SHORT)
 					.show();
+			
+			File file = new File(Environment.getExternalStorageDirectory().getPath() + fileName);
+			Intent target = new Intent(Intent.ACTION_VIEW);
+			target.setDataAndType(Uri.fromFile(file),"application/pdf");
+			target.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+
+			Intent intent = Intent.createChooser(target, "Open File");
+			try {
+			    startActivity(intent);
+			} catch (ActivityNotFoundException e) {
+				Toast.makeText(MainActivity.this,
+						"It seems that you don't have any PDF viewer app. Please install one", Toast.LENGTH_LONG)
+						.show();
+			}   
+			
 			break;
 		case R.id.buttonAbout:
 			showAboutDialog();
@@ -113,7 +131,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		dialog.getWindow().setAttributes(lp);		
 	}
 
-	private void export() {
+	private String export() {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 		String currentDate = sdf.format(new Date());
 		String FILE = "/[Mood Report][" + currentDate + "].pdf";
@@ -204,6 +222,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			e.printStackTrace();
 		}
 
+		return FILE;
 	}
 
 	private String readDataPAM() {

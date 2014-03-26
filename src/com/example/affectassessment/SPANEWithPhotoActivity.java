@@ -11,6 +11,8 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -38,6 +40,9 @@ public class SPANEWithPhotoActivity extends Activity implements
 	ImageView imvPositive, imvNegative, imvGood, imvBad, imvPleasant, imvUnpleasant, imvHappy, imvSad, imvAfraid, imvJoyful, imvAngry, imvContented;
 	
 	String note = "";
+	
+	SoundPool sp;
+	int soundID;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +101,8 @@ public class SPANEWithPhotoActivity extends Activity implements
 		imvAngry = (ImageView) findViewById(R.id.imageViewSPANEWithPhotoAngry);
 		imvContented = (ImageView) findViewById(R.id.imageViewSPANEWithPhotoContented);
 		
+		sp = new SoundPool(1, AudioManager.STREAM_NOTIFICATION, 0);
+		soundID = sp.load(this, R.raw.save_sound, 1);
 	}
 
 	@Override
@@ -200,6 +207,8 @@ public class SPANEWithPhotoActivity extends Activity implements
 		}
 		
 		Toast.makeText(SPANEWithPhotoActivity.this,"Saved", Toast.LENGTH_SHORT).show();
+		
+		sp.play(soundID, 1, 1, 1, 0, 1);
 	}
 
 	private void displayNoteDialog() {

@@ -11,6 +11,8 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -33,6 +35,9 @@ public class SPANENoPhotoActivity extends Activity implements OnClickListener {
 			radioGroupAngry, radioGroupContented;
 	
 	String note = "";
+	
+	SoundPool sp;
+	int soundID;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +69,9 @@ public class SPANENoPhotoActivity extends Activity implements OnClickListener {
 		radioGroupJoyful = (RadioGroup) findViewById(R.id.radioGroupJoyful);
 		radioGroupAngry = (RadioGroup) findViewById(R.id.radioGroupAngry);
 		radioGroupContented = (RadioGroup) findViewById(R.id.radioGroupContented);
+		
+		sp = new SoundPool(1, AudioManager.STREAM_NOTIFICATION, 0);
+		soundID = sp.load(this, R.raw.save_sound, 1);
 	}
 
 	@Override
@@ -169,6 +177,8 @@ public class SPANENoPhotoActivity extends Activity implements OnClickListener {
 		}
 	
 		Toast.makeText(SPANENoPhotoActivity.this,"Saved", Toast.LENGTH_SHORT).show();
+		
+		sp.play(soundID, 1, 1, 1, 0, 1);
 	}
 
 	private void displayNoteDialog() {

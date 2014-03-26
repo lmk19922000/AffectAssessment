@@ -11,6 +11,8 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -34,6 +36,9 @@ public class PANASShortNoPhotoActivity extends Activity implements
 
 	String note = "";
 
+	SoundPool sp;
+	int soundID;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -62,6 +67,9 @@ public class PANASShortNoPhotoActivity extends Activity implements
 		seekBarAttentive = (SeekBar) findViewById(R.id.seekBarPANASShortAttentive);
 		seekBarActive = (SeekBar) findViewById(R.id.seekBarPANASShortActive);
 		seekBarAfraid = (SeekBar) findViewById(R.id.seekBarPANASShortAfraid);
+		
+		sp = new SoundPool(1, AudioManager.STREAM_NOTIFICATION, 0);
+		soundID = sp.load(this, R.raw.save_sound, 1);
 	}
 
 	@Override
@@ -126,6 +134,8 @@ public class PANASShortNoPhotoActivity extends Activity implements
 		}
 		
 		Toast.makeText(PANASShortNoPhotoActivity.this,"Saved", Toast.LENGTH_SHORT).show();
+		
+		sp.play(soundID, 1, 1, 1, 0, 1);
 	}
 
 	private void displayNoteDialog() {

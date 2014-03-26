@@ -6,29 +6,11 @@
     android:id="@+id/RelativeLayoutAffectButton" >
 
     <TextView
-        android:id="@+id/myMoodGreeting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/dateTime"
-        android:layout_centerHorizontal="true"
-        android:text="@string/my_mood_greeting"
-        android:textSize="24sp" />
-
-    <TextView
-        android:id="@+id/dateTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="20sp" />
-
-    <TextView
         android:id="@+id/myCurrentMood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="69dp"
+        android:layout_above="@+id/buttonNote"
         android:textSize="25sp" />
 
     <Button
@@ -62,5 +44,15 @@
         android:layout_centerHorizontal="true"
         android:background="@drawable/button_background"
         android:text="@string/note" />
+
+    <TextView
+        android:id="@+id/myMoodGreeting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:text="@string/my_mood_greeting"
+        android:textSize="20sp" />
 
 </RelativeLayout>

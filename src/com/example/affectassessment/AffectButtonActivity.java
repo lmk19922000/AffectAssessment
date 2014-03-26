@@ -21,6 +21,8 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.RectF;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Display;
@@ -95,6 +97,10 @@ public class AffectButtonActivity extends Activity implements OnTouchListener,
 
 	Point pointToGetSize; // Size of the sudoku board (in terms of phone screen)
 
+	SoundPool sp;
+	int soundID;
+	
+	@SuppressLint("SimpleDateFormat")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -107,7 +113,9 @@ public class AffectButtonActivity extends Activity implements OnTouchListener,
 
 		initializeCompnentView();
 
-		initializeDateTime();
+		//initializeDateTime();
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy, HH:mm");
+		currentDateAndTime = sdf.format(new Date());
 	}
 
 	@SuppressLint("NewApi")
@@ -130,6 +138,9 @@ public class AffectButtonActivity extends Activity implements OnTouchListener,
 		yCord = -1;
 
 		note = "";
+		
+		sp = new SoundPool(1, AudioManager.STREAM_NOTIFICATION, 0);
+		soundID = sp.load(this, R.raw.save_sound, 1);
 	}
 
 	private void addCanvasView() {
@@ -156,7 +167,7 @@ public class AffectButtonActivity extends Activity implements OnTouchListener,
 	private void initializeCompnentView() {
 		affectButtonCanvas.setOnTouchListener(this);
 
-		dateTime = (TextView) findViewById(R.id.dateTime);
+		//dateTime = (TextView) findViewById(R.id.dateTime);
 		moodName = (TextView) findViewById(R.id.myCurrentMood);
 
 		btnSave = (Button) findViewById(R.id.buttonSave);
@@ -315,6 +326,8 @@ public class AffectButtonActivity extends Activity implements OnTouchListener,
 		}
 		
 		Toast.makeText(AffectButtonActivity.this,"Saved", Toast.LENGTH_SHORT).show();
+		
+		sp.play(soundID, 1, 1, 1, 0, 1);
 	}
 
 	private void displayNoteDialog() {

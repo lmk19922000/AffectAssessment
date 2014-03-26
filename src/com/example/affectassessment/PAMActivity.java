@@ -13,6 +13,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Point;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.view.Display;
 import android.view.LayoutInflater;
@@ -54,6 +56,9 @@ public class PAMActivity extends Activity implements OnClickListener,
 
 	String note = "";
 
+	SoundPool sp;
+	int soundID;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -84,6 +89,9 @@ public class PAMActivity extends Activity implements OnClickListener,
 		Display display = getWindowManager().getDefaultDisplay();
 		pointToGetSize = new Point();
 		display.getSize(pointToGetSize);
+		
+		sp = new SoundPool(1, AudioManager.STREAM_NOTIFICATION, 0);
+		soundID = sp.load(this, R.raw.save_sound, 1);
 	}
 
 	@Override
@@ -168,6 +176,8 @@ public class PAMActivity extends Activity implements OnClickListener,
 		}
 
 		Toast.makeText(PAMActivity.this,"Saved", Toast.LENGTH_SHORT).show();
+		
+		sp.play(soundID, 1, 1, 1, 0, 1);
 	}
 
 	private void changeImageSet() {

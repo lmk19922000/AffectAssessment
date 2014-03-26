@@ -25,7 +25,7 @@
     <string name="features_description">- View statistics of your mood in the past through pie charts or bar charts.\n\n- Export a detailed report of your mood history in PDF form for your personal use.\n\n- Share your mood with your friends through various means such as Facebook, SMS or email, etc&#8230;</string>
     <string name="ok"><b>OK</b></string>
     
-    <string name="my_mood_greeting"><b>How do you feel?</b></string>
+    <string name="my_mood_greeting"><b>Move your finger to match your feeling</b></string>
     <string name="my_mood_note"><b>What do you want to say?</b></string>
     <string name="spane_question"><b>How much do you experience each of the following feelings?</b></string>
     <string name="spane_explaination1">1/ Very rare or never</string>
