@@ -4,6 +4,7 @@
     <string name="app_name">Mood Self-Assessment</string>
     <string name="action_settings">Settings</string>
     
+    <string name="report_mood">Report mood</string>
     <string name="affect_button">AffectButton</string>
     <string name="spane_with_photo">SPANE (Photo)</string>
     <string name="spane_no_photo">SPANE</string>

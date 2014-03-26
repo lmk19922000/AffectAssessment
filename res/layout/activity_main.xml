@@ -9,72 +9,22 @@
     android:background="@drawable/main_background"
     tools:context=".MainActivity" >
 
-    <Button
-        android:id="@+id/buttonAffectButton"
+     <Button
+        android:id="@+id/buttonReportMood"
         android:layout_width="200dp"
         android:layout_height="40dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="@drawable/button_background"
-        android:text="@string/affect_button" />
-
-    <Button
-        android:id="@+id/buttonPAM"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_alignLeft="@+id/buttonAffectButton"
-        android:layout_below="@+id/buttonPANASShortNoPhoto"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/button_background"
-        android:text="@string/pam" />
-
-    <Button
-        android:id="@+id/buttonPANASShortNoPhoto"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_alignLeft="@+id/buttonAffectButton"
-        android:layout_below="@+id/buttonPANASLongWithPhoto"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/button_background"
-        android:text="@string/panas_short_no_photo" />
-
-    <Button
-        android:id="@+id/buttonPANASLongWithPhoto"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_alignLeft="@+id/buttonAffectButton"
-        android:layout_below="@+id/buttonSPANEWithPhoto"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/button_background"
-        android:text="@string/panas_long_with_photo" />
-
-    <Button
-        android:id="@+id/buttonSPANEWithPhoto"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_alignLeft="@+id/buttonAffectButton"
-        android:layout_below="@+id/buttonSPANENoPhoto"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/button_background"
-        android:text="@string/spane_with_photo" />
-
-    <Button
-        android:id="@+id/buttonSPANENoPhoto"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_alignLeft="@+id/buttonAffectButton"
-        android:layout_below="@+id/buttonAffectButton"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/button_background"
-        android:text="@string/spane_no_photo" />
+        android:text="@string/report_mood" />
 
     <Button
         android:id="@+id/buttonStatistics"
         android:layout_width="200dp"
         android:layout_height="40dp"
-        android:layout_alignLeft="@+id/buttonAffectButton"
-        android:layout_below="@+id/buttonPAM"
+        android:layout_alignLeft="@+id/buttonReportMood"
+        android:layout_below="@+id/buttonReportMood"
         android:layout_marginTop="20dp"
         android:background="@drawable/button_background"
         android:text="@string/statistics" />
@@ -83,7 +33,7 @@
         android:id="@+id/buttonExportToPDF"
         android:layout_width="200dp"
         android:layout_height="40dp"
-        android:layout_alignLeft="@+id/buttonAffectButton"
+        android:layout_alignLeft="@+id/buttonReportMood"
         android:layout_below="@+id/buttonStatistics"
         android:layout_marginTop="20dp"
         android:background="@drawable/button_background"

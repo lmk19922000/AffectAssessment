@@ -38,8 +38,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	private static final String PANAS_SHORT_NO_PHOTO_DATA_FILENAME = "PANASShortNoPhotoData.txt";
 	private static final String PAM_DATA_FILENAME = "PAMData.txt";
 	
-	Button btnAffectButton, btnSPANEWithPhoto, btnSPANENoPhoto,
-			btnPANASShortNoPhoto, btnPANASLongWithPhoto, btnPAM, btnStatistics,
+	Button btnReportMood, btnStatistics,
 			btnExport;
 
 	@Override
@@ -47,21 +46,13 @@ public class MainActivity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		btnAffectButton = (Button) findViewById(R.id.buttonAffectButton);
-		btnSPANEWithPhoto = (Button) findViewById(R.id.buttonSPANEWithPhoto);
-		btnSPANENoPhoto = (Button) findViewById(R.id.buttonSPANENoPhoto);
-		btnPANASShortNoPhoto = (Button) findViewById(R.id.buttonPANASShortNoPhoto);
-		btnPANASLongWithPhoto = (Button) findViewById(R.id.buttonPANASLongWithPhoto);
-		btnPAM = (Button) findViewById(R.id.buttonPAM);
+		btnReportMood = (Button) findViewById(R.id.buttonReportMood);
+		
 		btnStatistics = (Button) findViewById(R.id.buttonStatistics);
 		btnExport = (Button) findViewById(R.id.buttonExportToPDF);
 
-		btnAffectButton.setOnClickListener(this);
-		btnSPANEWithPhoto.setOnClickListener(this);
-		btnSPANENoPhoto.setOnClickListener(this);
-		btnPANASShortNoPhoto.setOnClickListener(this);
-		btnPANASLongWithPhoto.setOnClickListener(this);
-		btnPAM.setOnClickListener(this);
+		btnReportMood.setOnClickListener(this);
+		
 		btnStatistics.setOnClickListener(this);
 		btnExport.setOnClickListener(this);
 	}
@@ -71,34 +62,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		Intent myIntent;
 
 		switch (v.getId()) {
-		case R.id.buttonAffectButton:
+		case R.id.buttonReportMood:
 			myIntent = new Intent(MainActivity.this.getApplicationContext(),
-					AffectButtonActivity.class);
-			startActivity(myIntent);
-			break;
-		case R.id.buttonSPANEWithPhoto:
-			myIntent = new Intent(MainActivity.this.getApplicationContext(),
-					SPANEWithPhotoActivity.class);
-			startActivity(myIntent);
-			break;
-		case R.id.buttonSPANENoPhoto:
-			myIntent = new Intent(MainActivity.this.getApplicationContext(),
-					SPANENoPhotoActivity.class);
-			startActivity(myIntent);
-			break;
-		case R.id.buttonPANASShortNoPhoto:
-			myIntent = new Intent(MainActivity.this.getApplicationContext(),
-					PANASShortNoPhotoActivity.class);
-			startActivity(myIntent);
-			break;
-		case R.id.buttonPANASLongWithPhoto:
-			myIntent = new Intent(MainActivity.this.getApplicationContext(),
-					PANASLongWithPhotoActivity.class);
-			startActivity(myIntent);
-			break;
-		case R.id.buttonPAM:
-			myIntent = new Intent(MainActivity.this.getApplicationContext(),
-					PAMActivity.class);
+					ReportMoodActivity.class);
 			startActivity(myIntent);
 			break;
 		case R.id.buttonStatistics:
