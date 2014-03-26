@@ -13,10 +13,17 @@
     <string name="pam">PAM</string>
     <string name="statistics">Statistics</string>
     <string name="export_to_pdf">Export To PDF</string>
+    <string name="about">About</string>
     
     <string name="save">Save</string>
     <string name="share">Share</string>
     <string name="note">Note</string>
+    
+    <string name="what_is_mood_self_assessment"><b>What is Mood Self-Assessment?</b></string>
+    <string name="mood_self_assessment_description">- <b>Mood Self-Assessment</b> is used to record your mood. You can choose from various methods to report your mood at any time.\n\n- The methods used include <b>AffectButton</b>, <b>SPANE</b> (Scale of Positive and Negative Experience), <b>PANAS</b> (Positive and Negative Affect Schedule) and <b>PAM</b> (Photographic Affect Meter).\n\n- The app is part of a research at National University of Singapore (NUS) to develop mobile versions of popular methods to measure human\'s mood and emotion.\n</string>
+    <string name="features"><b>Features</b></string>
+    <string name="features_description">- View statistics of your mood in the past through pie charts or bar charts.\n\n- Export a detailed report of your mood history in PDF form for your personal use.\n\n- Share your mood with your friends through various means such as Facebook, SMS or email, etc&#8230;</string>
+    <string name="ok"><b>OK</b></string>
     
     <string name="my_mood_greeting"><b>How do you feel?</b></string>
     <string name="my_mood_note"><b>What do you want to say?</b></string>
