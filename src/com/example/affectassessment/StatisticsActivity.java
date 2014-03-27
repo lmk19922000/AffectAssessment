@@ -11,7 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 
 public class StatisticsActivity extends Activity implements OnClickListener {
 
@@ -53,7 +53,7 @@ public class StatisticsActivity extends Activity implements OnClickListener {
 			Resources res = getResources();
 			Drawable drawable = res
 					.getDrawable(R.drawable.gradient_background1);
-			RelativeLayout statisticsLayout = (RelativeLayout) findViewById(R.id.statisticsLayout);
+			LinearLayout statisticsLayout = (LinearLayout) findViewById(R.id.statisticsLayout);
 			statisticsLayout.setBackground(drawable);
 
 			btnAffectButton.setBackground(getResources().getDrawable(
@@ -72,7 +72,7 @@ public class StatisticsActivity extends Activity implements OnClickListener {
 			Resources res = getResources();
 			Drawable drawable = res
 					.getDrawable(R.drawable.gradient_background2);
-			RelativeLayout statisticsLayout = (RelativeLayout) findViewById(R.id.statisticsLayout);
+			LinearLayout statisticsLayout = (LinearLayout) findViewById(R.id.statisticsLayout);
 			statisticsLayout.setBackground(drawable);
 
 			btnAffectButton.setBackground(getResources().getDrawable(
@@ -91,7 +91,7 @@ public class StatisticsActivity extends Activity implements OnClickListener {
 			Resources res = getResources();
 			Drawable drawable = res
 					.getDrawable(R.drawable.gradient_background3);
-			RelativeLayout statisticsLayout = (RelativeLayout) findViewById(R.id.statisticsLayout);
+			LinearLayout statisticsLayout = (LinearLayout) findViewById(R.id.statisticsLayout);
 			statisticsLayout.setBackground(drawable);
 
 			btnAffectButton.setBackground(getResources().getDrawable(

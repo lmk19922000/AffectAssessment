@@ -40,7 +40,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import android.widget.RadioGroup.OnCheckedChangeListener;
@@ -105,7 +104,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			Resources res = getResources();
 			Drawable drawable = res
 					.getDrawable(R.drawable.gradient_background1);
-			RelativeLayout mainLayout = (RelativeLayout) findViewById(R.id.mainLayout);
+			LinearLayout mainLayout = (LinearLayout) findViewById(R.id.mainLayout);
 			mainLayout.setBackground(drawable);
 
 			btnReportMood.setBackground(getResources().getDrawable(
@@ -124,7 +123,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			Resources res = getResources();
 			Drawable drawable = res
 					.getDrawable(R.drawable.gradient_background2);
-			RelativeLayout mainLayout = (RelativeLayout) findViewById(R.id.mainLayout);
+			LinearLayout mainLayout = (LinearLayout) findViewById(R.id.mainLayout);
 			mainLayout.setBackground(drawable);
 
 			btnReportMood.setBackground(getResources().getDrawable(
@@ -143,7 +142,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			Resources res = getResources();
 			Drawable drawable = res
 					.getDrawable(R.drawable.gradient_background3);
-			RelativeLayout mainLayout = (RelativeLayout) findViewById(R.id.mainLayout);
+			LinearLayout mainLayout = (LinearLayout) findViewById(R.id.mainLayout);
 			mainLayout.setBackground(drawable);
 
 			btnReportMood.setBackground(getResources().getDrawable(
@@ -171,11 +170,13 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		switch (v.getId()) {
 		case R.id.buttonReportMood:
+			Log.i("report clicked", "dcm");
 			myIntent = new Intent(MainActivity.this.getApplicationContext(),
 					ReportMoodActivity.class);
 			startActivity(myIntent);
 			break;
 		case R.id.buttonStatistics:
+			Log.i("statistics clicked", "vkl");
 			myIntent = new Intent(MainActivity.this.getApplicationContext(),
 					StatisticsActivity.class);
 			startActivity(myIntent);
@@ -312,7 +313,7 @@ public class MainActivity extends Activity implements OnClickListener {
 							Resources res = getResources();
 							Drawable drawable = res
 									.getDrawable(R.drawable.gradient_background1);
-							RelativeLayout mainLayout = (RelativeLayout) findViewById(R.id.mainLayout);
+							LinearLayout mainLayout = (LinearLayout) findViewById(R.id.mainLayout);
 							mainLayout.setBackground(drawable);
 
 							LinearLayout settingsLayout = (LinearLayout) dialog
@@ -341,7 +342,7 @@ public class MainActivity extends Activity implements OnClickListener {
 							Resources res = getResources();
 							Drawable drawable = res
 									.getDrawable(R.drawable.gradient_background2);
-							RelativeLayout mainLayout = (RelativeLayout) findViewById(R.id.mainLayout);
+							LinearLayout mainLayout = (LinearLayout) findViewById(R.id.mainLayout);
 							mainLayout.setBackground(drawable);
 
 							LinearLayout settingsLayout = (LinearLayout) dialog
@@ -370,7 +371,7 @@ public class MainActivity extends Activity implements OnClickListener {
 							Resources res = getResources();
 							Drawable drawable = res
 									.getDrawable(R.drawable.gradient_background3);
-							RelativeLayout mainLayout = (RelativeLayout) findViewById(R.id.mainLayout);
+							LinearLayout mainLayout = (LinearLayout) findViewById(R.id.mainLayout);
 							mainLayout.setBackground(drawable);
 
 							LinearLayout settingsLayout = (LinearLayout) dialog

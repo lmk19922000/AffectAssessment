@@ -11,7 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 
 public class ReportMoodActivity extends Activity implements OnClickListener{
 
@@ -52,7 +52,7 @@ public class ReportMoodActivity extends Activity implements OnClickListener{
 		if (settingChoice.compareTo("1") == 0){
 			Resources res = getResources();
 			Drawable drawable = res.getDrawable(R.drawable.gradient_background1); 
-			RelativeLayout reportMoodLayout = (RelativeLayout)findViewById(R.id.reportMoodLayout);
+			LinearLayout reportMoodLayout = (LinearLayout)findViewById(R.id.reportMoodLayout);
 			reportMoodLayout.setBackground(drawable);
 			
 			btnAffectButton.setBackground(getResources().getDrawable(R.drawable.button_background1_effect));
@@ -65,7 +65,7 @@ public class ReportMoodActivity extends Activity implements OnClickListener{
 		} else if (settingChoice.compareTo("2") == 0){
 			Resources res = getResources();
 			Drawable drawable = res.getDrawable(R.drawable.gradient_background2); 
-			RelativeLayout reportMoodLayout = (RelativeLayout)findViewById(R.id.reportMoodLayout);
+			LinearLayout reportMoodLayout = (LinearLayout)findViewById(R.id.reportMoodLayout);
 			reportMoodLayout.setBackground(drawable);
 			
 			btnAffectButton.setBackground(getResources().getDrawable(R.drawable.button_background2_effect));
@@ -77,7 +77,7 @@ public class ReportMoodActivity extends Activity implements OnClickListener{
 		} else if (settingChoice.compareTo("3") == 0){
 			Resources res = getResources();
 			Drawable drawable = res.getDrawable(R.drawable.gradient_background3); 
-			RelativeLayout reportMoodLayout = (RelativeLayout)findViewById(R.id.reportMoodLayout);
+			LinearLayout reportMoodLayout = (LinearLayout)findViewById(R.id.reportMoodLayout);
 			reportMoodLayout.setBackground(drawable);
 			
 			btnAffectButton.setBackground(getResources().getDrawable(R.drawable.button_background3_effect));
