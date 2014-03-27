@@ -28,13 +28,13 @@
         android:layout_height="0dp"
         android:layout_weight="60" >
 
-        <GridView
+        <com.example.affectassessment.ScrollableGridView
             android:id="@+id/gridViewPAM"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:numColumns="4"
              >
-        </GridView>
+        </com.example.affectassessment.ScrollableGridView>
     </ScrollView>
 
     <RelativeLayout

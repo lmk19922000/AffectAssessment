@@ -44,7 +44,7 @@ public class PAMActivity extends Activity implements OnClickListener,
 
 	Button btnSave, btnNote, btnShare, btnLoadMore;
 
-	GridView gv;
+	ScrollableGridView gv;
 
 	Integer[] imageIDs = { R.drawable.pam_afraid1, R.drawable.pam_tense1,
 			R.drawable.pam_excited1, R.drawable.pam_delighted1,
@@ -89,10 +89,11 @@ public class PAMActivity extends Activity implements OnClickListener,
 		btnShare.setOnClickListener(this);
 		btnLoadMore.setOnClickListener(this);
 
-		gv = (GridView) findViewById(R.id.gridViewPAM);
+		gv = (ScrollableGridView) findViewById(R.id.gridViewPAM);
 
 		adapter = new ImageAdapter(this);
 		gv.setAdapter(adapter);
+		gv.setExpanded(true);
 		gv.setOnItemClickListener(this);
 
 		Display display = getWindowManager().getDefaultDisplay();
