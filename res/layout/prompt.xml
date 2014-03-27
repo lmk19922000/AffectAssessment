@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/my_mood_note"
+        android:textColor="@color/Blue"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
@@ -33,14 +34,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="50"
-            android:text="@string/cancel" />
+            android:text="@string/cancel"
+            android:textColor="@color/Blue" />
 
         <Button
             android:id="@+id/buttonPromptOK"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="50"
-            android:text="@string/ok" />
+            android:text="@string/ok"
+            android:textColor="@color/Blue" />
     </LinearLayout>
 
 </LinearLayout>

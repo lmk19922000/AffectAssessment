@@ -37,6 +37,7 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -81,16 +82,28 @@ public class MainActivity extends Activity implements OnClickListener {
 		btnSettings.setOnClickListener(this);
 		btnAbout.setOnClickListener(this);
 
+		pref = getSharedPreferences("settings", 0);
+		
 		setTheme();
+		
+		setSound();
+	}
 
+	private void setSound() {
+		String settingSound = pref.getString("sound", "-1");
+		if (settingSound.compareTo("-1") == 0) {
+			SharedPreferences.Editor editor = pref.edit();
+			editor.putString("sound", "1");
+			editor.commit();
+			Log.i("sound set", "1");
+		}
+		
 		sp = new SoundPool(1, AudioManager.STREAM_NOTIFICATION, 0);
 		soundID = sp.load(this, R.raw.save_sound, 1);
 	}
 
 	@SuppressLint("NewApi")
 	private void setTheme() {
-		pref = getSharedPreferences("settings", 0);
-
 		String settingChoice = pref.getString("choice", "-1");
 		if (settingChoice.compareTo("-1") == 0) {
 			SharedPreferences.Editor editor = pref.edit();
@@ -186,7 +199,12 @@ public class MainActivity extends Activity implements OnClickListener {
 			Toast.makeText(MainActivity.this,
 					"Mood report created in phone storage", Toast.LENGTH_SHORT)
 					.show();
-			sp.play(soundID, 1, 1, 1, 0, 1);
+			
+			String settingSound = pref.getString("sound", "-1");
+			if (settingSound.compareTo("1") == 0) {
+				sp.play(soundID, 1, 1, 1, 0, 1);
+			}
+			
 			openPDF(fileName);
 
 			break;
@@ -268,6 +286,39 @@ public class MainActivity extends Activity implements OnClickListener {
 			Log.i("BUGGGGG", "setting choice incorrect");
 		}
 
+		CheckBox checkBoxSound = (CheckBox) dialog.findViewById(R.id.checkBoxSound);
+		
+		String settingSound = pref.getString("sound", "-1");
+		if (settingSound.compareTo("1") == 0) {
+			checkBoxSound.setChecked(true);
+		} else{
+			checkBoxSound.setChecked(false);
+		}
+		
+		checkBoxSound.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				if (((CheckBox) v).isChecked()){
+					SharedPreferences.Editor editor = pref.edit();
+					editor.putString("sound", "1");
+					editor.commit();
+					
+					sp.play(soundID, 1, 1, 1, 0, 1);
+				} else{
+					SharedPreferences.Editor editor = pref.edit();
+					editor.putString("sound", "0");
+					editor.commit();
+				}
+				
+			}
+
+			
+			
+		});
+		
+		
+		
 		radioGroupSettings
 				.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 

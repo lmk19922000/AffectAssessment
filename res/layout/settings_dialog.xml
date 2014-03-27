@@ -13,6 +13,7 @@
         android1:layout_height="wrap_content"
         android:gravity="center"
         android1:text="@string/choose_a_theme"
+        android:textColor="@color/Blue"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <RadioGroup
@@ -25,25 +26,45 @@
             android1:layout_width="match_parent"
             android1:layout_height="wrap_content"
             android1:checked="true"
-            android1:text="@string/theme1" />
+            android1:text="@string/theme1"
+             />
 
         <RadioButton
             android1:id="@+id/radioSettings2"
             android1:layout_width="match_parent"
             android1:layout_height="wrap_content"
-            android1:text="@string/theme2" />
+            android1:text="@string/theme2"
+             />
 
         <RadioButton
             android1:id="@+id/radioSettings3"
             android1:layout_width="match_parent"
             android1:layout_height="wrap_content"
-            android1:text="@string/theme3" />
+            android1:text="@string/theme3"
+             />
     </RadioGroup>
+
+    <TextView
+        android1:id="@+id/textViewNotificationSound"
+        android1:layout_width="match_parent"
+        android1:layout_height="wrap_content"
+        android:gravity="center"
+        android1:text="@string/notification_sound"
+        android:textColor="@color/Blue"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <CheckBox
+        android1:id="@+id/checkBoxSound"
+        android1:layout_width="match_parent"
+        android1:layout_height="wrap_content"
+        android1:text="@string/enable"
+         />
     
     <Button
         android:id="@+id/dialogButtonSettingsOK"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/ok" />
+        android:text="@string/ok"
+        android:textColor="@color/Blue" />
 
 </LinearLayout>

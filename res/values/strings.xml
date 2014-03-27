@@ -23,6 +23,8 @@
     <string name="theme1"><b>Theme 1</b></string>
     <string name="theme2"><b>Theme 2</b></string>
     <string name="theme3"><b>Theme 3</b></string>
+    <string name="notification_sound"><b>Notification sound</b></string>
+    <string name="enable"><b>Enable</b></string>
     
     <string name="save">Save</string>
     <string name="share">Share</string>

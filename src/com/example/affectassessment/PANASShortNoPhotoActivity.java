@@ -146,7 +146,10 @@ public class PANASShortNoPhotoActivity extends Activity implements
 		
 		Toast.makeText(PANASShortNoPhotoActivity.this,"Saved", Toast.LENGTH_SHORT).show();
 		
-		sp.play(soundID, 1, 1, 1, 0, 1);
+		String settingSound = pref.getString("sound", "-1");
+		if (settingSound.compareTo("1") == 0) {
+			sp.play(soundID, 1, 1, 1, 0, 1);
+		}
 	}
 
 	@SuppressLint("NewApi")
