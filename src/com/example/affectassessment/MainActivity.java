@@ -18,6 +18,8 @@ import com.itextpdf.text.Font;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -53,9 +55,12 @@ public class MainActivity extends Activity implements OnClickListener {
 	private static final String PANAS_SHORT_NO_PHOTO_DATA_FILENAME = "PANASShortNoPhotoData.txt";
 	private static final String PAM_DATA_FILENAME = "PAMData.txt";
 
-	Button btnReportMood, btnStatistics, btnExport, btnSettings, btnAbout;
+	Button btnReportMood, btnStatistics, btnExport, btnSend, btnSettings, btnAbout;
 
 	SharedPreferences pref;
+	
+	SoundPool sp;
+	int soundID;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -65,16 +70,21 @@ public class MainActivity extends Activity implements OnClickListener {
 		btnReportMood = (Button) findViewById(R.id.buttonReportMood);
 		btnStatistics = (Button) findViewById(R.id.buttonStatistics);
 		btnExport = (Button) findViewById(R.id.buttonExportToPDF);
+		btnSend = (Button) findViewById(R.id.buttonSendData);
 		btnSettings = (Button) findViewById(R.id.buttonSettings);
 		btnAbout = (Button) findViewById(R.id.buttonAbout);
 
 		btnReportMood.setOnClickListener(this);
 		btnStatistics.setOnClickListener(this);
 		btnExport.setOnClickListener(this);
+		btnSend.setOnClickListener(this);
 		btnSettings.setOnClickListener(this);
 		btnAbout.setOnClickListener(this);
 		
 		setTheme();
+		
+		sp = new SoundPool(1, AudioManager.STREAM_NOTIFICATION, 0);
+		soundID = sp.load(this, R.raw.save_sound, 1);
 	}
 
 	@SuppressLint("NewApi")
@@ -100,6 +110,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			btnReportMood.setBackground(drawable);
 			btnStatistics.setBackground(drawable);
 			btnExport.setBackground(drawable);
+			btnSend.setBackground(drawable);
 			btnSettings.setBackground(drawable);
 			btnAbout.setBackground(drawable);
 			
@@ -113,6 +124,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			btnReportMood.setBackground(drawable);
 			btnStatistics.setBackground(drawable);
 			btnExport.setBackground(drawable);
+			btnSend.setBackground(drawable);
 			btnSettings.setBackground(drawable);
 			btnAbout.setBackground(drawable);
 		} else if (settingChoice.compareTo("3") == 0){
@@ -125,6 +137,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			btnReportMood.setBackground(drawable);
 			btnStatistics.setBackground(drawable);
 			btnExport.setBackground(drawable);
+			btnSend.setBackground(drawable);
 			btnSettings.setBackground(drawable);
 			btnAbout.setBackground(drawable);
 		} else {
@@ -135,7 +148,9 @@ public class MainActivity extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		Intent myIntent;
-
+		
+		String fileName;
+		
 		switch (v.getId()) {
 		case R.id.buttonReportMood:
 			myIntent = new Intent(MainActivity.this.getApplicationContext(),
@@ -148,12 +163,19 @@ public class MainActivity extends Activity implements OnClickListener {
 			startActivity(myIntent);
 			break;
 		case R.id.buttonExportToPDF:
-			String fileName = export();
+			fileName = export(1);
 			Toast.makeText(MainActivity.this,
 					"Mood report created in phone storage", Toast.LENGTH_SHORT)
 					.show();
-			
+			sp.play(soundID, 1, 1, 1, 0, 1);
 			openPDF(fileName);   
+			
+			break;
+		case R.id.buttonSendData:
+			Toast.makeText(MainActivity.this,
+					"Preparing data to send...", Toast.LENGTH_SHORT)
+					.show();
+			fileName = export(2);
 			
 			break;
 		case R.id.buttonSettings:
@@ -269,6 +291,7 @@ public class MainActivity extends Activity implements OnClickListener {
 					btnReportMood.setBackground(drawable);
 					btnStatistics.setBackground(drawable);
 					btnExport.setBackground(drawable);
+					btnSend.setBackground(drawable);
 					btnSettings.setBackground(drawable);
 					btnAbout.setBackground(drawable);
 				} else if (settingChoice.compareTo("2") == 0){
@@ -285,6 +308,7 @@ public class MainActivity extends Activity implements OnClickListener {
 					btnStatistics.setBackground(drawable);
 					btnExport.setBackground(drawable);
 					btnSettings.setBackground(drawable);
+					btnSend.setBackground(drawable);
 					btnAbout.setBackground(drawable);
 				} else if (settingChoice.compareTo("3") == 0){
 					Resources res = getResources();
@@ -299,6 +323,7 @@ public class MainActivity extends Activity implements OnClickListener {
 					btnReportMood.setBackground(drawable);
 					btnStatistics.setBackground(drawable);
 					btnExport.setBackground(drawable);
+					btnSend.setBackground(drawable);
 					btnSettings.setBackground(drawable);
 					btnAbout.setBackground(drawable);
 				} else {
@@ -389,7 +414,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		dialog.getWindow().setAttributes(lp);		
 	}
 
-	private String export() {
+	private String export(int type) {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 		String currentDate = sdf.format(new Date());
 		String FILE = "/[Mood Report][" + currentDate + "].pdf";
@@ -480,6 +505,24 @@ public class MainActivity extends Activity implements OnClickListener {
 			e.printStackTrace();
 		}
 
+		// Start email intent
+		if (type == 2){
+			String emailAddress[] = {"lmk19922000@gmail.com"};
+			String emailSubject = "This my mood report created today";
+			String emailMessage = "Please find the report in the attachment";
+			
+			Uri fileURI = Uri.fromFile(new File(Environment.getExternalStorageDirectory().getPath()
+			+ FILE));
+			
+			Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+			emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, emailAddress);
+			emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, emailSubject);
+			emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, emailMessage);
+			emailIntent.putExtra(Intent.EXTRA_STREAM, fileURI);
+			emailIntent.setType("message/rfc822");
+			startActivity(emailIntent);
+		}
+		
 		return FILE;
 	}
 
