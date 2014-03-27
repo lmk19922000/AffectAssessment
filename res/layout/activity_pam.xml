@@ -18,17 +18,24 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/pam_instruction"
-            android:textSize="20sp"
-            android:textColor="@color/Blue" />
+            android:textColor="@color/Blue"
+            android:textSize="20sp" />
     </LinearLayout>
 
-    <GridView
-        android:id="@+id/gridViewPAM"
+    <ScrollView
+        android:id="@+id/scrollView1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="60"
-        android:numColumns="4" >
-    </GridView>
+        android:layout_weight="60" >
+
+        <GridView
+            android:id="@+id/gridViewPAM"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="4"
+             >
+        </GridView>
+    </ScrollView>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -41,42 +48,38 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
-        	android:layout_alignParentLeft="true"
-        	android:layout_marginBottom="18dp"
-        	android:layout_marginLeft="40dp"
-        	android:background="@drawable/save_icon"
-             />
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="18dp"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/save_icon" />
 
         <Button
             android:id="@+id/buttonNotePAM"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignBaseline="@+id/buttonSharePAM"
-        	android:layout_alignBottom="@+id/buttonSharePAM"
+            android:layout_alignBottom="@+id/buttonSharePAM"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/note_icon"
-             />
+            android:background="@drawable/note_icon" />
 
         <Button
             android:id="@+id/buttonSharePAM"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignBaseline="@+id/buttonSavePAM"
-        	android:layout_alignBottom="@+id/buttonSavePAM"
-        	android:layout_alignParentRight="true"
-        	android:layout_marginRight="40dp"
-            android:background="@drawable/share_icon"
-             />
+            android:layout_alignBottom="@+id/buttonSavePAM"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/share_icon" />
 
         <Button
             android:id="@+id/buttonLoadMorePAM"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_above="@+id/buttonNotePAM"
-            android:layout_marginBottom="10dp"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/change_icon"
-             />
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/change_icon" />
     </RelativeLayout>
 
 </LinearLayout>

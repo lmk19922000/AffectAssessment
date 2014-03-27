@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
-        android:layout_weight="15" >
+        android:layout_weight="20" >
 
 	    <TextView
 	        android:id="@+id/panasShortQuestion"
@@ -103,7 +103,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="70"
+        android:layout_weight="65"
         >
         
         <LinearLayout
