@@ -16,6 +16,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -100,6 +101,8 @@ public class AffectButtonActivity extends Activity implements OnTouchListener,
 	SoundPool sp;
 	int soundID;
 	
+	SharedPreferences pref;
+	
 	@SuppressLint("SimpleDateFormat")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -141,8 +144,6 @@ public class AffectButtonActivity extends Activity implements OnTouchListener,
 		
 		sp = new SoundPool(1, AudioManager.STREAM_NOTIFICATION, 0);
 		soundID = sp.load(this, R.raw.save_sound, 1);
-		
-		moodName.setText("");
 	}
 
 	private void addCanvasView() {
@@ -171,6 +172,7 @@ public class AffectButtonActivity extends Activity implements OnTouchListener,
 
 		//dateTime = (TextView) findViewById(R.id.dateTime);
 		moodName = (TextView) findViewById(R.id.myCurrentMood);
+		moodName.setText("");
 
 		btnSave = (Button) findViewById(R.id.buttonSave);
 		btnShare = (Button) findViewById(R.id.buttonShare);
@@ -349,7 +351,8 @@ public class AffectButtonActivity extends Activity implements OnTouchListener,
 
 		final EditText userInput = (EditText) promptsView
 				.findViewById(R.id.editTextDialogUserInput);
-
+		
+		
 		// set dialog message
 		alertDialogBuilder
 				.setCancelable(false)

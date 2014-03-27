@@ -32,8 +32,10 @@ import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
@@ -169,8 +171,9 @@ public class MainActivity extends Activity implements OnClickListener {
 	@SuppressLint("NewApi")
 	private void showSettingsDialog() {
 		final Dialog dialog = new Dialog(this);
+		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		dialog.setContentView(R.layout.settings_dialog);
-		dialog.setTitle("Choose a theme");
+		//dialog.setTitle("Choose a theme");
 
 		Button dialogButton = (Button) dialog
 				.findViewById(R.id.dialogButtonSettingsOK);
@@ -249,7 +252,7 @@ public class MainActivity extends Activity implements OnClickListener {
 					Resources res = getResources();
 					Drawable drawable = res.getDrawable(R.drawable.gradient_background1); 
 					RelativeLayout mainLayout = (RelativeLayout)findViewById(R.id.mainLayout);
-					mainLayout.setBackground(drawable);
+					mainLayout.setBackground(drawable);			
 					
 					drawable = res.getDrawable(R.drawable.button_background1);
 					btnReportMood.setBackground(drawable);
@@ -289,8 +292,34 @@ public class MainActivity extends Activity implements OnClickListener {
 			}
 		});
 	    
+		if (settingChoice.compareTo("1") == 0){
+			Resources res = getResources();
+			Drawable drawable = res.getDrawable(R.drawable.gradient_background1); 
+			
+			LinearLayout settingsLayout = (LinearLayout)dialog.findViewById(R.id.settingsLayout);
+			settingsLayout.setBackground(drawable);
+		} else if (settingChoice.compareTo("2") == 0){
+			Resources res = getResources();
+			Drawable drawable = res.getDrawable(R.drawable.gradient_background2); 
+			
+			LinearLayout settingsLayout = (LinearLayout)dialog.findViewById(R.id.settingsLayout);
+			settingsLayout.setBackground(drawable);
+		} else if (settingChoice.compareTo("3") == 0){
+			Resources res = getResources();
+			Drawable drawable = res.getDrawable(R.drawable.gradient_background3); 
+			
+			LinearLayout settingsLayout = (LinearLayout)dialog.findViewById(R.id.settingsLayout);
+			settingsLayout.setBackground(drawable);
+		}
+		
+		WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+	    lp.copyFrom(dialog.getWindow().getAttributes());
+	    lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+	    lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+	    
 		dialog.show();
 		
+		dialog.getWindow().setAttributes(lp);
 	}
 
 	private void openPDF(String fileName) {
@@ -309,11 +338,14 @@ public class MainActivity extends Activity implements OnClickListener {
 		}
 	}
 
+	@SuppressLint("NewApi")
 	private void showAboutDialog() {
 		final Dialog dialog = new Dialog(this);
+		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		dialog.setContentView(R.layout.info_dialog);
-		dialog.setTitle("About Mood Self-Assessment");
-
+		
+		//dialog.setTitle("About Mood Self-Assessment");
+		
 		Button dialogButton = (Button) dialog
 				.findViewById(R.id.dialogButtonOK);
 		// if button is clicked, close the custom dialog
@@ -324,6 +356,25 @@ public class MainActivity extends Activity implements OnClickListener {
 			}
 		});
 
+		String settingChoice = pref.getString("choice", "-1");
+		
+		if (settingChoice.compareTo("1") == 0){
+			Resources res = getResources();
+			Drawable drawable = res.getDrawable(R.drawable.gradient_background1); 
+			LinearLayout aboutLayout = (LinearLayout)dialog.findViewById(R.id.aboutLayout);
+			aboutLayout.setBackground(drawable);
+		} else if (settingChoice.compareTo("2") == 0){
+			Resources res = getResources();
+			Drawable drawable = res.getDrawable(R.drawable.gradient_background2); 
+			LinearLayout aboutLayout = (LinearLayout)dialog.findViewById(R.id.aboutLayout);
+			aboutLayout.setBackground(drawable);
+		} else if (settingChoice.compareTo("3") == 0){
+			Resources res = getResources();
+			Drawable drawable = res.getDrawable(R.drawable.gradient_background3); 
+			LinearLayout aboutLayout = (LinearLayout)dialog.findViewById(R.id.aboutLayout);
+			aboutLayout.setBackground(drawable);
+		}
+			
 		WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
 	    lp.copyFrom(dialog.getWindow().getAttributes());
 	    lp.width = WindowManager.LayoutParams.MATCH_PARENT;

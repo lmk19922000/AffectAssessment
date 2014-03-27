@@ -25,7 +25,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 
-public class SPANENoPhotoStatActivity{
+public class SPANENoPhotoStatActivity {
 	
 	private static final String SPANE_NO_PHOTO_DATA_FILENAME = "SPANENoPhotoData.txt";
 	
