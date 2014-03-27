@@ -158,6 +158,12 @@ public class PAMActivity extends Activity implements OnClickListener,
 
 	@SuppressLint("SimpleDateFormat")
 	private void saveData() {
+		
+		if (currentPos == -1){
+			Toast.makeText(PAMActivity.this,"Please select one photo", Toast.LENGTH_SHORT).show();
+			return;
+		}
+		
 		String currentDateAndTime, data;
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy, HH:mm");
@@ -398,7 +404,7 @@ public class PAMActivity extends Activity implements OnClickListener,
 
 				imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
-				imageView.setPadding(5, 5, 5, 5);
+				imageView.setPadding(6, 6, 6, 6);
 			} else {
 				imageView = (ImageView) convertView;
 			}

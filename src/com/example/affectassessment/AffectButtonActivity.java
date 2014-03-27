@@ -141,6 +141,8 @@ public class AffectButtonActivity extends Activity implements OnTouchListener,
 		
 		sp = new SoundPool(1, AudioManager.STREAM_NOTIFICATION, 0);
 		soundID = sp.load(this, R.raw.save_sound, 1);
+		
+		moodName.setText("");
 	}
 
 	private void addCanvasView() {
@@ -311,6 +313,11 @@ public class AffectButtonActivity extends Activity implements OnTouchListener,
 	}
 
 	private void saveData() {
+		if (moodName.getText().toString().compareTo("") == 0){
+			Toast.makeText(AffectButtonActivity.this,"Please select one mood state", Toast.LENGTH_SHORT).show();
+			return;
+		}
+		
 		String data = currentDateAndTime + "," + moodName.getText() + ","
 				+ String.valueOf(p) + "," + String.valueOf(a) + ","
 				+ String.valueOf(d) + "," + note + "\n";

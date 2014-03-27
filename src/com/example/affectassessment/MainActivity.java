@@ -407,7 +407,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
 			p = new Paragraph("\n", headingFont);
 			document.add(p);
-			p = new Paragraph("5/ PANAS (short version)", headingFont);
+			p = new Paragraph("5/ PANAS (short form)", headingFont);
 			document.add(p);
 			p = new Paragraph(readDataPANASShort());
 			document.add(p);
@@ -1015,7 +1015,7 @@ public class MainActivity extends Activity implements OnClickListener {
 										+ strSplit[6] + "\n");
 							} else {
 								str.append(strSplit[0] + "," + strSplit[1]
-										+ ", " + strSplit[2] + "\n");
+										+ ": " + strSplit[2] + "\n");
 							}
 							if (strSplit[2].compareTo("Angry") == 0) {
 								countAngry++;
