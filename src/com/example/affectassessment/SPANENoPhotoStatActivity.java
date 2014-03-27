@@ -61,7 +61,7 @@ public class SPANENoPhotoStatActivity {
 				Double.parseDouble(df.format(avgSad)), Double.parseDouble(df.format(avgAfraid)), Double.parseDouble(df.format(avgJoyful)), Double.parseDouble(df.format(avgAngry)),
 				Double.parseDouble(df.format(avgContented))});
 		
-		int[] colors = new int[] { Color.GREEN };
+		int[] colors = new int[] { Color.rgb(255, 90, 201) };
 		XYMultipleSeriesRenderer renderer = buildBarRenderer(colors);
 		renderer.setOrientation(Orientation.HORIZONTAL);
 		
@@ -72,7 +72,7 @@ public class SPANENoPhotoStatActivity {
 		renderer.setBarWidth(30);
 		
 		renderer.setXLabels(1);
-		renderer.setYLabels(10);
+		renderer.setYLabels(30);
 		
 		renderer.addXTextLabel(1, "Positive");
 		renderer.addXTextLabel(2, "Negative");

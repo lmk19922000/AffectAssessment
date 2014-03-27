@@ -80,7 +80,7 @@ public class PANASLongWithPhotoStatActivity {
 				Double.parseDouble(df.format(avgActive)),
 				Double.parseDouble(df.format(avgAfraid))});
 
-		int[] colors = new int[] { Color.MAGENTA };
+		int[] colors = new int[] { Color.rgb(90, 231, 255) };
 		XYMultipleSeriesRenderer renderer = buildBarRenderer(colors);
 		renderer.setOrientation(Orientation.HORIZONTAL);
 
@@ -89,10 +89,10 @@ public class PANASLongWithPhotoStatActivity {
 
 		renderer.setBarSpacing(0.5);
 		renderer.setBarWidth(30);
-
+		
 		renderer.setXLabels(1);
-		renderer.setYLabels(10);
-
+		renderer.setYLabels(30);
+		
 		renderer.addXTextLabel(1, "Interested");
 		renderer.addXTextLabel(2, "Distressed");
 		renderer.addXTextLabel(3, "Excited");

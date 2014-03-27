@@ -613,34 +613,34 @@
 
         <Button
             android:id="@+id/buttonNotePANASLongWithPhoto"
-            android:layout_width="90dp"
+            android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignBaseline="@+id/buttonSharePANASLongWithPhoto"
         	android:layout_alignBottom="@+id/buttonSharePANASLongWithPhoto"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/button_background1"
+            android:background="@drawable/note_icon"
              />
 
         <Button
             android:id="@+id/buttonSharePANASLongWithPhoto"
-            android:layout_width="90dp"
+            android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignBaseline="@+id/buttonSavePANASLongWithPhoto"
         	android:layout_alignBottom="@+id/buttonSavePANASLongWithPhoto"
         	android:layout_alignParentRight="true"
         	android:layout_marginRight="40dp"
-            android:background="@drawable/button_background1"
+            android:background="@drawable/share_icon"
              />
 
         <Button
             android:id="@+id/buttonSavePANASLongWithPhoto"
-            android:layout_width="90dp"
+            android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
         	android:layout_alignParentLeft="true"
         	android:layout_marginBottom="18dp"
         	android:layout_marginLeft="40dp"
-            android:background="@drawable/button_background1"
+            android:background="@drawable/save_icon"
              />
 
     </RelativeLayout>
