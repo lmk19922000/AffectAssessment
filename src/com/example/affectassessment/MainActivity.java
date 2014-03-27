@@ -26,12 +26,20 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
+
+import android.widget.RadioGroup.OnCheckedChangeListener;
 
 @SuppressLint("SimpleDateFormat")
 public class MainActivity extends Activity implements OnClickListener {
@@ -43,8 +51,10 @@ public class MainActivity extends Activity implements OnClickListener {
 	private static final String PANAS_SHORT_NO_PHOTO_DATA_FILENAME = "PANASShortNoPhotoData.txt";
 	private static final String PAM_DATA_FILENAME = "PAMData.txt";
 
-	Button btnReportMood, btnStatistics, btnExport, btnAbout;
+	Button btnReportMood, btnStatistics, btnExport, btnSettings, btnAbout;
 
+	SharedPreferences pref;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -53,12 +63,71 @@ public class MainActivity extends Activity implements OnClickListener {
 		btnReportMood = (Button) findViewById(R.id.buttonReportMood);
 		btnStatistics = (Button) findViewById(R.id.buttonStatistics);
 		btnExport = (Button) findViewById(R.id.buttonExportToPDF);
+		btnSettings = (Button) findViewById(R.id.buttonSettings);
 		btnAbout = (Button) findViewById(R.id.buttonAbout);
 
 		btnReportMood.setOnClickListener(this);
 		btnStatistics.setOnClickListener(this);
 		btnExport.setOnClickListener(this);
+		btnSettings.setOnClickListener(this);
 		btnAbout.setOnClickListener(this);
+		
+		setTheme();
+	}
+
+	@SuppressLint("NewApi")
+	private void setTheme() {
+		pref = getSharedPreferences("settings", 0);
+		
+		String settingChoice = pref.getString("choice", "-1");
+		if (settingChoice.compareTo("-1") == 0){			
+			SharedPreferences.Editor editor = pref.edit();
+			editor.putString("choice", "1");
+			editor.commit();
+			settingChoice = "1";
+			Log.i("preference set", "1");
+		}
+		
+		if (settingChoice.compareTo("1") == 0){
+			Resources res = getResources();
+			Drawable drawable = res.getDrawable(R.drawable.gradient_background1); 
+			RelativeLayout mainLayout = (RelativeLayout)findViewById(R.id.mainLayout);
+			mainLayout.setBackground(drawable);
+			
+			drawable = res.getDrawable(R.drawable.button_background1);
+			btnReportMood.setBackground(drawable);
+			btnStatistics.setBackground(drawable);
+			btnExport.setBackground(drawable);
+			btnSettings.setBackground(drawable);
+			btnAbout.setBackground(drawable);
+			
+		} else if (settingChoice.compareTo("2") == 0){
+			Resources res = getResources();
+			Drawable drawable = res.getDrawable(R.drawable.gradient_background2); 
+			RelativeLayout mainLayout = (RelativeLayout)findViewById(R.id.mainLayout);
+			mainLayout.setBackground(drawable);
+			
+			drawable = res.getDrawable(R.drawable.button_background2);
+			btnReportMood.setBackground(drawable);
+			btnStatistics.setBackground(drawable);
+			btnExport.setBackground(drawable);
+			btnSettings.setBackground(drawable);
+			btnAbout.setBackground(drawable);
+		} else if (settingChoice.compareTo("3") == 0){
+			Resources res = getResources();
+			Drawable drawable = res.getDrawable(R.drawable.gradient_background3); 
+			RelativeLayout mainLayout = (RelativeLayout)findViewById(R.id.mainLayout);
+			mainLayout.setBackground(drawable);
+			
+			drawable = res.getDrawable(R.drawable.button_background3);
+			btnReportMood.setBackground(drawable);
+			btnStatistics.setBackground(drawable);
+			btnExport.setBackground(drawable);
+			btnSettings.setBackground(drawable);
+			btnAbout.setBackground(drawable);
+		} else {
+			Log.i("BUGGGG", "setting choice is not correct");
+		}
 	}
 
 	@Override
@@ -82,20 +151,11 @@ public class MainActivity extends Activity implements OnClickListener {
 					"Mood report created in phone storage", Toast.LENGTH_SHORT)
 					.show();
 			
-			File file = new File(Environment.getExternalStorageDirectory().getPath() + fileName);
-			Intent target = new Intent(Intent.ACTION_VIEW);
-			target.setDataAndType(Uri.fromFile(file),"application/pdf");
-			target.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-
-			Intent intent = Intent.createChooser(target, "Open File");
-			try {
-			    startActivity(intent);
-			} catch (ActivityNotFoundException e) {
-				Toast.makeText(MainActivity.this,
-						"It seems that you don't have any PDF viewer app. Please install one", Toast.LENGTH_LONG)
-						.show();
-			}   
+			openPDF(fileName);   
 			
+			break;
+		case R.id.buttonSettings:
+			showSettingsDialog();
 			break;
 		case R.id.buttonAbout:
 			showAboutDialog();
@@ -104,6 +164,149 @@ public class MainActivity extends Activity implements OnClickListener {
 			break;
 		}
 
+	}
+
+	@SuppressLint("NewApi")
+	private void showSettingsDialog() {
+		final Dialog dialog = new Dialog(this);
+		dialog.setContentView(R.layout.settings_dialog);
+		dialog.setTitle("Choose a theme");
+
+		Button dialogButton = (Button) dialog
+				.findViewById(R.id.dialogButtonSettingsOK);
+		
+		final RadioGroup radioGroupSettings = (RadioGroup) dialog.findViewById(R.id.radioGroupSettings);
+
+		RadioButton radioBtnTheme1 = (RadioButton) dialog.findViewById(R.id.radioSettings1);
+		RadioButton radioBtnTheme2 = (RadioButton) dialog.findViewById(R.id.radioSettings2);
+		RadioButton radioBtnTheme3 = (RadioButton) dialog.findViewById(R.id.radioSettings3);
+		
+		String settingChoice = pref.getString("choice", "-1");
+		
+		if (settingChoice.compareTo("1") == 0){
+			radioBtnTheme1.setChecked(true);
+			radioBtnTheme2.setChecked(false);
+			radioBtnTheme3.setChecked(false);
+		} else if (settingChoice.compareTo("2") == 0){
+			radioBtnTheme2.setChecked(true);
+			radioBtnTheme1.setChecked(false);
+			radioBtnTheme3.setChecked(false);
+		} else if (settingChoice.compareTo("3") == 0){
+			radioBtnTheme3.setChecked(true);
+			radioBtnTheme2.setChecked(false);
+			radioBtnTheme1.setChecked(false);
+		} else{
+			Log.i("BUGGGGG", "setting choice incorrect");
+		}
+		
+		radioGroupSettings.setOnCheckedChangeListener(new OnCheckedChangeListener(){
+
+			@Override
+			public void onCheckedChanged(RadioGroup group, int id) {
+				int radioButtonID, idx;
+				View radioButton;
+
+				SharedPreferences.Editor editor = pref.edit();
+				
+				switch (group.getId()) {
+				case R.id.radioGroupSettings:
+					radioButtonID = radioGroupSettings.getCheckedRadioButtonId();
+					radioButton = radioGroupSettings.findViewById(radioButtonID);
+					idx = radioGroupSettings.indexOfChild(radioButton);
+
+					switch (idx) {
+					case 0:
+						editor.putString("choice", "1");
+						editor.commit();
+						break;
+					case 1:
+						editor.putString("choice", "2");
+						editor.commit();
+						break;
+					case 2:
+						editor.putString("choice", "3");
+						editor.commit();
+					default:
+						break;
+					}
+					break;
+					
+				default:
+					break;
+				}
+				
+			}
+			
+		});
+		
+		// if button is clicked, close the custom dialog
+		dialogButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				String settingChoice = pref.getString("choice", "-1");
+				
+				if (settingChoice.compareTo("1") == 0){
+					Resources res = getResources();
+					Drawable drawable = res.getDrawable(R.drawable.gradient_background1); 
+					RelativeLayout mainLayout = (RelativeLayout)findViewById(R.id.mainLayout);
+					mainLayout.setBackground(drawable);
+					
+					drawable = res.getDrawable(R.drawable.button_background1);
+					btnReportMood.setBackground(drawable);
+					btnStatistics.setBackground(drawable);
+					btnExport.setBackground(drawable);
+					btnSettings.setBackground(drawable);
+					btnAbout.setBackground(drawable);
+				} else if (settingChoice.compareTo("2") == 0){
+					Resources res = getResources();
+					Drawable drawable = res.getDrawable(R.drawable.gradient_background2); 
+					RelativeLayout mainLayout = (RelativeLayout)findViewById(R.id.mainLayout);
+					mainLayout.setBackground(drawable);
+					
+					drawable = res.getDrawable(R.drawable.button_background2);
+					btnReportMood.setBackground(drawable);
+					btnStatistics.setBackground(drawable);
+					btnExport.setBackground(drawable);
+					btnSettings.setBackground(drawable);
+					btnAbout.setBackground(drawable);
+				} else if (settingChoice.compareTo("3") == 0){
+					Resources res = getResources();
+					Drawable drawable = res.getDrawable(R.drawable.gradient_background3); 
+					RelativeLayout mainLayout = (RelativeLayout)findViewById(R.id.mainLayout);
+					mainLayout.setBackground(drawable);
+					
+					drawable = res.getDrawable(R.drawable.button_background3);
+					btnReportMood.setBackground(drawable);
+					btnStatistics.setBackground(drawable);
+					btnExport.setBackground(drawable);
+					btnSettings.setBackground(drawable);
+					btnAbout.setBackground(drawable);
+				} else {
+					Log.i("BUGGGG", "setting choice is not correct");
+				}
+				
+				dialog.dismiss();
+			}
+		});
+	    
+		dialog.show();
+		
+	}
+
+	private void openPDF(String fileName) {
+		File file = new File(Environment.getExternalStorageDirectory().getPath() + fileName);
+		Intent target = new Intent(Intent.ACTION_VIEW);
+		target.setDataAndType(Uri.fromFile(file),"application/pdf");
+		target.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+
+		Intent intent = Intent.createChooser(target, "Open File");
+		try {
+		    startActivity(intent);
+		} catch (ActivityNotFoundException e) {
+			Toast.makeText(MainActivity.this,
+					"It seems that you don't have any PDF viewer app. Please install one", Toast.LENGTH_LONG)
+					.show();
+		}
 	}
 
 	private void showAboutDialog() {

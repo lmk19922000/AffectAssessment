@@ -1,16 +1,23 @@
 package com.example.affectassessment;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 
 public class StatisticsActivity extends Activity implements OnClickListener{
 	
 	Button btnAffectButton, btnSPANEWithPhoto, btnSPANENoPhoto, btnPANASShortNoPhoto, btnPANASLongWithPhoto, btnPAM;
+	
+	SharedPreferences pref;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +38,61 @@ public class StatisticsActivity extends Activity implements OnClickListener{
 		btnPANASShortNoPhoto.setOnClickListener(this);
 		btnPANASLongWithPhoto.setOnClickListener(this);
 		btnPAM.setOnClickListener(this);
+		
+		setTheme();
 	}
 
+	@SuppressLint("NewApi")
+	private void setTheme() {
+		pref = getSharedPreferences("settings", 0);
+		
+		String settingChoice = pref.getString("choice", "-1");
+		
+		if (settingChoice.compareTo("1") == 0){
+			Resources res = getResources();
+			Drawable drawable = res.getDrawable(R.drawable.gradient_background1); 
+			RelativeLayout statisticsLayout = (RelativeLayout)findViewById(R.id.statisticsLayout);
+			statisticsLayout.setBackground(drawable);
+			
+			drawable = res.getDrawable(R.drawable.button_background1);
+			btnAffectButton.setBackground(drawable);
+			btnSPANEWithPhoto.setBackground(drawable);
+			btnSPANENoPhoto.setBackground(drawable);
+			btnPANASShortNoPhoto.setBackground(drawable);
+			btnPANASLongWithPhoto.setBackground(drawable);
+			btnPAM.setBackground(drawable);
+			
+		} else if (settingChoice.compareTo("2") == 0){
+			Resources res = getResources();
+			Drawable drawable = res.getDrawable(R.drawable.gradient_background2); 
+			RelativeLayout statisticsLayout = (RelativeLayout)findViewById(R.id.statisticsLayout);
+			statisticsLayout.setBackground(drawable);
+			
+			drawable = res.getDrawable(R.drawable.button_background2);
+			btnAffectButton.setBackground(drawable);
+			btnSPANEWithPhoto.setBackground(drawable);
+			btnSPANENoPhoto.setBackground(drawable);
+			btnPANASShortNoPhoto.setBackground(drawable);
+			btnPANASLongWithPhoto.setBackground(drawable);
+			btnPAM.setBackground(drawable);
+		} else if (settingChoice.compareTo("3") == 0){
+			Resources res = getResources();
+			Drawable drawable = res.getDrawable(R.drawable.gradient_background3); 
+			RelativeLayout statisticsLayout = (RelativeLayout)findViewById(R.id.statisticsLayout);
+			statisticsLayout.setBackground(drawable);
+			
+			drawable = res.getDrawable(R.drawable.button_background3);
+			btnAffectButton.setBackground(drawable);
+			btnSPANEWithPhoto.setBackground(drawable);
+			btnSPANENoPhoto.setBackground(drawable);
+			btnPANASShortNoPhoto.setBackground(drawable);
+			btnPANASLongWithPhoto.setBackground(drawable);
+			btnPAM.setBackground(drawable);
+		} else {
+			Log.i("BUGGGG", "setting choice is not correct");
+		}
+	}
+	
 	@Override
 	public void onClick(View v) {
 		Intent myIntent;

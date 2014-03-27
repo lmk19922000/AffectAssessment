@@ -1029,7 +1029,7 @@
             android:layout_alignBaseline="@+id/buttonShareSPANEWithPhoto"
         	android:layout_alignBottom="@+id/buttonShareSPANEWithPhoto"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/button_background"
+            android:background="@drawable/button_background1"
             android:text="@string/note" />
 
         <Button
@@ -1040,7 +1040,7 @@
         	android:layout_alignBottom="@+id/buttonSaveSPANEWithPhoto"
         	android:layout_alignParentRight="true"
         	android:layout_marginRight="40dp"
-            android:background="@drawable/button_background"
+            android:background="@drawable/button_background1"
             android:text="@string/share" />
 
         <Button
@@ -1051,7 +1051,7 @@
         	android:layout_alignParentLeft="true"
         	android:layout_marginBottom="18dp"
         	android:layout_marginLeft="40dp"
-            android:background="@drawable/button_background"
+            android:background="@drawable/button_background1"
             android:text="@string/save" />
 
     </RelativeLayout>

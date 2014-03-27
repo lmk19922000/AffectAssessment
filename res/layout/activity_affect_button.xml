@@ -21,7 +21,7 @@
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="18dp"
         android:layout_marginLeft="40dp"
-        android:background="@drawable/button_background"
+        android:background="@drawable/button_background1"
         android:text="@string/save" />
 
     <Button
@@ -32,7 +32,7 @@
         android:layout_alignBottom="@+id/buttonSave"
         android:layout_alignParentRight="true"
         android:layout_marginRight="40dp"
-        android:background="@drawable/button_background"
+        android:background="@drawable/button_background1"
         android:text="@string/share" />
 
     <Button
@@ -42,7 +42,7 @@
         android:layout_alignBaseline="@+id/buttonShare"
         android:layout_alignBottom="@+id/buttonShare"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/button_background"
+        android:background="@drawable/button_background1"
         android:text="@string/note" />
 
     <TextView
