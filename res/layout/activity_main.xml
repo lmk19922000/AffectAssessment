@@ -17,7 +17,7 @@
         android:layout_alignLeft="@+id/buttonReportMood"
         android:layout_below="@+id/buttonReportMood"
         android:layout_marginTop="20dp"
-        android:background="@drawable/button_background1"
+        android:background="@drawable/button_background1_effect"
         android:text="@string/statistics" />
     
     <Button
@@ -27,7 +27,7 @@
         android:layout_alignLeft="@+id/buttonReportMood"
         android:layout_below="@+id/buttonStatistics"
         android:layout_marginTop="20dp"
-        android:background="@drawable/button_background1"
+        android:background="@drawable/button_background1_effect"
         android:text="@string/export_to_pdf" />
     
     <Button
@@ -37,7 +37,7 @@
         android:layout_alignLeft="@+id/buttonReportMood"
         android:layout_below="@+id/buttonSendData"
         android:layout_marginTop="20dp"
-        android:background="@drawable/button_background1"
+        android:background="@drawable/button_background1_effect"
         android:text="@string/settings" />
     
     <Button
@@ -47,7 +47,7 @@
         android:layout_alignLeft="@+id/buttonReportMood"
         android:layout_below="@+id/buttonExportToPDF"
         android:layout_marginTop="20dp"
-        android:background="@drawable/button_background1"
+        android:background="@drawable/button_background1_effect"
         android:text="@string/send_data" />
     
     <Button
@@ -57,7 +57,7 @@
         android:layout_alignLeft="@+id/buttonReportMood"
         android:layout_below="@+id/buttonSettings"
         android:layout_marginTop="20dp"
-        android:background="@drawable/button_background1"
+        android:background="@drawable/button_background1_effect"
         android:text="@string/about" />
 
     <TextView
@@ -79,7 +79,7 @@
         android:layout_below="@+id/textViewWelcome"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="29dp"
-        android:background="@drawable/button_background1"
+        android:background="@drawable/button_background1_effect"
         android:text="@string/report_mood" />
 
 </RelativeLayout>

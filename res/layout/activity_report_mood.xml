@@ -17,7 +17,7 @@
         android:layout_alignLeft="@+id/buttonAffectButton"
         android:layout_below="@+id/buttonPANASShortNoPhoto"
         android:layout_marginTop="20dp"
-        android:background="@drawable/button_background1"
+        android:background="@drawable/button_background1_effect"
         android:text="@string/pam" />
 
     <Button
@@ -27,7 +27,7 @@
         android:layout_alignLeft="@+id/buttonAffectButton"
         android:layout_below="@+id/buttonPANASLongWithPhoto"
         android:layout_marginTop="20dp"
-        android:background="@drawable/button_background1"
+        android:background="@drawable/button_background1_effect"
         android:text="@string/panas_short_no_photo" />
 
     <Button
@@ -37,7 +37,7 @@
         android:layout_alignLeft="@+id/buttonAffectButton"
         android:layout_below="@+id/buttonSPANEWithPhoto"
         android:layout_marginTop="20dp"
-        android:background="@drawable/button_background1"
+        android:background="@drawable/button_background1_effect"
         android:text="@string/panas_long_with_photo" />
 
     <Button
@@ -47,7 +47,7 @@
         android:layout_alignLeft="@+id/buttonAffectButton"
         android:layout_below="@+id/buttonSPANENoPhoto"
         android:layout_marginTop="20dp"
-        android:background="@drawable/button_background1"
+        android:background="@drawable/button_background1_effect"
         android:text="@string/spane_with_photo" />
 
     <Button
@@ -57,7 +57,7 @@
         android:layout_alignLeft="@+id/buttonAffectButton"
         android:layout_below="@+id/buttonAffectButton"
         android:layout_marginTop="20dp"
-        android:background="@drawable/button_background1"
+        android:background="@drawable/button_background1_effect"
         android:text="@string/spane_no_photo" />
 
     <TextView
@@ -78,7 +78,7 @@
         android:layout_below="@+id/textViewReportMood"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="14dp"
-        android:background="@drawable/button_background1"
+        android:background="@drawable/button_background1_effect"
         android:text="@string/affect_button" />
 
 </RelativeLayout>

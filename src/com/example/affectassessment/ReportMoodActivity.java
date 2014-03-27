@@ -55,13 +55,12 @@ public class ReportMoodActivity extends Activity implements OnClickListener{
 			RelativeLayout reportMoodLayout = (RelativeLayout)findViewById(R.id.reportMoodLayout);
 			reportMoodLayout.setBackground(drawable);
 			
-			drawable = res.getDrawable(R.drawable.button_background1);
-			btnAffectButton.setBackground(drawable);
-			btnSPANEWithPhoto.setBackground(drawable);
-			btnSPANENoPhoto.setBackground(drawable);
-			btnPANASShortNoPhoto.setBackground(drawable);
-			btnPANASLongWithPhoto.setBackground(drawable);
-			btnPAM.setBackground(drawable);
+			btnAffectButton.setBackground(getResources().getDrawable(R.drawable.button_background1_effect));
+			btnSPANEWithPhoto.setBackground(getResources().getDrawable(R.drawable.button_background1_effect));
+			btnSPANENoPhoto.setBackground(getResources().getDrawable(R.drawable.button_background1_effect));
+			btnPANASShortNoPhoto.setBackground(getResources().getDrawable(R.drawable.button_background1_effect));
+			btnPANASLongWithPhoto.setBackground(getResources().getDrawable(R.drawable.button_background1_effect));
+			btnPAM.setBackground(getResources().getDrawable(R.drawable.button_background1_effect));
 			
 		} else if (settingChoice.compareTo("2") == 0){
 			Resources res = getResources();
@@ -69,26 +68,24 @@ public class ReportMoodActivity extends Activity implements OnClickListener{
 			RelativeLayout reportMoodLayout = (RelativeLayout)findViewById(R.id.reportMoodLayout);
 			reportMoodLayout.setBackground(drawable);
 			
-			drawable = res.getDrawable(R.drawable.button_background2);
-			btnAffectButton.setBackground(drawable);
-			btnSPANEWithPhoto.setBackground(drawable);
-			btnSPANENoPhoto.setBackground(drawable);
-			btnPANASShortNoPhoto.setBackground(drawable);
-			btnPANASLongWithPhoto.setBackground(drawable);
-			btnPAM.setBackground(drawable);
+			btnAffectButton.setBackground(getResources().getDrawable(R.drawable.button_background2_effect));
+			btnSPANEWithPhoto.setBackground(getResources().getDrawable(R.drawable.button_background2_effect));
+			btnSPANENoPhoto.setBackground(getResources().getDrawable(R.drawable.button_background2_effect));
+			btnPANASShortNoPhoto.setBackground(getResources().getDrawable(R.drawable.button_background2_effect));
+			btnPANASLongWithPhoto.setBackground(getResources().getDrawable(R.drawable.button_background2_effect));
+			btnPAM.setBackground(getResources().getDrawable(R.drawable.button_background2_effect));
 		} else if (settingChoice.compareTo("3") == 0){
 			Resources res = getResources();
 			Drawable drawable = res.getDrawable(R.drawable.gradient_background3); 
 			RelativeLayout reportMoodLayout = (RelativeLayout)findViewById(R.id.reportMoodLayout);
 			reportMoodLayout.setBackground(drawable);
 			
-			drawable = res.getDrawable(R.drawable.button_background3);
-			btnAffectButton.setBackground(drawable);
-			btnSPANEWithPhoto.setBackground(drawable);
-			btnSPANENoPhoto.setBackground(drawable);
-			btnPANASShortNoPhoto.setBackground(drawable);
-			btnPANASLongWithPhoto.setBackground(drawable);
-			btnPAM.setBackground(drawable);
+			btnAffectButton.setBackground(getResources().getDrawable(R.drawable.button_background3_effect));
+			btnSPANEWithPhoto.setBackground(getResources().getDrawable(R.drawable.button_background3_effect));
+			btnSPANENoPhoto.setBackground(getResources().getDrawable(R.drawable.button_background3_effect));
+			btnPANASShortNoPhoto.setBackground(getResources().getDrawable(R.drawable.button_background3_effect));
+			btnPANASLongWithPhoto.setBackground(getResources().getDrawable(R.drawable.button_background3_effect));
+			btnPAM.setBackground(getResources().getDrawable(R.drawable.button_background3_effect));
 		} else {
 			Log.i("BUGGGG", "setting choice is not correct");
 		}

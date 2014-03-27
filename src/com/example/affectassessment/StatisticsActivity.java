@@ -13,114 +13,138 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
-public class StatisticsActivity extends Activity implements OnClickListener{
-	
-	Button btnAffectButton, btnSPANEWithPhoto, btnSPANENoPhoto, btnPANASShortNoPhoto, btnPANASLongWithPhoto, btnPAM;
-	
+public class StatisticsActivity extends Activity implements OnClickListener {
+
+	Button btnAffectButton, btnSPANEWithPhoto, btnSPANENoPhoto,
+			btnPANASShortNoPhoto, btnPANASLongWithPhoto, btnPAM;
+
 	SharedPreferences pref;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
 		setContentView(R.layout.activity_statistics);
-		
+
 		btnAffectButton = (Button) findViewById(R.id.buttonAffectButtonStat);
 		btnSPANEWithPhoto = (Button) findViewById(R.id.buttonSPANEWithPhotoStat);
 		btnSPANENoPhoto = (Button) findViewById(R.id.buttonSPANENoPhotoStat);
 		btnPANASShortNoPhoto = (Button) findViewById(R.id.buttonPANASShortNoPhotoStat);
 		btnPANASLongWithPhoto = (Button) findViewById(R.id.buttonPANASLongWithPhotoStat);
 		btnPAM = (Button) findViewById(R.id.buttonPAMStat);
-		
+
 		btnAffectButton.setOnClickListener(this);
 		btnSPANEWithPhoto.setOnClickListener(this);
 		btnSPANENoPhoto.setOnClickListener(this);
 		btnPANASShortNoPhoto.setOnClickListener(this);
 		btnPANASLongWithPhoto.setOnClickListener(this);
 		btnPAM.setOnClickListener(this);
-		
+
 		setTheme();
 	}
 
 	@SuppressLint("NewApi")
 	private void setTheme() {
 		pref = getSharedPreferences("settings", 0);
-		
+
 		String settingChoice = pref.getString("choice", "-1");
-		
-		if (settingChoice.compareTo("1") == 0){
+
+		if (settingChoice.compareTo("1") == 0) {
 			Resources res = getResources();
-			Drawable drawable = res.getDrawable(R.drawable.gradient_background1); 
-			RelativeLayout statisticsLayout = (RelativeLayout)findViewById(R.id.statisticsLayout);
+			Drawable drawable = res
+					.getDrawable(R.drawable.gradient_background1);
+			RelativeLayout statisticsLayout = (RelativeLayout) findViewById(R.id.statisticsLayout);
 			statisticsLayout.setBackground(drawable);
-			
-			drawable = res.getDrawable(R.drawable.button_background1);
-			btnAffectButton.setBackground(drawable);
-			btnSPANEWithPhoto.setBackground(drawable);
-			btnSPANENoPhoto.setBackground(drawable);
-			btnPANASShortNoPhoto.setBackground(drawable);
-			btnPANASLongWithPhoto.setBackground(drawable);
-			btnPAM.setBackground(drawable);
-			
-		} else if (settingChoice.compareTo("2") == 0){
+
+			btnAffectButton.setBackground(getResources().getDrawable(
+					R.drawable.button_background1_effect));
+			btnSPANEWithPhoto.setBackground(getResources().getDrawable(
+					R.drawable.button_background1_effect));
+			btnSPANENoPhoto.setBackground(getResources().getDrawable(
+					R.drawable.button_background1_effect));
+			btnPANASShortNoPhoto.setBackground(getResources().getDrawable(
+					R.drawable.button_background1_effect));
+			btnPANASLongWithPhoto.setBackground(getResources().getDrawable(
+					R.drawable.button_background1_effect));
+			btnPAM.setBackground(getResources().getDrawable(
+					R.drawable.button_background1_effect));
+		} else if (settingChoice.compareTo("2") == 0) {
 			Resources res = getResources();
-			Drawable drawable = res.getDrawable(R.drawable.gradient_background2); 
-			RelativeLayout statisticsLayout = (RelativeLayout)findViewById(R.id.statisticsLayout);
+			Drawable drawable = res
+					.getDrawable(R.drawable.gradient_background2);
+			RelativeLayout statisticsLayout = (RelativeLayout) findViewById(R.id.statisticsLayout);
 			statisticsLayout.setBackground(drawable);
-			
-			drawable = res.getDrawable(R.drawable.button_background2);
-			btnAffectButton.setBackground(drawable);
-			btnSPANEWithPhoto.setBackground(drawable);
-			btnSPANENoPhoto.setBackground(drawable);
-			btnPANASShortNoPhoto.setBackground(drawable);
-			btnPANASLongWithPhoto.setBackground(drawable);
-			btnPAM.setBackground(drawable);
-		} else if (settingChoice.compareTo("3") == 0){
+
+			btnAffectButton.setBackground(getResources().getDrawable(
+					R.drawable.button_background2_effect));
+			btnSPANEWithPhoto.setBackground(getResources().getDrawable(
+					R.drawable.button_background2_effect));
+			btnSPANENoPhoto.setBackground(getResources().getDrawable(
+					R.drawable.button_background2_effect));
+			btnPANASShortNoPhoto.setBackground(getResources().getDrawable(
+					R.drawable.button_background2_effect));
+			btnPANASLongWithPhoto.setBackground(getResources().getDrawable(
+					R.drawable.button_background2_effect));
+			btnPAM.setBackground(getResources().getDrawable(
+					R.drawable.button_background2_effect));
+		} else if (settingChoice.compareTo("3") == 0) {
 			Resources res = getResources();
-			Drawable drawable = res.getDrawable(R.drawable.gradient_background3); 
-			RelativeLayout statisticsLayout = (RelativeLayout)findViewById(R.id.statisticsLayout);
+			Drawable drawable = res
+					.getDrawable(R.drawable.gradient_background3);
+			RelativeLayout statisticsLayout = (RelativeLayout) findViewById(R.id.statisticsLayout);
 			statisticsLayout.setBackground(drawable);
-			
-			drawable = res.getDrawable(R.drawable.button_background3);
-			btnAffectButton.setBackground(drawable);
-			btnSPANEWithPhoto.setBackground(drawable);
-			btnSPANENoPhoto.setBackground(drawable);
-			btnPANASShortNoPhoto.setBackground(drawable);
-			btnPANASLongWithPhoto.setBackground(drawable);
-			btnPAM.setBackground(drawable);
+
+			btnAffectButton.setBackground(getResources().getDrawable(
+					R.drawable.button_background3_effect));
+			btnSPANEWithPhoto.setBackground(getResources().getDrawable(
+					R.drawable.button_background3_effect));
+			btnSPANENoPhoto.setBackground(getResources().getDrawable(
+					R.drawable.button_background3_effect));
+			btnPANASShortNoPhoto.setBackground(getResources().getDrawable(
+					R.drawable.button_background3_effect));
+			btnPANASLongWithPhoto.setBackground(getResources().getDrawable(
+					R.drawable.button_background3_effect));
+			btnPAM.setBackground(getResources().getDrawable(
+					R.drawable.button_background3_effect));
 		} else {
 			Log.i("BUGGGG", "setting choice is not correct");
 		}
 	}
-	
+
 	@Override
 	public void onClick(View v) {
 		Intent myIntent;
-		
-		switch(v.getId()){
+
+		switch (v.getId()) {
 		case R.id.buttonAffectButtonStat:
-			myIntent = new Intent(getApplicationContext(), AffectButtonStatActivity.class);
+			myIntent = new Intent(getApplicationContext(),
+					AffectButtonStatActivity.class);
 			startActivity(myIntent);
 			break;
 		case R.id.buttonSPANEWithPhotoStat:
-			myIntent = new Intent(getApplicationContext(), SPANEWithPhotoStatActivity.class);
+			myIntent = new Intent(getApplicationContext(),
+					SPANEWithPhotoStatActivity.class);
 			startActivity(myIntent);
 			break;
 		case R.id.buttonPANASShortNoPhotoStat:
-			myIntent = new Intent(getApplicationContext(), PANASShortNoPhotoStatActivity.class);
+			myIntent = new Intent(getApplicationContext(),
+					PANASShortNoPhotoStatActivity.class);
 			startActivity(myIntent);
 			break;
 		case R.id.buttonSPANENoPhotoStat:
-			myIntent = (new SPANENoPhotoStatActivity()).execute(getApplicationContext());
+			myIntent = (new SPANENoPhotoStatActivity())
+					.execute(getApplicationContext());
 			startActivity(myIntent);
 			break;
-			
+
 		case R.id.buttonPANASLongWithPhotoStat:
-			myIntent = (new PANASLongWithPhotoStatActivity()).execute(getApplicationContext());
+			myIntent = (new PANASLongWithPhotoStatActivity())
+					.execute(getApplicationContext());
 			startActivity(myIntent);
 			break;
 		case R.id.buttonPAMStat:
-			myIntent = new Intent(getApplicationContext(), PAMStatActivity.class);
+			myIntent = new Intent(getApplicationContext(),
+					PAMStatActivity.class);
 			startActivity(myIntent);
 			break;
 		default:

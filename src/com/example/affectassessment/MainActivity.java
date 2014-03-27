@@ -55,13 +55,14 @@ public class MainActivity extends Activity implements OnClickListener {
 	private static final String PANAS_SHORT_NO_PHOTO_DATA_FILENAME = "PANASShortNoPhotoData.txt";
 	private static final String PAM_DATA_FILENAME = "PAMData.txt";
 
-	Button btnReportMood, btnStatistics, btnExport, btnSend, btnSettings, btnAbout;
+	Button btnReportMood, btnStatistics, btnExport, btnSend, btnSettings,
+			btnAbout;
 
 	SharedPreferences pref;
-	
+
 	SoundPool sp;
 	int soundID;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -80,9 +81,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		btnSend.setOnClickListener(this);
 		btnSettings.setOnClickListener(this);
 		btnAbout.setOnClickListener(this);
-		
+
 		setTheme();
-		
+
 		sp = new SoundPool(1, AudioManager.STREAM_NOTIFICATION, 0);
 		soundID = sp.load(this, R.raw.save_sound, 1);
 	}
@@ -90,56 +91,73 @@ public class MainActivity extends Activity implements OnClickListener {
 	@SuppressLint("NewApi")
 	private void setTheme() {
 		pref = getSharedPreferences("settings", 0);
-		
+
 		String settingChoice = pref.getString("choice", "-1");
-		if (settingChoice.compareTo("-1") == 0){			
+		if (settingChoice.compareTo("-1") == 0) {
 			SharedPreferences.Editor editor = pref.edit();
 			editor.putString("choice", "1");
 			editor.commit();
 			settingChoice = "1";
 			Log.i("preference set", "1");
 		}
-		
-		if (settingChoice.compareTo("1") == 0){
+
+		if (settingChoice.compareTo("1") == 0) {
 			Resources res = getResources();
-			Drawable drawable = res.getDrawable(R.drawable.gradient_background1); 
-			RelativeLayout mainLayout = (RelativeLayout)findViewById(R.id.mainLayout);
+			Drawable drawable = res
+					.getDrawable(R.drawable.gradient_background1);
+			RelativeLayout mainLayout = (RelativeLayout) findViewById(R.id.mainLayout);
 			mainLayout.setBackground(drawable);
-			
-			drawable = res.getDrawable(R.drawable.button_background1);
-			btnReportMood.setBackground(drawable);
-			btnStatistics.setBackground(drawable);
-			btnExport.setBackground(drawable);
-			btnSend.setBackground(drawable);
-			btnSettings.setBackground(drawable);
-			btnAbout.setBackground(drawable);
-			
-		} else if (settingChoice.compareTo("2") == 0){
+
+			btnReportMood.setBackground(getResources().getDrawable(
+					R.drawable.button_background1_effect));
+			btnStatistics.setBackground(getResources().getDrawable(
+					R.drawable.button_background1_effect));
+			btnExport.setBackground(getResources().getDrawable(
+					R.drawable.button_background1_effect));
+			btnSend.setBackground(getResources().getDrawable(
+					R.drawable.button_background1_effect));
+			btnAbout.setBackground(getResources().getDrawable(
+					R.drawable.button_background1_effect));
+			btnSettings.setBackground(getResources().getDrawable(
+					R.drawable.button_background1_effect));
+		} else if (settingChoice.compareTo("2") == 0) {
 			Resources res = getResources();
-			Drawable drawable = res.getDrawable(R.drawable.gradient_background2); 
-			RelativeLayout mainLayout = (RelativeLayout)findViewById(R.id.mainLayout);
+			Drawable drawable = res
+					.getDrawable(R.drawable.gradient_background2);
+			RelativeLayout mainLayout = (RelativeLayout) findViewById(R.id.mainLayout);
 			mainLayout.setBackground(drawable);
-			
-			drawable = res.getDrawable(R.drawable.button_background2);
-			btnReportMood.setBackground(drawable);
-			btnStatistics.setBackground(drawable);
-			btnExport.setBackground(drawable);
-			btnSend.setBackground(drawable);
-			btnSettings.setBackground(drawable);
-			btnAbout.setBackground(drawable);
-		} else if (settingChoice.compareTo("3") == 0){
+
+			btnReportMood.setBackground(getResources().getDrawable(
+					R.drawable.button_background2_effect));
+			btnStatistics.setBackground(getResources().getDrawable(
+					R.drawable.button_background2_effect));
+			btnExport.setBackground(getResources().getDrawable(
+					R.drawable.button_background2_effect));
+			btnSend.setBackground(getResources().getDrawable(
+					R.drawable.button_background2_effect));
+			btnAbout.setBackground(getResources().getDrawable(
+					R.drawable.button_background2_effect));
+			btnSettings.setBackground(getResources().getDrawable(
+					R.drawable.button_background2_effect));
+		} else if (settingChoice.compareTo("3") == 0) {
 			Resources res = getResources();
-			Drawable drawable = res.getDrawable(R.drawable.gradient_background3); 
-			RelativeLayout mainLayout = (RelativeLayout)findViewById(R.id.mainLayout);
+			Drawable drawable = res
+					.getDrawable(R.drawable.gradient_background3);
+			RelativeLayout mainLayout = (RelativeLayout) findViewById(R.id.mainLayout);
 			mainLayout.setBackground(drawable);
-			
-			drawable = res.getDrawable(R.drawable.button_background3);
-			btnReportMood.setBackground(drawable);
-			btnStatistics.setBackground(drawable);
-			btnExport.setBackground(drawable);
-			btnSend.setBackground(drawable);
-			btnSettings.setBackground(drawable);
-			btnAbout.setBackground(drawable);
+
+			btnReportMood.setBackground(getResources().getDrawable(
+					R.drawable.button_background3_effect));
+			btnStatistics.setBackground(getResources().getDrawable(
+					R.drawable.button_background3_effect));
+			btnExport.setBackground(getResources().getDrawable(
+					R.drawable.button_background3_effect));
+			btnSend.setBackground(getResources().getDrawable(
+					R.drawable.button_background3_effect));
+			btnAbout.setBackground(getResources().getDrawable(
+					R.drawable.button_background3_effect));
+			btnSettings.setBackground(getResources().getDrawable(
+					R.drawable.button_background3_effect));
 		} else {
 			Log.i("BUGGGG", "setting choice is not correct");
 		}
@@ -148,9 +166,9 @@ public class MainActivity extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		Intent myIntent;
-		
+
 		String fileName;
-		
+
 		switch (v.getId()) {
 		case R.id.buttonReportMood:
 			myIntent = new Intent(MainActivity.this.getApplicationContext(),
@@ -168,15 +186,14 @@ public class MainActivity extends Activity implements OnClickListener {
 					"Mood report created in phone storage", Toast.LENGTH_SHORT)
 					.show();
 			sp.play(soundID, 1, 1, 1, 0, 1);
-			openPDF(fileName);   
-			
+			openPDF(fileName);
+
 			break;
 		case R.id.buttonSendData:
-			Toast.makeText(MainActivity.this,
-					"Preparing data to send...", Toast.LENGTH_SHORT)
-					.show();
+			Toast.makeText(MainActivity.this, "Preparing data to send...",
+					Toast.LENGTH_SHORT).show();
 			fileName = export(2);
-			
+
 			break;
 		case R.id.buttonSettings:
 			showSettingsDialog();
@@ -195,144 +212,196 @@ public class MainActivity extends Activity implements OnClickListener {
 		final Dialog dialog = new Dialog(this);
 		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		dialog.setContentView(R.layout.settings_dialog);
-		//dialog.setTitle("Choose a theme");
+		// dialog.setTitle("Choose a theme");
 
 		dialog.setCancelable(false);
-		
+
 		Button dialogButton = (Button) dialog
 				.findViewById(R.id.dialogButtonSettingsOK);
-		
-		final RadioGroup radioGroupSettings = (RadioGroup) dialog.findViewById(R.id.radioGroupSettings);
 
-		RadioButton radioBtnTheme1 = (RadioButton) dialog.findViewById(R.id.radioSettings1);
-		RadioButton radioBtnTheme2 = (RadioButton) dialog.findViewById(R.id.radioSettings2);
-		RadioButton radioBtnTheme3 = (RadioButton) dialog.findViewById(R.id.radioSettings3);
-		
+		final RadioGroup radioGroupSettings = (RadioGroup) dialog
+				.findViewById(R.id.radioGroupSettings);
+
+		RadioButton radioBtnTheme1 = (RadioButton) dialog
+				.findViewById(R.id.radioSettings1);
+		RadioButton radioBtnTheme2 = (RadioButton) dialog
+				.findViewById(R.id.radioSettings2);
+		RadioButton radioBtnTheme3 = (RadioButton) dialog
+				.findViewById(R.id.radioSettings3);
+
 		String settingChoice = pref.getString("choice", "-1");
-		
+
 		Resources res = getResources();
-		
-		if (settingChoice.compareTo("1") == 0){
+
+		if (settingChoice.compareTo("1") == 0) {
 			radioBtnTheme1.setChecked(true);
 			radioBtnTheme2.setChecked(false);
 			radioBtnTheme3.setChecked(false);
-			
-			Drawable drawable = res.getDrawable(R.drawable.gradient_background1); 
-			LinearLayout settingsLayout = (LinearLayout)dialog.findViewById(R.id.settingsLayout);
+
+			Drawable drawable = res
+					.getDrawable(R.drawable.gradient_background1);
+			LinearLayout settingsLayout = (LinearLayout) dialog
+					.findViewById(R.id.settingsLayout);
 			settingsLayout.setBackground(drawable);
-		} else if (settingChoice.compareTo("2") == 0){
+		} else if (settingChoice.compareTo("2") == 0) {
 			radioBtnTheme2.setChecked(true);
 			radioBtnTheme1.setChecked(false);
 			radioBtnTheme3.setChecked(false);
-			
-			Drawable drawable = res.getDrawable(R.drawable.gradient_background2); 
-			LinearLayout settingsLayout = (LinearLayout)dialog.findViewById(R.id.settingsLayout);
+
+			Drawable drawable = res
+					.getDrawable(R.drawable.gradient_background2);
+			LinearLayout settingsLayout = (LinearLayout) dialog
+					.findViewById(R.id.settingsLayout);
 			settingsLayout.setBackground(drawable);
-		} else if (settingChoice.compareTo("3") == 0){
+		} else if (settingChoice.compareTo("3") == 0) {
 			radioBtnTheme3.setChecked(true);
 			radioBtnTheme2.setChecked(false);
 			radioBtnTheme1.setChecked(false);
-			
-			Drawable drawable = res.getDrawable(R.drawable.gradient_background3); 
-			LinearLayout settingsLayout = (LinearLayout)dialog.findViewById(R.id.settingsLayout);
+
+			Drawable drawable = res
+					.getDrawable(R.drawable.gradient_background3);
+			LinearLayout settingsLayout = (LinearLayout) dialog
+					.findViewById(R.id.settingsLayout);
 			settingsLayout.setBackground(drawable);
-		} else{
+		} else {
 			Log.i("BUGGGGG", "setting choice incorrect");
 		}
-		
-		radioGroupSettings.setOnCheckedChangeListener(new OnCheckedChangeListener(){
 
-			@Override
-			public void onCheckedChanged(RadioGroup group, int id) {
-				int radioButtonID, idx;
-				View radioButton;
+		radioGroupSettings
+				.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
-				SharedPreferences.Editor editor = pref.edit();
-				
-				switch (group.getId()) {
-				case R.id.radioGroupSettings:
-					radioButtonID = radioGroupSettings.getCheckedRadioButtonId();
-					radioButton = radioGroupSettings.findViewById(radioButtonID);
-					idx = radioGroupSettings.indexOfChild(radioButton);
+					@Override
+					public void onCheckedChanged(RadioGroup group, int id) {
+						int radioButtonID, idx;
+						View radioButton;
 
-					switch (idx) {
-					case 0:
-						editor.putString("choice", "1");
-						editor.commit();
-						break;
-					case 1:
-						editor.putString("choice", "2");
-						editor.commit();
-						break;
-					case 2:
-						editor.putString("choice", "3");
-						editor.commit();
-					default:
-						break;
+						SharedPreferences.Editor editor = pref.edit();
+
+						switch (group.getId()) {
+						case R.id.radioGroupSettings:
+							radioButtonID = radioGroupSettings
+									.getCheckedRadioButtonId();
+							radioButton = radioGroupSettings
+									.findViewById(radioButtonID);
+							idx = radioGroupSettings.indexOfChild(radioButton);
+
+							switch (idx) {
+							case 0:
+								editor.putString("choice", "1");
+								editor.commit();
+								break;
+							case 1:
+								editor.putString("choice", "2");
+								editor.commit();
+								break;
+							case 2:
+								editor.putString("choice", "3");
+								editor.commit();
+							default:
+								break;
+							}
+							break;
+
+						default:
+							break;
+						}
+
+						String settingChoice = pref.getString("choice", "-1");
+
+						if (settingChoice.compareTo("1") == 0) {
+							Resources res = getResources();
+							Drawable drawable = res
+									.getDrawable(R.drawable.gradient_background1);
+							RelativeLayout mainLayout = (RelativeLayout) findViewById(R.id.mainLayout);
+							mainLayout.setBackground(drawable);
+
+							LinearLayout settingsLayout = (LinearLayout) dialog
+									.findViewById(R.id.settingsLayout);
+							settingsLayout.setBackground(drawable);
+
+							btnReportMood
+									.setBackground(getResources()
+											.getDrawable(
+													R.drawable.button_background1_effect));
+							btnStatistics
+									.setBackground(getResources()
+											.getDrawable(
+													R.drawable.button_background1_effect));
+							btnExport.setBackground(getResources().getDrawable(
+									R.drawable.button_background1_effect));
+							btnSend.setBackground(getResources().getDrawable(
+									R.drawable.button_background1_effect));
+							btnAbout.setBackground(getResources().getDrawable(
+									R.drawable.button_background1_effect));
+							btnSettings
+									.setBackground(getResources()
+											.getDrawable(
+													R.drawable.button_background1_effect));
+						} else if (settingChoice.compareTo("2") == 0) {
+							Resources res = getResources();
+							Drawable drawable = res
+									.getDrawable(R.drawable.gradient_background2);
+							RelativeLayout mainLayout = (RelativeLayout) findViewById(R.id.mainLayout);
+							mainLayout.setBackground(drawable);
+
+							LinearLayout settingsLayout = (LinearLayout) dialog
+									.findViewById(R.id.settingsLayout);
+							settingsLayout.setBackground(drawable);
+
+							btnReportMood
+									.setBackground(getResources()
+											.getDrawable(
+													R.drawable.button_background2_effect));
+							btnStatistics
+									.setBackground(getResources()
+											.getDrawable(
+													R.drawable.button_background2_effect));
+							btnExport.setBackground(getResources().getDrawable(
+									R.drawable.button_background2_effect));
+							btnSend.setBackground(getResources().getDrawable(
+									R.drawable.button_background2_effect));
+							btnAbout.setBackground(getResources().getDrawable(
+									R.drawable.button_background2_effect));
+							btnSettings
+									.setBackground(getResources()
+											.getDrawable(
+													R.drawable.button_background2_effect));
+						} else if (settingChoice.compareTo("3") == 0) {
+							Resources res = getResources();
+							Drawable drawable = res
+									.getDrawable(R.drawable.gradient_background3);
+							RelativeLayout mainLayout = (RelativeLayout) findViewById(R.id.mainLayout);
+							mainLayout.setBackground(drawable);
+
+							LinearLayout settingsLayout = (LinearLayout) dialog
+									.findViewById(R.id.settingsLayout);
+							settingsLayout.setBackground(drawable);
+
+							btnReportMood
+									.setBackground(getResources()
+											.getDrawable(
+													R.drawable.button_background3_effect));
+							btnStatistics
+									.setBackground(getResources()
+											.getDrawable(
+													R.drawable.button_background3_effect));
+							btnExport.setBackground(getResources().getDrawable(
+									R.drawable.button_background3_effect));
+							btnSend.setBackground(getResources().getDrawable(
+									R.drawable.button_background3_effect));
+							btnAbout.setBackground(getResources().getDrawable(
+									R.drawable.button_background3_effect));
+							btnSettings
+									.setBackground(getResources()
+											.getDrawable(
+													R.drawable.button_background3_effect));
+						} else {
+							Log.i("BUGGGG", "setting choice is not correct");
+						}
 					}
-					break;
-					
-				default:
-					break;
-				}
-				
-				String settingChoice = pref.getString("choice", "-1");
-				
-				if (settingChoice.compareTo("1") == 0){
-					Resources res = getResources();
-					Drawable drawable = res.getDrawable(R.drawable.gradient_background1); 
-					RelativeLayout mainLayout = (RelativeLayout)findViewById(R.id.mainLayout);
-					mainLayout.setBackground(drawable);			
-					
-					LinearLayout settingsLayout = (LinearLayout)dialog.findViewById(R.id.settingsLayout);
-					settingsLayout.setBackground(drawable);
-					
-					drawable = res.getDrawable(R.drawable.button_background1);
-					btnReportMood.setBackground(drawable);
-					btnStatistics.setBackground(drawable);
-					btnExport.setBackground(drawable);
-					btnSend.setBackground(drawable);
-					btnSettings.setBackground(drawable);
-					btnAbout.setBackground(drawable);
-				} else if (settingChoice.compareTo("2") == 0){
-					Resources res = getResources();
-					Drawable drawable = res.getDrawable(R.drawable.gradient_background2); 
-					RelativeLayout mainLayout = (RelativeLayout)findViewById(R.id.mainLayout);
-					mainLayout.setBackground(drawable);
-					
-					LinearLayout settingsLayout = (LinearLayout)dialog.findViewById(R.id.settingsLayout);
-					settingsLayout.setBackground(drawable);
-					
-					drawable = res.getDrawable(R.drawable.button_background2);
-					btnReportMood.setBackground(drawable);
-					btnStatistics.setBackground(drawable);
-					btnExport.setBackground(drawable);
-					btnSettings.setBackground(drawable);
-					btnSend.setBackground(drawable);
-					btnAbout.setBackground(drawable);
-				} else if (settingChoice.compareTo("3") == 0){
-					Resources res = getResources();
-					Drawable drawable = res.getDrawable(R.drawable.gradient_background3); 
-					RelativeLayout mainLayout = (RelativeLayout)findViewById(R.id.mainLayout);
-					mainLayout.setBackground(drawable);
-					
-					LinearLayout settingsLayout = (LinearLayout)dialog.findViewById(R.id.settingsLayout);
-					settingsLayout.setBackground(drawable);
-					
-					drawable = res.getDrawable(R.drawable.button_background3);
-					btnReportMood.setBackground(drawable);
-					btnStatistics.setBackground(drawable);
-					btnExport.setBackground(drawable);
-					btnSend.setBackground(drawable);
-					btnSettings.setBackground(drawable);
-					btnAbout.setBackground(drawable);
-				} else {
-					Log.i("BUGGGG", "setting choice is not correct");
-				}
-			}
-			
-		});
-		
+
+				});
+
 		// if button is clicked, close the custom dialog
 		dialogButton.setOnClickListener(new OnClickListener() {
 			@Override
@@ -340,30 +409,32 @@ public class MainActivity extends Activity implements OnClickListener {
 				dialog.dismiss();
 			}
 		});
-		
+
 		WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
-	    lp.copyFrom(dialog.getWindow().getAttributes());
-	    lp.width = WindowManager.LayoutParams.MATCH_PARENT;
-	    lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
-	    
+		lp.copyFrom(dialog.getWindow().getAttributes());
+		lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+		lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+
 		dialog.show();
-		
+
 		dialog.getWindow().setAttributes(lp);
 	}
 
 	private void openPDF(String fileName) {
-		File file = new File(Environment.getExternalStorageDirectory().getPath() + fileName);
+		File file = new File(Environment.getExternalStorageDirectory()
+				.getPath() + fileName);
 		Intent target = new Intent(Intent.ACTION_VIEW);
-		target.setDataAndType(Uri.fromFile(file),"application/pdf");
+		target.setDataAndType(Uri.fromFile(file), "application/pdf");
 		target.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
 
 		Intent intent = Intent.createChooser(target, "Open File");
 		try {
-		    startActivity(intent);
+			startActivity(intent);
 		} catch (ActivityNotFoundException e) {
-			Toast.makeText(MainActivity.this,
-					"It seems that you don't have any PDF viewer app. Please install one", Toast.LENGTH_LONG)
-					.show();
+			Toast.makeText(
+					MainActivity.this,
+					"It seems that you don't have any PDF viewer app. Please install one",
+					Toast.LENGTH_LONG).show();
 		}
 	}
 
@@ -372,11 +443,10 @@ public class MainActivity extends Activity implements OnClickListener {
 		final Dialog dialog = new Dialog(this);
 		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		dialog.setContentView(R.layout.info_dialog);
-		
-		//dialog.setTitle("About Mood Self-Assessment");
-		
-		Button dialogButton = (Button) dialog
-				.findViewById(R.id.dialogButtonOK);
+
+		// dialog.setTitle("About Mood Self-Assessment");
+
+		Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
 		// if button is clicked, close the custom dialog
 		dialogButton.setOnClickListener(new OnClickListener() {
 			@Override
@@ -386,32 +456,38 @@ public class MainActivity extends Activity implements OnClickListener {
 		});
 
 		String settingChoice = pref.getString("choice", "-1");
-		
-		if (settingChoice.compareTo("1") == 0){
+
+		if (settingChoice.compareTo("1") == 0) {
 			Resources res = getResources();
-			Drawable drawable = res.getDrawable(R.drawable.gradient_background1); 
-			LinearLayout aboutLayout = (LinearLayout)dialog.findViewById(R.id.aboutLayout);
+			Drawable drawable = res
+					.getDrawable(R.drawable.gradient_background1);
+			LinearLayout aboutLayout = (LinearLayout) dialog
+					.findViewById(R.id.aboutLayout);
 			aboutLayout.setBackground(drawable);
-		} else if (settingChoice.compareTo("2") == 0){
+		} else if (settingChoice.compareTo("2") == 0) {
 			Resources res = getResources();
-			Drawable drawable = res.getDrawable(R.drawable.gradient_background2); 
-			LinearLayout aboutLayout = (LinearLayout)dialog.findViewById(R.id.aboutLayout);
+			Drawable drawable = res
+					.getDrawable(R.drawable.gradient_background2);
+			LinearLayout aboutLayout = (LinearLayout) dialog
+					.findViewById(R.id.aboutLayout);
 			aboutLayout.setBackground(drawable);
-		} else if (settingChoice.compareTo("3") == 0){
+		} else if (settingChoice.compareTo("3") == 0) {
 			Resources res = getResources();
-			Drawable drawable = res.getDrawable(R.drawable.gradient_background3); 
-			LinearLayout aboutLayout = (LinearLayout)dialog.findViewById(R.id.aboutLayout);
+			Drawable drawable = res
+					.getDrawable(R.drawable.gradient_background3);
+			LinearLayout aboutLayout = (LinearLayout) dialog
+					.findViewById(R.id.aboutLayout);
 			aboutLayout.setBackground(drawable);
 		}
-			
+
 		WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
-	    lp.copyFrom(dialog.getWindow().getAttributes());
-	    lp.width = WindowManager.LayoutParams.MATCH_PARENT;
-	    lp.height = WindowManager.LayoutParams.MATCH_PARENT;
-	    
+		lp.copyFrom(dialog.getWindow().getAttributes());
+		lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+		lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+
 		dialog.show();
-		
-		dialog.getWindow().setAttributes(lp);		
+
+		dialog.getWindow().setAttributes(lp);
 	}
 
 	private String export(int type) {
@@ -506,23 +582,26 @@ public class MainActivity extends Activity implements OnClickListener {
 		}
 
 		// Start email intent
-		if (type == 2){
-			String emailAddress[] = {"lmk19922000@gmail.com"};
+		if (type == 2) {
+			String emailAddress[] = { "lmk19922000@gmail.com" };
 			String emailSubject = "This my mood report created today";
 			String emailMessage = "Please find the report in the attachment";
-			
-			Uri fileURI = Uri.fromFile(new File(Environment.getExternalStorageDirectory().getPath()
-			+ FILE));
-			
+
+			Uri fileURI = Uri.fromFile(new File(Environment
+					.getExternalStorageDirectory().getPath() + FILE));
+
 			Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
-			emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, emailAddress);
-			emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, emailSubject);
-			emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, emailMessage);
+			emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL,
+					emailAddress);
+			emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,
+					emailSubject);
+			emailIntent.putExtra(android.content.Intent.EXTRA_TEXT,
+					emailMessage);
 			emailIntent.putExtra(Intent.EXTRA_STREAM, fileURI);
 			emailIntent.setType("message/rfc822");
 			startActivity(emailIntent);
 		}
-		
+
 		return FILE;
 	}
 
