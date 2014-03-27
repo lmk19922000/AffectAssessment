@@ -13,15 +13,18 @@ import java.util.Date;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
@@ -30,11 +33,14 @@ import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -144,6 +150,8 @@ public class AffectButtonActivity extends Activity implements OnTouchListener,
 		
 		sp = new SoundPool(1, AudioManager.STREAM_NOTIFICATION, 0);
 		soundID = sp.load(this, R.raw.save_sound, 1);
+		
+		pref = getSharedPreferences("settings", 0);
 	}
 
 	private void addCanvasView() {
@@ -339,7 +347,67 @@ public class AffectButtonActivity extends Activity implements OnTouchListener,
 		sp.play(soundID, 1, 1, 1, 0, 1);
 	}
 
+	@SuppressLint("NewApi")
 	private void displayNoteDialog() {
+		final Dialog dialog = new Dialog(this);
+		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		dialog.setContentView(R.layout.prompt);
+		
+		dialog.setCancelable(false);
+		
+		final EditText userInput = (EditText) dialog
+				.findViewById(R.id.editTextDialogUserInput);
+		
+		Button dialogButtonOK = (Button) dialog
+				.findViewById(R.id.buttonPromptOK);
+		// if button is clicked, close the custom dialog
+		dialogButtonOK.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				note = userInput.getText().toString();
+				dialog.dismiss();
+			}
+		});
+		
+		Button dialogButtonCancel = (Button) dialog
+				.findViewById(R.id.buttonPromptCancel);
+		// if button is clicked, close the custom dialog
+		dialogButtonCancel.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				dialog.dismiss();
+			}
+		});
+		
+		String settingChoice = pref.getString("choice", "-1");
+		
+		if (settingChoice.compareTo("1") == 0){
+			Resources res = getResources();
+			Drawable drawable = res.getDrawable(R.drawable.gradient_background1); 
+			LinearLayout promptLayout = (LinearLayout)dialog.findViewById(R.id.promptLayout);
+			promptLayout.setBackground(drawable);
+		} else if (settingChoice.compareTo("2") == 0){
+			Resources res = getResources();
+			Drawable drawable = res.getDrawable(R.drawable.gradient_background2); 
+			LinearLayout promptLayout = (LinearLayout)dialog.findViewById(R.id.promptLayout);
+			promptLayout.setBackground(drawable);
+		} else if (settingChoice.compareTo("3") == 0){
+			Resources res = getResources();
+			Drawable drawable = res.getDrawable(R.drawable.gradient_background3); 
+			LinearLayout promptLayout = (LinearLayout)dialog.findViewById(R.id.promptLayout);
+			promptLayout.setBackground(drawable);
+		}
+			
+		WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+	    lp.copyFrom(dialog.getWindow().getAttributes());
+	    lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+	    lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+	    
+		dialog.show();
+		
+		dialog.getWindow().setAttributes(lp);
+		
+		/*
 		// get prompts.xml view
 		LayoutInflater li = LayoutInflater.from(this);
 		View promptsView = li.inflate(R.layout.prompt, null);
@@ -375,7 +443,7 @@ public class AffectButtonActivity extends Activity implements OnTouchListener,
 
 		// show it
 		alertDialog.show();
-
+		*/
 	}
 
 	private double[][] defineEmotions() {

@@ -9,10 +9,14 @@ import java.util.Random;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.graphics.Point;
+import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
@@ -20,6 +24,8 @@ import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -28,6 +34,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class PAMActivity extends Activity implements OnClickListener,
@@ -58,6 +65,8 @@ public class PAMActivity extends Activity implements OnClickListener,
 
 	SoundPool sp;
 	int soundID;
+	
+	SharedPreferences pref;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +101,8 @@ public class PAMActivity extends Activity implements OnClickListener,
 		
 		sp = new SoundPool(1, AudioManager.STREAM_NOTIFICATION, 0);
 		soundID = sp.load(this, R.raw.save_sound, 1);
+		
+		pref = getSharedPreferences("settings", 0);
 	}
 
 	@Override
@@ -335,41 +346,65 @@ public class PAMActivity extends Activity implements OnClickListener,
 		}
 	}
 
+	@SuppressLint("NewApi")
 	private void displayNoteDialog() {
-		// get prompts.xml view
-		LayoutInflater li = LayoutInflater.from(this);
-		View promptsView = li.inflate(R.layout.prompt, null);
-
-		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-
-		// set prompts.xml to alertdialog builder
-		alertDialogBuilder.setView(promptsView);
-
-		final EditText userInput = (EditText) promptsView
+		final Dialog dialog = new Dialog(this);
+		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		dialog.setContentView(R.layout.prompt);
+		
+		dialog.setCancelable(false);
+		
+		final EditText userInput = (EditText) dialog
 				.findViewById(R.id.editTextDialogUserInput);
-
-		// set dialog message
-		alertDialogBuilder
-				.setCancelable(false)
-				.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int id) {
-
-						note = userInput.getText().toString();
-
-					}
-				})
-				.setNegativeButton("Cancel",
-						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int id) {
-								dialog.cancel();
-							}
-						});
-
-		// create alert dialog
-		AlertDialog alertDialog = alertDialogBuilder.create();
-
-		// show it
-		alertDialog.show();
+		
+		Button dialogButtonOK = (Button) dialog
+				.findViewById(R.id.buttonPromptOK);
+		// if button is clicked, close the custom dialog
+		dialogButtonOK.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				note = userInput.getText().toString();
+				dialog.dismiss();
+			}
+		});
+		
+		Button dialogButtonCancel = (Button) dialog
+				.findViewById(R.id.buttonPromptCancel);
+		// if button is clicked, close the custom dialog
+		dialogButtonCancel.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				dialog.dismiss();
+			}
+		});
+		
+		String settingChoice = pref.getString("choice", "-1");
+		
+		if (settingChoice.compareTo("1") == 0){
+			Resources res = getResources();
+			Drawable drawable = res.getDrawable(R.drawable.gradient_background1); 
+			LinearLayout promptLayout = (LinearLayout)dialog.findViewById(R.id.promptLayout);
+			promptLayout.setBackground(drawable);
+		} else if (settingChoice.compareTo("2") == 0){
+			Resources res = getResources();
+			Drawable drawable = res.getDrawable(R.drawable.gradient_background2); 
+			LinearLayout promptLayout = (LinearLayout)dialog.findViewById(R.id.promptLayout);
+			promptLayout.setBackground(drawable);
+		} else if (settingChoice.compareTo("3") == 0){
+			Resources res = getResources();
+			Drawable drawable = res.getDrawable(R.drawable.gradient_background3); 
+			LinearLayout promptLayout = (LinearLayout)dialog.findViewById(R.id.promptLayout);
+			promptLayout.setBackground(drawable);
+		}
+			
+		WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+	    lp.copyFrom(dialog.getWindow().getAttributes());
+	    lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+	    lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+	    
+		dialog.show();
+		
+		dialog.getWindow().setAttributes(lp);
 	}
 
 	public class ImageAdapter extends BaseAdapter {

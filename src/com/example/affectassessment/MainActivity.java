@@ -560,7 +560,7 @@ public class MainActivity extends Activity implements OnClickListener {
 								str.append("Serene");
 							}
 
-							if (strSplit.length > 22) {
+							if (strSplit.length > 3) {
 								str.append(", " + "Note: " + strSplit[3] + "\n");
 							} else {
 								str.append("\n");
