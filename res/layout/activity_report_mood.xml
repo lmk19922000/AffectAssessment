@@ -68,7 +68,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:textSize="30sp"
-        android:textColor="@color/Cyan"
+        android:textColor="@color/Blue"
         android:text="@string/report_mood" />
 
     <Button

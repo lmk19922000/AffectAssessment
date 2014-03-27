@@ -33,7 +33,7 @@
             android:layout_marginRight="3dp"
             android:textSize="20sp"
             android:gravity="left"
-            android:textColor="@color/Cyan"
+            android:textColor="@color/Blue"
             android:text="@string/what_is_mood_self_assessment"
             android:textAppearance="?android:attr/textAppearanceLarge" />
         
@@ -56,7 +56,7 @@
             android:layout_marginRight="3dp"
             android:textSize="20sp"
             android:gravity="left"
-            android:textColor="@color/Cyan"
+            android:textColor="@color/Blue"
             android:text="@string/features"
             android:textAppearance="?android:attr/textAppearanceLarge" />
         
