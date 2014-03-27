@@ -12,6 +12,7 @@
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/buttonNote"
         android:layout_marginBottom="5dp"
+        android:textColor="@color/Blue"
         android:textSize="25sp" />
 
     <Button
@@ -52,8 +53,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
         android:gravity="center"
         android:text="@string/my_mood_greeting"
+        android:textColor="@color/Blue"
         android:textSize="20sp" />
 
 </RelativeLayout>

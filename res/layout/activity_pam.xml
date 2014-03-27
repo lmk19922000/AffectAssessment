@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="20"
+        android:layout_weight="10"
         android:orientation="vertical" >
 
         <TextView
@@ -18,21 +18,22 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/pam_instruction"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textColor="@color/Blue" />
     </LinearLayout>
 
     <GridView
         android:id="@+id/gridViewPAM"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="10"
+        android:layout_height="0dp"
+        android:layout_weight="60"
         android:numColumns="4" >
     </GridView>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="70"
+        android:layout_weight="30"
         android:orientation="horizontal" >
 
         <Button

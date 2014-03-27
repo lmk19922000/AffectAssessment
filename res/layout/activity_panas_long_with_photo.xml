@@ -19,7 +19,8 @@
 	        android:layout_height="wrap_content"
 	        android:gravity="center"
 	        android:textSize="20sp"
-	        android:text="@string/panas_long_question" />
+	        android:text="@string/panas_long_question"
+	        android:textColor="@color/Blue" />
 	    
 	    <LinearLayout
 	        android:layout_width="match_parent"
@@ -36,7 +37,8 @@
 			        android:id="@+id/panasLongExplaination1"
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
-			        android:text="@string/panas_long_explaination1" />
+			        android:text="@string/panas_long_explaination1"
+			        android:textColor="@color/Blue" />
 			</LinearLayout>
 			
 	        <LinearLayout
@@ -47,7 +49,8 @@
 			        android:id="@+id/panasLongExplaination2"
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
-			        android:text="@string/panas_long_explaination2" />
+			        android:text="@string/panas_long_explaination2"
+			        android:textColor="@color/Blue" />
 		     </LinearLayout>
 		     
 	     </LinearLayout>
@@ -67,7 +70,8 @@
 			         android:id="@+id/panasLongExplaination3"
 			         android:layout_width="match_parent"
 			         android:layout_height="wrap_content"
-			         android:text="@string/panas_long_explaination3" />
+			         android:text="@string/panas_long_explaination3"
+			         android:textColor="@color/Blue" />
 			</LinearLayout>
 			
 		     <LinearLayout
@@ -78,7 +82,8 @@
 			        android:id="@+id/panasLongExplaination4"
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
-			        android:text="@string/panas_long_explaination4" />
+			        android:text="@string/panas_long_explaination4"
+			        android:textColor="@color/Blue" />
 		     </LinearLayout>
 		     
 		      <LinearLayout
@@ -89,7 +94,8 @@
 			        android:id="@+id/panasLongExplaination5"
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
-			        android:text="@string/panas_long_explaination5" />
+			        android:text="@string/panas_long_explaination5"
+			        android:textColor="@color/Blue" />
 		     </LinearLayout>
 	     </LinearLayout>
     </LinearLayout>
@@ -119,7 +125,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/interested" />
+                android:text="@string/interested"
+                android:textColor="@color/Blue" />
 
             <SeekBar
                 android:id="@+id/seekBarPANASLongInterested"
@@ -144,7 +151,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/distressed" />
+                android:text="@string/distressed"
+                android:textColor="@color/Blue" />
 
             <SeekBar
                 android:id="@+id/seekBarPANASLongDistressed"
@@ -169,7 +177,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/excited" />
+                android:text="@string/excited"
+                android:textColor="@color/Blue" />
 
             <SeekBar
                 android:id="@+id/seekBarPANASLongExcited"
@@ -194,7 +203,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/upset" />
+                android:text="@string/upset"
+                android:textColor="@color/Blue" />
 
             <SeekBar
                 android:id="@+id/seekBarPANASLongUpset"
@@ -219,7 +229,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/strong" />
+                android:text="@string/strong"
+                android:textColor="@color/Blue" />
 
             <SeekBar
                 android:id="@+id/seekBarPANASLongStrong"
@@ -244,7 +255,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/guilty" />
+                android:text="@string/guilty"
+                android:textColor="@color/Blue" />
 
             <SeekBar
                 android:id="@+id/seekBarPANASLongGuilty"
@@ -269,7 +281,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/scared" />
+                android:text="@string/scared"
+                android:textColor="@color/Blue" />
 
             <SeekBar
                 android:id="@+id/seekBarPANASLongScared"
@@ -294,7 +307,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/hostile" />
+                android:text="@string/hostile"
+                android:textColor="@color/Blue" />
 
 			<SeekBar
                 android:id="@+id/seekBarPANASLongHostile"
@@ -319,7 +333,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/enthusiastic" />
+                android:text="@string/enthusiastic"
+                android:textColor="@color/Blue" />
 
 			<SeekBar
                 android:id="@+id/seekBarPANASLongEnthusiastic"
@@ -344,7 +359,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/proud" />
+                android:text="@string/proud"
+                android:textColor="@color/Blue" />
 
 			<SeekBar
                 android:id="@+id/seekBarPANASLongProud"
@@ -369,7 +385,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/irritable" />
+                android:text="@string/irritable"
+                android:textColor="@color/Blue" />
 
 			<SeekBar
                 android:id="@+id/seekBarPANASLongIrritable"
@@ -394,7 +411,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/alert" />
+                android:text="@string/alert"
+                android:textColor="@color/Blue" />
 
             <SeekBar
                 android:id="@+id/seekBarPANASLongAlert"
@@ -419,7 +437,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/ashamed" />
+                android:text="@string/ashamed"
+                android:textColor="@color/Blue" />
 
             <SeekBar
                 android:id="@+id/seekBarPANASLongAshamed"
@@ -444,7 +463,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/inspired" />
+                android:text="@string/inspired"
+                android:textColor="@color/Blue" />
 
             <SeekBar
                 android:id="@+id/seekBarPANASLongInspired"
@@ -469,7 +489,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/nervous" />
+                android:text="@string/nervous"
+                android:textColor="@color/Blue" />
 
             <SeekBar
                 android:id="@+id/seekBarPANASLongNervous"
@@ -494,7 +515,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/determined" />
+                android:text="@string/determined"
+                android:textColor="@color/Blue" />
 
             <SeekBar
                 android:id="@+id/seekBarPANASLongDetermined"
@@ -519,7 +541,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/attentive" />
+                android:text="@string/attentive"
+                android:textColor="@color/Blue" />
 
             <SeekBar
                 android:id="@+id/seekBarPANASLongAttentive"
@@ -544,7 +567,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/jittery" />
+                android:text="@string/jittery"
+                android:textColor="@color/Blue" />
 
             <SeekBar
                 android:id="@+id/seekBarPANASLongJittery"
@@ -569,7 +593,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/active" />
+                android:text="@string/active"
+                android:textColor="@color/Blue" />
 
             <SeekBar
                 android:id="@+id/seekBarPANASLongActive"
@@ -594,7 +619,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/afraid" />
+                android:text="@string/afraid"
+                android:textColor="@color/Blue" />
 
             <SeekBar
                 android:id="@+id/seekBarPANASLongAfraid"

@@ -19,6 +19,7 @@
 	        android:layout_height="wrap_content"
 	        android:gravity="center"
 	        android:textSize="20sp"
+	        android:textColor="@color/Blue"
 	        android:text="@string/spane_question" />
 	    
 	    <LinearLayout
@@ -36,7 +37,8 @@
 			        android:id="@+id/spaneWithPhotoExplaination1"
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
-			        android:text="@string/spane_explaination1" />
+			        android:text="@string/spane_explaination1"
+			        android:textColor="@color/Blue" />
 			</LinearLayout>
 			
 	        <LinearLayout
@@ -47,7 +49,8 @@
 			        android:id="@+id/spaneWithPhotoExplaination2"
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
-			        android:text="@string/spane_explaination2" />
+			        android:text="@string/spane_explaination2"
+			        android:textColor="@color/Blue" />
 		     </LinearLayout>
 		     
 	        <LinearLayout
@@ -58,7 +61,8 @@
 			         android:id="@+id/spaneWithPhotoExplaination3"
 			         android:layout_width="match_parent"
 			         android:layout_height="wrap_content"
-			         android:text="@string/spane_explaination3" />
+			         android:text="@string/spane_explaination3"
+			         android:textColor="@color/Blue" />
 			</LinearLayout>
 	     </LinearLayout>
 	     
@@ -77,7 +81,8 @@
 			        android:id="@+id/spaneWithPhotoExplaination4"
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
-			        android:text="@string/spane_explaination4" />
+			        android:text="@string/spane_explaination4"
+			        android:textColor="@color/Blue" />
 		     </LinearLayout>
 		     
 		      <LinearLayout
@@ -88,7 +93,8 @@
 			        android:id="@+id/spaneWithPhotoExplaination5"
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
-			        android:text="@string/spane_explaination5" />
+			        android:text="@string/spane_explaination5"
+			        android:textColor="@color/Blue" />
 		     </LinearLayout>
 	     </LinearLayout>
     </LinearLayout>
@@ -118,7 +124,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/positive" />
+                android:text="@string/positive"
+                android:textColor="@color/Blue" />
 
             <RadioGroup
                 android:id="@+id/radioGroupSPANEWithPhotoPositive"
@@ -126,7 +133,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingRight="40dp"
-                android:weightSum="5" >
+                android:weightSum="5"
+                 >
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoPositive1"
@@ -136,7 +144,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num1" />
+                    android:text="@string/num1"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoPositive2"
@@ -146,7 +155,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num2" />
+                    android:text="@string/num2"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoPositive3"
@@ -157,7 +167,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num3" />
+                    android:text="@string/num3"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoPositive4"
@@ -167,7 +178,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num4" />
+                    android:text="@string/num4"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoPositive5"
@@ -177,7 +189,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num5" />
+                    android:text="@string/num5"
+                    android:textColor="@color/Blue" />
             </RadioGroup>
             
             <ImageView
@@ -194,7 +207,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/negative" />
+                android:text="@string/negative"
+                android:textColor="@color/Blue" />
 
             <RadioGroup
                 android:id="@+id/radioGroupSPANEWithPhotoNegative"
@@ -212,7 +226,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num1" />
+                    android:text="@string/num1"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoNegative2"
@@ -222,7 +237,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num2" />
+                    android:text="@string/num2"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoNegative3"
@@ -233,7 +249,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num3" />
+                    android:text="@string/num3"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoNegative4"
@@ -243,7 +260,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num4" />
+                    android:text="@string/num4"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoNegative5"
@@ -253,7 +271,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num5" />
+                    android:text="@string/num5"
+                    android:textColor="@color/Blue" />
             </RadioGroup>
             
             <ImageView
@@ -270,7 +289,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/good" />
+                android:text="@string/good"
+                android:textColor="@color/Blue" />
 
             <RadioGroup
                 android:id="@+id/radioGroupSPANEWithPhotoGood"
@@ -288,7 +308,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num1" />
+                    android:text="@string/num1"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoGood2"
@@ -298,7 +319,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num2" />
+                    android:text="@string/num2"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoGood3"
@@ -309,7 +331,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num3" />
+                    android:text="@string/num3"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoGood4"
@@ -319,7 +342,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num4" />
+                    android:text="@string/num4"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoGood5"
@@ -329,7 +353,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num5" />
+                    android:text="@string/num5"
+                    android:textColor="@color/Blue" />
             </RadioGroup>
             
             <ImageView
@@ -346,7 +371,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/bad" />
+                android:text="@string/bad"
+                android:textColor="@color/Blue" />
 
             <RadioGroup
                 android:id="@+id/radioGroupSPANEWithPhotoBad"
@@ -364,7 +390,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num1" />
+                    android:text="@string/num1"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoBad2"
@@ -374,7 +401,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num2" />
+                    android:text="@string/num2"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoBad3"
@@ -385,7 +413,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num3" />
+                    android:text="@string/num3"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoBad4"
@@ -395,7 +424,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num4" />
+                    android:text="@string/num4"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoBad5"
@@ -405,7 +435,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num5" />
+                    android:text="@string/num5"
+                    android:textColor="@color/Blue" />
             </RadioGroup>
             
             <ImageView
@@ -422,7 +453,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/pleasant" />
+                android:text="@string/pleasant"
+                android:textColor="@color/Blue" />
 
             <RadioGroup
                 android:id="@+id/radioGroupSPANEWithPhotoPleasant"
@@ -440,7 +472,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num1" />
+                    android:text="@string/num1"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoPleasant2"
@@ -450,7 +483,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num2" />
+                    android:text="@string/num2"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoPleasant3"
@@ -461,7 +495,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num3" />
+                    android:text="@string/num3"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoPleasant4"
@@ -471,7 +506,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num4" />
+                    android:text="@string/num4"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoPleasant5"
@@ -481,7 +517,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num5" />
+                    android:text="@string/num5"
+                    android:textColor="@color/Blue" />
             </RadioGroup>
             
             <ImageView
@@ -498,7 +535,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/unpleasant" />
+                android:text="@string/unpleasant"
+                android:textColor="@color/Blue" />
 
             <RadioGroup
                 android:id="@+id/radioGroupSPANEWithPhotoUnpleasant"
@@ -516,7 +554,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num1" />
+                    android:text="@string/num1"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoUnpleasant2"
@@ -526,7 +565,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num2" />
+                    android:text="@string/num2"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoUnpleasant3"
@@ -537,7 +577,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num3" />
+                    android:text="@string/num3"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoUnpleasant4"
@@ -547,7 +588,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num4" />
+                    android:text="@string/num4"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoUnpleasant5"
@@ -557,7 +599,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num5" />
+                    android:text="@string/num5"
+                    android:textColor="@color/Blue" />
             </RadioGroup>
             
             <ImageView
@@ -574,7 +617,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/happy" />
+                android:text="@string/happy"
+                android:textColor="@color/Blue" />
 
             <RadioGroup
                 android:id="@+id/radioGroupSPANEWithPhotoHappy"
@@ -592,7 +636,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num1" />
+                    android:text="@string/num1"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoHappy2"
@@ -602,7 +647,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num2" />
+                    android:text="@string/num2"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoHappy3"
@@ -613,7 +659,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num3" />
+                    android:text="@string/num3"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoHappy4"
@@ -623,7 +670,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num4" />
+                    android:text="@string/num4"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoHappy5"
@@ -633,7 +681,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num5" />
+                    android:text="@string/num5"
+                    android:textColor="@color/Blue" />
             </RadioGroup>
             
             <ImageView
@@ -641,7 +690,8 @@
 		        android:layout_width="100dp"
 		        android:layout_height="100dp"
 		        android:layout_gravity="center"
-		        android:src="@drawable/spane_sad3">
+		        android:src="@drawable/spane_sad3"
+		        >
             </ImageView>
             
             <TextView
@@ -650,7 +700,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/sad" />
+                android:text="@string/sad"
+                android:textColor="@color/Blue" />
 
             <RadioGroup
                 android:id="@+id/radioGroupSPANEWithPhotoSad"
@@ -668,7 +719,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num1" />
+                    android:text="@string/num1"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoSad2"
@@ -678,7 +730,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num2" />
+                    android:text="@string/num2"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoSad3"
@@ -689,7 +742,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num3" />
+                    android:text="@string/num3"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoSad4"
@@ -699,7 +753,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num4" />
+                    android:text="@string/num4"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoSad5"
@@ -709,7 +764,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num5" />
+                    android:text="@string/num5"
+                    android:textColor="@color/Blue" />
             </RadioGroup>
                         
             <ImageView
@@ -726,7 +782,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/afraid" />
+                android:text="@string/afraid"
+                android:textColor="@color/Blue" />
 
             <RadioGroup
                 android:id="@+id/radioGroupSPANEWithPhotoAfraid"
@@ -744,7 +801,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num1" />
+                    android:text="@string/num1"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoAfraid2"
@@ -754,7 +812,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num2" />
+                    android:text="@string/num2"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoAfraid3"
@@ -765,7 +824,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num3" />
+                    android:text="@string/num3"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoAfraid4"
@@ -775,7 +835,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num4" />
+                    android:text="@string/num4"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoAfraid5"
@@ -785,7 +846,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num5" />
+                    android:text="@string/num5"
+                    android:textColor="@color/Blue" />
             </RadioGroup>
             
             <ImageView
@@ -802,7 +864,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/joyful" />
+                android:text="@string/joyful"
+                android:textColor="@color/Blue" />
 
             <RadioGroup
                 android:id="@+id/radioGroupSPANEWithPhotoJoyful"
@@ -820,7 +883,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num1" />
+                    android:text="@string/num1"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoJoyful2"
@@ -830,7 +894,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num2" />
+                    android:text="@string/num2"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoJoyful3"
@@ -841,7 +906,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num3" />
+                    android:text="@string/num3"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoJoyful4"
@@ -851,7 +917,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num4" />
+                    android:text="@string/num4"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoJoyful5"
@@ -861,7 +928,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num5" />
+                    android:text="@string/num5"
+                    android:textColor="@color/Blue" />
             </RadioGroup>
             
             <ImageView
@@ -878,7 +946,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/angry" />
+                android:text="@string/angry"
+                android:textColor="@color/Blue" />
 
             <RadioGroup
                 android:id="@+id/radioGroupSPANEWithPhotoAngry"
@@ -896,7 +965,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num1" />
+                    android:text="@string/num1"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoAngry2"
@@ -906,7 +976,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num2" />
+                    android:text="@string/num2"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoAngry3"
@@ -917,7 +988,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num3" />
+                    android:text="@string/num3"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoAngry4"
@@ -927,7 +999,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num4" />
+                    android:text="@string/num4"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoAngry5"
@@ -937,7 +1010,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num5" />
+                    android:text="@string/num5"
+                    android:textColor="@color/Blue" />
             </RadioGroup>
             
             <ImageView
@@ -954,7 +1028,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/contented" />
+                android:text="@string/contented"
+                android:textColor="@color/Blue" />
 
             <RadioGroup
                 android:id="@+id/radioGroupSPANEWithPhotoContented"
@@ -972,7 +1047,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num1" />
+                    android:text="@string/num1"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoContented2"
@@ -982,7 +1058,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num2" />
+                    android:text="@string/num2"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoContented3"
@@ -993,7 +1070,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num3" />
+                    android:text="@string/num3"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoContented4"
@@ -1003,7 +1081,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num4" />
+                    android:text="@string/num4"
+                    android:textColor="@color/Blue" />
 
                 <RadioButton
                     android:id="@+id/radioSPANEWithPhotoContented5"
@@ -1013,7 +1092,8 @@
                     android:drawableBottom="@android:drawable/btn_radio"
                     android:gravity="center"
                     android:paddingRight="5dp"
-                    android:text="@string/num5" />
+                    android:text="@string/num5"
+                    android:textColor="@color/Blue" />
             </RadioGroup>
         </LinearLayout>
     </ScrollView>
