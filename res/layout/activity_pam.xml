@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="10"
+        android:layout_weight="7"
         android:orientation="vertical" >
 
         <TextView
@@ -26,7 +26,7 @@
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="60" >
+        android:layout_weight="68" >
 
         <com.example.affectassessment.ScrollableGridView
             android:id="@+id/gridViewPAM"
@@ -40,7 +40,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="30"
+        android:layout_weight="25"
         android:orientation="horizontal" >
 
         <Button
@@ -51,7 +51,7 @@
             android:layout_alignParentLeft="true"
             android:layout_marginBottom="18dp"
             android:layout_marginLeft="40dp"
-            android:background="@drawable/save_icon" />
+            android:background="@drawable/save_icon_effect" />
 
         <Button
             android:id="@+id/buttonNotePAM"
@@ -60,7 +60,7 @@
             android:layout_alignBaseline="@+id/buttonSharePAM"
             android:layout_alignBottom="@+id/buttonSharePAM"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/note_icon" />
+            android:background="@drawable/note_icon_effect" />
 
         <Button
             android:id="@+id/buttonSharePAM"
@@ -70,7 +70,7 @@
             android:layout_alignBottom="@+id/buttonSavePAM"
             android:layout_alignParentRight="true"
             android:layout_marginRight="40dp"
-            android:background="@drawable/share_icon" />
+            android:background="@drawable/share_icon_effect" />
 
         <Button
             android:id="@+id/buttonLoadMorePAM"
@@ -79,7 +79,7 @@
             android:layout_above="@+id/buttonNotePAM"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/change_icon" />
+            android:background="@drawable/change_icon_effect" />
     </RelativeLayout>
 
 </LinearLayout>

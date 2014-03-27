@@ -306,7 +306,7 @@
             android:layout_alignBaseline="@+id/buttonSharePANASShortNoPhoto"
         	android:layout_alignBottom="@+id/buttonSharePANASShortNoPhoto"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/note_icon"
+            android:background="@drawable/note_icon_effect"
              />
 
         <Button
@@ -317,7 +317,7 @@
         	android:layout_alignBottom="@+id/buttonSavePANASShortNoPhoto"
         	android:layout_alignParentRight="true"
         	android:layout_marginRight="40dp"
-            android:background="@drawable/share_icon"
+            android:background="@drawable/share_icon_effect"
              />
 
         <Button
@@ -328,7 +328,7 @@
         	android:layout_alignParentLeft="true"
         	android:layout_marginBottom="18dp"
         	android:layout_marginLeft="40dp"
-        	android:background="@drawable/save_icon"
+        	android:background="@drawable/save_icon_effect"
              />
 
     </RelativeLayout>
