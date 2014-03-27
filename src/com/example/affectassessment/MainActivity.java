@@ -175,6 +175,8 @@ public class MainActivity extends Activity implements OnClickListener {
 		dialog.setContentView(R.layout.settings_dialog);
 		//dialog.setTitle("Choose a theme");
 
+		dialog.setCancelable(false);
+		
 		Button dialogButton = (Button) dialog
 				.findViewById(R.id.dialogButtonSettingsOK);
 		
@@ -186,18 +188,32 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 		String settingChoice = pref.getString("choice", "-1");
 		
+		Resources res = getResources();
+		
 		if (settingChoice.compareTo("1") == 0){
 			radioBtnTheme1.setChecked(true);
 			radioBtnTheme2.setChecked(false);
 			radioBtnTheme3.setChecked(false);
+			
+			Drawable drawable = res.getDrawable(R.drawable.gradient_background1); 
+			LinearLayout settingsLayout = (LinearLayout)dialog.findViewById(R.id.settingsLayout);
+			settingsLayout.setBackground(drawable);
 		} else if (settingChoice.compareTo("2") == 0){
 			radioBtnTheme2.setChecked(true);
 			radioBtnTheme1.setChecked(false);
 			radioBtnTheme3.setChecked(false);
+			
+			Drawable drawable = res.getDrawable(R.drawable.gradient_background2); 
+			LinearLayout settingsLayout = (LinearLayout)dialog.findViewById(R.id.settingsLayout);
+			settingsLayout.setBackground(drawable);
 		} else if (settingChoice.compareTo("3") == 0){
 			radioBtnTheme3.setChecked(true);
 			radioBtnTheme2.setChecked(false);
 			radioBtnTheme1.setChecked(false);
+			
+			Drawable drawable = res.getDrawable(R.drawable.gradient_background3); 
+			LinearLayout settingsLayout = (LinearLayout)dialog.findViewById(R.id.settingsLayout);
+			settingsLayout.setBackground(drawable);
 		} else{
 			Log.i("BUGGGGG", "setting choice incorrect");
 		}
@@ -238,14 +254,6 @@ public class MainActivity extends Activity implements OnClickListener {
 					break;
 				}
 				
-			}
-			
-		});
-		
-		// if button is clicked, close the custom dialog
-		dialogButton.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
 				String settingChoice = pref.getString("choice", "-1");
 				
 				if (settingChoice.compareTo("1") == 0){
@@ -253,6 +261,9 @@ public class MainActivity extends Activity implements OnClickListener {
 					Drawable drawable = res.getDrawable(R.drawable.gradient_background1); 
 					RelativeLayout mainLayout = (RelativeLayout)findViewById(R.id.mainLayout);
 					mainLayout.setBackground(drawable);			
+					
+					LinearLayout settingsLayout = (LinearLayout)dialog.findViewById(R.id.settingsLayout);
+					settingsLayout.setBackground(drawable);
 					
 					drawable = res.getDrawable(R.drawable.button_background1);
 					btnReportMood.setBackground(drawable);
@@ -266,6 +277,9 @@ public class MainActivity extends Activity implements OnClickListener {
 					RelativeLayout mainLayout = (RelativeLayout)findViewById(R.id.mainLayout);
 					mainLayout.setBackground(drawable);
 					
+					LinearLayout settingsLayout = (LinearLayout)dialog.findViewById(R.id.settingsLayout);
+					settingsLayout.setBackground(drawable);
+					
 					drawable = res.getDrawable(R.drawable.button_background2);
 					btnReportMood.setBackground(drawable);
 					btnStatistics.setBackground(drawable);
@@ -278,6 +292,9 @@ public class MainActivity extends Activity implements OnClickListener {
 					RelativeLayout mainLayout = (RelativeLayout)findViewById(R.id.mainLayout);
 					mainLayout.setBackground(drawable);
 					
+					LinearLayout settingsLayout = (LinearLayout)dialog.findViewById(R.id.settingsLayout);
+					settingsLayout.setBackground(drawable);
+					
 					drawable = res.getDrawable(R.drawable.button_background3);
 					btnReportMood.setBackground(drawable);
 					btnStatistics.setBackground(drawable);
@@ -287,30 +304,17 @@ public class MainActivity extends Activity implements OnClickListener {
 				} else {
 					Log.i("BUGGGG", "setting choice is not correct");
 				}
-				
+			}
+			
+		});
+		
+		// if button is clicked, close the custom dialog
+		dialogButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
 				dialog.dismiss();
 			}
 		});
-	    
-		if (settingChoice.compareTo("1") == 0){
-			Resources res = getResources();
-			Drawable drawable = res.getDrawable(R.drawable.gradient_background1); 
-			
-			LinearLayout settingsLayout = (LinearLayout)dialog.findViewById(R.id.settingsLayout);
-			settingsLayout.setBackground(drawable);
-		} else if (settingChoice.compareTo("2") == 0){
-			Resources res = getResources();
-			Drawable drawable = res.getDrawable(R.drawable.gradient_background2); 
-			
-			LinearLayout settingsLayout = (LinearLayout)dialog.findViewById(R.id.settingsLayout);
-			settingsLayout.setBackground(drawable);
-		} else if (settingChoice.compareTo("3") == 0){
-			Resources res = getResources();
-			Drawable drawable = res.getDrawable(R.drawable.gradient_background3); 
-			
-			LinearLayout settingsLayout = (LinearLayout)dialog.findViewById(R.id.settingsLayout);
-			settingsLayout.setBackground(drawable);
-		}
 		
 		WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
 	    lp.copyFrom(dialog.getWindow().getAttributes());

@@ -16,6 +16,7 @@
     <string name="settings"><b>Settings</b></string>
     <string name="about"><b>About</b></string>
     
+    <string name="choose_a_theme"><b>Choose a theme</b></string>
     <string name="theme1"><b>Theme 1</b></string>
     <string name="theme2"><b>Theme 2</b></string>
     <string name="theme3"><b>Theme 3</b></string>
@@ -35,25 +36,25 @@
     <string name="my_mood_greeting"><b>Move your finger to match your feeling</b></string>
     <string name="my_mood_note"><b>What do you want to say?</b></string>
     <string name="spane_question"><b>How much do you experience each of the following feelings?</b></string>
-    <string name="spane_explaination1">1/ Very rare or never</string>
-    <string name="spane_explaination2">2/ Rarely</string>
-    <string name="spane_explaination3">3/ Sometimes</string>
-    <string name="spane_explaination4">4/ Often</string>
-    <string name="spane_explaination5">5/ Very often or always</string>
+    <string name="spane_explaination1"><b>1/ Very rare or never</b></string>
+    <string name="spane_explaination2"><b>2/ Rarely</b></string>
+    <string name="spane_explaination3"><b>3/ Sometimes</b></string>
+    <string name="spane_explaination4"><b>4/ Often</b></string>
+    <string name="spane_explaination5"><b>5/ Very often or always</b></string>
     
     <string name="panas_short_question"><b>To what extent do you generally feel</b></string>
-    <string name="panas_short_explaination1">1/ Never</string>
-    <string name="panas_short_explaination2">2/ Rarely</string>
-    <string name="panas_short_explaination3">3/ Sometimes</string>
-    <string name="panas_short_explaination4">4/ Often</string>
-    <string name="panas_short_explaination5">5/ Always</string>
+    <string name="panas_short_explaination1"><b>1/ Never</b></string>
+    <string name="panas_short_explaination2"><b>2/ Rarely</b></string>
+    <string name="panas_short_explaination3"><b>3/ Sometimes</b></string>
+    <string name="panas_short_explaination4"><b>4/ Often</b></string>
+    <string name="panas_short_explaination5"><b>5/ Always</b></string>
     
     <string name="panas_long_question"><b>Indicate to what extent you feel this way</b></string>
-    <string name="panas_long_explaination1">1/ Very slightly or not at all</string>
-    <string name="panas_long_explaination2">2/ A little</string>
-    <string name="panas_long_explaination3">3/ Moderately</string>
-    <string name="panas_long_explaination4">4/ Quite a bit</string>
-    <string name="panas_long_explaination5">5/ Extremely</string>
+    <string name="panas_long_explaination1"><b>1/ Very slightly or not at all</b></string>
+    <string name="panas_long_explaination2"><b>2/ A little</b></string>
+    <string name="panas_long_explaination3"><b>3/ Moderately</b></string>
+    <string name="panas_long_explaination4"><b>4/ Quite a bit</b></string>
+    <string name="panas_long_explaination5"><b>5/ Extremely</b></string>
     
     <string name="pam_instruction"><b>Touch how you feel</b></string>
     <string name="load_more">Load more images</string>

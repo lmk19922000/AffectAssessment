@@ -25,6 +25,7 @@
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:weightSum="3"
+	        android:layout_marginLeft="5dp"
 	        android:orientation="horizontal">
         	
 	        <LinearLayout
@@ -55,6 +56,7 @@
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:orientation="horizontal"
+	        android:layout_marginLeft="5dp"
 	        android:weightSum="3">
         	
 		    <LinearLayout
