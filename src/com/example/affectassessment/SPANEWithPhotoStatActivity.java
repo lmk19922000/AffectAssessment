@@ -24,6 +24,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class SPANEWithPhotoStatActivity extends Activity {
 
@@ -160,7 +161,7 @@ public class SPANEWithPhotoStatActivity extends Activity {
 		mRenderer.setLabelsTextSize(30);
 		mRenderer.setLabelsColor(Color.BLACK);
 		
-		mRenderer.setLegendTextSize(35);
+		mRenderer.setLegendTextSize(30);
 		mRenderer.setChartTitle("Your mood in the last 30 days");
 		mRenderer.setChartTitleTextSize(40);
 		
@@ -190,6 +191,10 @@ public class SPANEWithPhotoStatActivity extends Activity {
 		} else {
 			mChartView.repaint();
 		}
+		
+		Toast.makeText(SPANEWithPhotoStatActivity.this,
+				"Tip: You can use your fingers to move the chart or zoom in and zoom out it", Toast.LENGTH_LONG)
+				.show();
 	}
 	
 	@SuppressLint("SimpleDateFormat")

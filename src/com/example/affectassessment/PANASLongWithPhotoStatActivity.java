@@ -44,7 +44,7 @@ public class PANASLongWithPhotoStatActivity {
 
 	int numEntry = 0;
 
-	double xMin = 0, xMax = 15, yMin = 0, yMax = 5;
+	double xMin = 0, xMax = 4, yMin = 0, yMax = 5;
 
 	Context ctx;
 
@@ -54,7 +54,7 @@ public class PANASLongWithPhotoStatActivity {
 
 		readData();
 
-		String[] titles = new String[] { "Mood in last 30 days" };
+		String[] titles = new String[] { "Your mood in the last 30 days" };
 
 		DecimalFormat df = new DecimalFormat("#,###,##0.00");
 
@@ -84,14 +84,15 @@ public class PANASLongWithPhotoStatActivity {
 		XYMultipleSeriesRenderer renderer = buildBarRenderer(colors);
 		renderer.setOrientation(Orientation.HORIZONTAL);
 
-		setChartSettings(renderer, "", "Mood", "Rate", xMin, xMax, yMin, yMax,
+		int[] margins = {20, 70, 50, 10};
+		
+		renderer.setMargins(margins);
+		
+		setChartSettings(renderer, "", "", "", xMin, xMax, yMin, yMax,
 				Color.RED, Color.RED);
 
 		renderer.setBarSpacing(0.5);
-		renderer.setBarWidth(30);
-		
-		renderer.setXLabels(1);
-		renderer.setYLabels(30);
+		renderer.setBarWidth(30);	
 		
 		renderer.addXTextLabel(1, "Interested");
 		renderer.addXTextLabel(2, "Distressed");
@@ -114,11 +115,14 @@ public class PANASLongWithPhotoStatActivity {
 		renderer.addXTextLabel(19, "Active");
 		renderer.addXTextLabel(20, "Afraid");
 
+		renderer.setXLabels(0);
+		renderer.setYLabels(10);
+		
 		int length = renderer.getSeriesRendererCount();
 		for (int i = 0; i < length; i++) {
 			SimpleSeriesRenderer seriesRenderer = renderer
 					.getSeriesRendererAt(i);
-			seriesRenderer.setDisplayChartValues(true);
+			seriesRenderer.setDisplayChartValues(false);
 		}
 		return ChartFactory.getBarChartIntent(context,
 				buildBarDataset(titles, values), renderer, Type.DEFAULT);
@@ -133,12 +137,10 @@ public class PANASLongWithPhotoStatActivity {
 	 */
 	protected XYMultipleSeriesRenderer buildBarRenderer(int[] colors) {
 		XYMultipleSeriesRenderer renderer = new XYMultipleSeriesRenderer();
-		renderer.setAxisTitleTextSize(30);
-		renderer.setChartTitleTextSize(20);
 		renderer.setLabelsTextSize(30);
 		renderer.setXLabelsPadding(50);
 		renderer.setYLabelsPadding(50);
-		renderer.setLegendTextSize(25);
+		renderer.setLegendTextSize(30);
 		int length = colors.length;
 		for (int i = 0; i < length; i++) {
 			SimpleSeriesRenderer r = new SimpleSeriesRenderer();

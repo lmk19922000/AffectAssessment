@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class StatisticsActivity extends Activity implements OnClickListener {
 
@@ -135,11 +136,17 @@ public class StatisticsActivity extends Activity implements OnClickListener {
 			myIntent = (new SPANENoPhotoStatActivity())
 					.execute(getApplicationContext());
 			startActivity(myIntent);
+			Toast.makeText(StatisticsActivity.this,
+					"Tip: You can use your fingers to move the chart or zoom in and zoom out it", Toast.LENGTH_LONG)
+					.show();
 			break;
 
 		case R.id.buttonPANASLongWithPhotoStat:
 			myIntent = (new PANASLongWithPhotoStatActivity())
 					.execute(getApplicationContext());
+			Toast.makeText(StatisticsActivity.this,
+					"Tip: You can use your fingers to move the chart or zoom in and zoom out it", Toast.LENGTH_LONG)
+					.show();
 			startActivity(myIntent);
 			break;
 		case R.id.buttonPAMStat:

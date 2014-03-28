@@ -120,7 +120,7 @@ public class AffectButtonStatActivity extends Activity {
 		mRenderer.setLabelsTextSize(30);
 		mRenderer.setLabelsColor(Color.BLACK);
 		
-		mRenderer.setLegendTextSize(40);
+		mRenderer.setLegendTextSize(30);
 		mRenderer.setChartTitle("Your mood in the last 30 days");
 		mRenderer.setChartTitleTextSize(40);
 		
@@ -150,6 +150,11 @@ public class AffectButtonStatActivity extends Activity {
 		} else {
 			mChartView.repaint();
 		}
+		
+		Toast.makeText(AffectButtonStatActivity.this,
+				"Tip: You can use your fingers to move the chart or zoom in and zoom out it", Toast.LENGTH_LONG)
+				.show();
+		
 	}
 
 	@SuppressLint("SimpleDateFormat")
