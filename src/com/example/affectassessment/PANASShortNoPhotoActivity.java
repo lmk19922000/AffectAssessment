@@ -30,6 +30,9 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.Toast;
 
+import android.app.ActionBar;
+import android.view.MenuItem;
+
 public class PANASShortNoPhotoActivity extends Activity implements
 		OnClickListener {
 
@@ -48,6 +51,7 @@ public class PANASShortNoPhotoActivity extends Activity implements
 	
 	SharedPreferences pref;
 	
+	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -55,8 +59,27 @@ public class PANASShortNoPhotoActivity extends Activity implements
 		setContentView(R.layout.activity_panas_short_no_photo);
 
 		initializeCompnentView();
+		
+		ActionBar ab = getActionBar(); 
+        ab.setDisplayHomeAsUpEnabled(true);
 	}
 
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) { 
+	    switch (item.getItemId()) {
+	        case android.R.id.home:
+	            // app icon in action bar clicked; go home
+	        	Intent myIntent;
+	        	myIntent = new Intent(getApplicationContext(),
+						ReportMoodActivity.class);
+	        	myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				startActivity(myIntent);
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item); 
+	    }
+	}
+	
 	private void initializeCompnentView() {
 		btnSave = (Button) findViewById(R.id.buttonSavePANASShortNoPhoto);
 		btnNote = (Button) findViewById(R.id.buttonNotePANASShortNoPhoto);

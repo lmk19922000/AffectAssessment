@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -20,6 +21,7 @@ import android.media.SoundPool;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -53,6 +55,7 @@ public class SPANEWithPhotoActivity extends Activity implements
 	
 	SharedPreferences pref;
 	
+	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -60,8 +63,27 @@ public class SPANEWithPhotoActivity extends Activity implements
 		setContentView(R.layout.activity_spane_with_photo);
 
 		initializeCompnentView();
+		
+		ActionBar ab = getActionBar(); 
+        ab.setDisplayHomeAsUpEnabled(true);
 	}
 
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) { 
+	    switch (item.getItemId()) {
+	        case android.R.id.home:
+	            // app icon in action bar clicked; go home
+	        	Intent myIntent;
+	        	myIntent = new Intent(getApplicationContext(),
+						ReportMoodActivity.class);
+	        	myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				startActivity(myIntent);
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item); 
+	    }
+	}
+	
 	private void initializeCompnentView() {
 		btnSave = (Button) findViewById(R.id.buttonSaveSPANEWithPhoto);
 		btnNote = (Button) findViewById(R.id.buttonNoteSPANEWithPhoto);

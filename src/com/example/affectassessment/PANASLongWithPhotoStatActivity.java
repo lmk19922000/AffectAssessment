@@ -44,7 +44,7 @@ public class PANASLongWithPhotoStatActivity {
 
 	int numEntry = 0;
 
-	double xMin = 0, xMax = 4, yMin = 0, yMax = 5;
+	double xMin = 0, xMax = 8, yMin = 0, yMax = 5;
 
 	Context ctx;
 
@@ -80,11 +80,11 @@ public class PANASLongWithPhotoStatActivity {
 				Double.parseDouble(df.format(avgActive)),
 				Double.parseDouble(df.format(avgAfraid))});
 
-		int[] colors = new int[] { Color.rgb(90, 231, 255) };
+		int[] colors = new int[] { Color.rgb(79, 73, 252) };
 		XYMultipleSeriesRenderer renderer = buildBarRenderer(colors);
 		renderer.setOrientation(Orientation.HORIZONTAL);
 
-		int[] margins = {20, 70, 50, 10};
+		int[] margins = {30, 70, 50, 10};
 		
 		renderer.setMargins(margins);
 		

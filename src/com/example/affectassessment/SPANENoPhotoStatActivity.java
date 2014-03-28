@@ -41,7 +41,7 @@ public class SPANENoPhotoStatActivity {
 	
 	int numEntry = 0;
 	
-	double xMin = 0, xMax = 4, yMin = 0, yMax = 5;
+	double xMin = 0, xMax = 8, yMin = 0, yMax = 5;
 	
 	Context ctx;
 
@@ -65,7 +65,7 @@ public class SPANENoPhotoStatActivity {
 		XYMultipleSeriesRenderer renderer = buildBarRenderer(colors);
 		renderer.setOrientation(Orientation.HORIZONTAL);
 		
-		int[] margins = {20, 70, 50, 10};
+		int[] margins = {30, 70, 50, 10};
 		
 		renderer.setMargins(margins);
 		

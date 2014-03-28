@@ -45,6 +45,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import android.app.ActionBar;
+import android.view.MenuItem;
+
 public class AffectButtonActivity extends Activity implements OnTouchListener,
 		OnClickListener {
 	public enum MoodStates {
@@ -109,7 +112,7 @@ public class AffectButtonActivity extends Activity implements OnTouchListener,
 	
 	SharedPreferences pref;
 	
-	@SuppressLint("SimpleDateFormat")
+	@SuppressLint({ "SimpleDateFormat", "NewApi" })
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -125,8 +128,27 @@ public class AffectButtonActivity extends Activity implements OnTouchListener,
 		//initializeDateTime();
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy, HH:mm");
 		currentDateAndTime = sdf.format(new Date());
+		
+		ActionBar ab = getActionBar(); 
+        ab.setDisplayHomeAsUpEnabled(true);
 	}
 
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) { 
+	    switch (item.getItemId()) {
+	        case android.R.id.home:
+	            // app icon in action bar clicked; go home
+	        	Intent myIntent;
+	        	myIntent = new Intent(getApplicationContext(),
+						ReportMoodActivity.class);
+	        	myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				startActivity(myIntent);
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item); 
+	    }
+	}
+	
 	@SuppressLint("NewApi")
 	private void initializeVariables() {
 		// Get size of the screen to decide size of the canvas

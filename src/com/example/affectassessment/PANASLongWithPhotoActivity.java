@@ -32,6 +32,9 @@ import android.widget.SeekBar;
 import android.widget.Toast;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
+import android.app.ActionBar;
+import android.view.MenuItem;
+
 public class PANASLongWithPhotoActivity extends Activity implements
 		OnClickListener, OnSeekBarChangeListener {
 
@@ -65,6 +68,7 @@ public class PANASLongWithPhotoActivity extends Activity implements
 	
 	SharedPreferences pref;
 	
+	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -72,8 +76,27 @@ public class PANASLongWithPhotoActivity extends Activity implements
 		setContentView(R.layout.activity_panas_long_with_photo);
 
 		initializeCompnentView();
+		
+		ActionBar ab = getActionBar(); 
+        ab.setDisplayHomeAsUpEnabled(true);
 	}
 
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) { 
+	    switch (item.getItemId()) {
+	        case android.R.id.home:
+	            // app icon in action bar clicked; go home
+	        	Intent myIntent;
+	        	myIntent = new Intent(getApplicationContext(),
+						ReportMoodActivity.class);
+	        	myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				startActivity(myIntent);
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item); 
+	    }
+	}
+	
 	private void initializeCompnentView() {
 		btnSave = (Button) findViewById(R.id.buttonSavePANASLongWithPhoto);
 		btnNote = (Button) findViewById(R.id.buttonNotePANASLongWithPhoto);

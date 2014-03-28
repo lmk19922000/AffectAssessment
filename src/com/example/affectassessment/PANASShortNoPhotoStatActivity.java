@@ -26,6 +26,10 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import android.app.ActionBar;
+import android.content.Intent;
+import android.view.MenuItem;
+
 public class PANASShortNoPhotoStatActivity extends Activity{
 
 	private static final String PANAS_SHORT_NO_PHOTO_DATA_FILENAME = "PANASShortNoPhotoData.txt";
@@ -55,6 +59,7 @@ public class PANASShortNoPhotoStatActivity extends Activity{
 	
 	int numEntry = 0;
 
+	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -175,9 +180,28 @@ public class PANASShortNoPhotoStatActivity extends Activity{
 			mChartView.repaint();
 		}
 		
+		ActionBar ab = getActionBar(); 
+        ab.setDisplayHomeAsUpEnabled(true);
+        
 		Toast.makeText(PANASShortNoPhotoStatActivity.this,
 				"Tip: You can use your fingers to move the chart or zoom in and zoom out it", Toast.LENGTH_LONG)
 				.show();
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) { 
+	    switch (item.getItemId()) {
+	        case android.R.id.home:
+	            // app icon in action bar clicked; go home
+	        	Intent myIntent;
+	        	myIntent = new Intent(getApplicationContext(),
+						StatisticsActivity.class);
+	        	myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				startActivity(myIntent);
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item); 
+	    }
 	}
 	
 	@SuppressLint("SimpleDateFormat")

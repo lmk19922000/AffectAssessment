@@ -26,6 +26,10 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import android.app.ActionBar;
+import android.content.Intent;
+import android.view.MenuItem;
+
 public class AffectButtonStatActivity extends Activity {
 
 	private static final String AFFECTBUTTON_DATA_FILENAME = "AffectButtonData.txt";
@@ -47,6 +51,7 @@ public class AffectButtonStatActivity extends Activity {
 	int countAngry = 0, countHappy = 0, countFrustrated = 0, countContent = 0,
 			countSad = 0, countRelaxed = 0, countUpset = 0, countSurprised = 0;
 
+	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -151,12 +156,31 @@ public class AffectButtonStatActivity extends Activity {
 			mChartView.repaint();
 		}
 		
+		ActionBar ab = getActionBar(); 
+        ab.setDisplayHomeAsUpEnabled(true);
+        
 		Toast.makeText(AffectButtonStatActivity.this,
 				"Tip: You can use your fingers to move the chart or zoom in and zoom out it", Toast.LENGTH_LONG)
 				.show();
 		
 	}
 
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) { 
+	    switch (item.getItemId()) {
+	        case android.R.id.home:
+	            // app icon in action bar clicked; go home
+	        	Intent myIntent;
+	        	myIntent = new Intent(getApplicationContext(),
+						StatisticsActivity.class);
+	        	myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				startActivity(myIntent);
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item); 
+	    }
+	}
+	
 	@SuppressLint("SimpleDateFormat")
 	private void readData() {
 		String[] strSplit;
