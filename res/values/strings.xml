@@ -19,6 +19,13 @@
     <string name="settings"><b>Settings</b></string>
     <string name="about"><b>About</b></string>
     
+    <string name="affect_button_statistics"><b>AffectButton Statistics</b></string>
+    <string name="spane_with_photo_statistics"><b>SPANE (Photo) Statistics</b></string>
+    <string name="spane_no_photo_statistics"><b>SPANE Statistics</b></string>
+    <string name="panas_short_no_photo_statistics"><b>PANAS (Short) Statistics</b></string>
+    <string name="panas_long_with_photo_statistics"><b>PANAS Statistics</b></string>
+    <string name="pam_statistics"><b>PAM Statistics</b></string>
+    
     <string name="choose_a_theme"><b>Choose a theme</b></string>
     <string name="theme1"><b>Theme 1</b></string>
     <string name="theme2"><b>Theme 2</b></string>

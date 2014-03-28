@@ -29,73 +29,73 @@
         
         <activity
             android:name=".ReportMoodActivity"
-            android:label="@string/app_name"
+            android:label="@string/report_mood"
             android:screenOrientation="portrait" >
         </activity>
         
         <activity
             android:name=".AffectButtonActivity"
-            android:label="@string/app_name"
+            android:label="@string/affect_button"
             android:screenOrientation="portrait" >
         </activity>
         
         <activity
             android:name=".SPANEWithPhotoActivity"
-            android:label="@string/app_name"
+            android:label="@string/spane_with_photo"
             android:screenOrientation="portrait" >
         </activity>
         
         <activity
             android:name=".SPANENoPhotoActivity"
-            android:label="@string/app_name"
+            android:label="@string/spane_no_photo"
             android:screenOrientation="portrait" >
         </activity>
         
         <activity
             android:name=".PANASShortNoPhotoActivity"
-            android:label="@string/app_name"
+            android:label="@string/panas_short_no_photo"
             android:screenOrientation="portrait" >
         </activity>
         
         <activity
             android:name=".PANASLongWithPhotoActivity"
-            android:label="@string/app_name"
+            android:label="@string/panas_long_with_photo"
             android:screenOrientation="portrait" >
         </activity>
         
         <activity
             android:name=".PAMActivity"
-            android:label="@string/app_name"
+            android:label="@string/pam"
             android:screenOrientation="portrait" >
         </activity>
         
         <activity
             android:name=".StatisticsActivity"
-            android:label="@string/app_name"
+            android:label="@string/statistics"
             android:screenOrientation="portrait" >
         </activity>
         
         <activity
             android:name=".AffectButtonStatActivity"
-            android:label="@string/app_name"
+            android:label="@string/affect_button_statistics"
             android:screenOrientation="portrait" >
         </activity>
         
         <activity
             android:name=".SPANEWithPhotoStatActivity"
-            android:label="@string/app_name"
+            android:label="@string/spane_with_photo_statistics"
             android:screenOrientation="portrait" >
         </activity>
         
         <activity
             android:name=".PANASShortNoPhotoStatActivity"
-            android:label="@string/app_name"
+            android:label="@string/panas_short_no_photo_statistics"
             android:screenOrientation="portrait" >
         </activity>
         
         <activity
             android:name=".PAMStatActivity"
-            android:label="@string/app_name"
+            android:label="@string/pam_statistics"
             android:screenOrientation="portrait" >
         </activity>
         

@@ -44,7 +44,7 @@ public class SPANENoPhotoStatActivity {
 	double xMin = 0, xMax = 15, yMin = 0, yMax = 5;
 	
 	Context ctx;
-	
+
 	// Execute chart
 	public Intent execute(Context context) {
 		ctx = context;

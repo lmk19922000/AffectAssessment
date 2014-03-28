@@ -480,12 +480,12 @@
             </RadioGroup>
             
             <TextView
-                android:id="@+id/textViewBad"
+                android:id="@+id/textViewUnpleasant"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="23dp"
-                android:text="@string/bad"
+                android:text="@string/unpleasant"
                 android:textColor="@color/Blue" />
 
             <RadioGroup
