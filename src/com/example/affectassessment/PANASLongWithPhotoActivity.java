@@ -242,6 +242,10 @@ public class PANASLongWithPhotoActivity extends Activity implements
 		if (settingSound.compareTo("1") == 0) {
 			sp.play(soundID, 1, 1, 1, 0, 1);
 		}
+		
+		Intent myIntent = new Intent(getApplicationContext(),
+				MainActivity.class);
+		startActivity(myIntent);
 	}
 
 	@SuppressLint("NewApi")

@@ -222,6 +222,10 @@ public class PAMActivity extends Activity implements OnClickListener,
 		if (settingSound.compareTo("1") == 0) {
 			sp.play(soundID, 1, 1, 1, 0, 1);
 		}
+		
+		Intent myIntent = new Intent(getApplicationContext(),
+				MainActivity.class);
+		startActivity(myIntent);
 	}
 
 	private void changeImageSet() {

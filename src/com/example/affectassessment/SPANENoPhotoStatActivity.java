@@ -65,7 +65,7 @@ public class SPANENoPhotoStatActivity {
 		XYMultipleSeriesRenderer renderer = buildBarRenderer(colors);
 		renderer.setOrientation(Orientation.HORIZONTAL);
 		
-		int[] margins = {30, 70, 50, 10};
+		int[] margins = {30, 65, 50, 10};
 		
 		renderer.setMargins(margins);
 		
@@ -111,8 +111,8 @@ public class SPANENoPhotoStatActivity {
 	protected XYMultipleSeriesRenderer buildBarRenderer(int[] colors) {
 		XYMultipleSeriesRenderer renderer = new XYMultipleSeriesRenderer();
 		renderer.setLabelsTextSize(30);
-		renderer.setXLabelsPadding(50);
-		renderer.setYLabelsPadding(50);
+		//renderer.setXLabelsPadding(50);
+		renderer.setYLabelsPadding(35);
 		renderer.setLegendTextSize(30);
 		int length = colors.length;
 		for (int i = 0; i < length; i++) {
