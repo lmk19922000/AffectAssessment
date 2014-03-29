@@ -374,6 +374,7 @@ public class AffectButtonActivity extends Activity implements OnTouchListener,
 		
 		Intent myIntent = new Intent(getApplicationContext(),
 				MainActivity.class);
+		myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		startActivity(myIntent);
 	}
 

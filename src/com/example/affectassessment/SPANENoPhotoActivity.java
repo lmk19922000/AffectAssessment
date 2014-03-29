@@ -219,6 +219,7 @@ public class SPANENoPhotoActivity extends Activity implements OnClickListener {
 		
 		Intent myIntent = new Intent(getApplicationContext(),
 				MainActivity.class);
+		myIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		startActivity(myIntent);
 	}
 
